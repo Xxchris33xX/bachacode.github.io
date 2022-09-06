@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+@import "../../node_modules/tailwindcss/base.css";
+
+@import "../../node_modules/tailwindcss/components.css";
+
+@import "../../node_modules/tailwindcss/utilities.css";
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+.nav-option {
+    transition: background 200ms, border-color 200ms;
+}
+
+.selected-option {
+    @apply border-b-2 border-primary text-primary;
+}
+
+.selected-skill {
+    @apply border-2 border-primary text-primary;
+}
+
+[x-cloak] { display: none !important; }

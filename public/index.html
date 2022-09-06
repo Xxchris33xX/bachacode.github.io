@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="./css/tailwind.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <script src="https://kit.fontawesome.com/981cab37cf.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+</head>
+
+<body class="bg-body text-gray-200 font-text">
+    <header>
+        <nav class="fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-3 bg-zinc-800 bg-opacity-70 backdrop-filter backdrop-blur-lg">
+            <div class="text-lg font-semibold">
+                <a href="#">BachaCode</a>
+            </div>
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a href="#" class="nav-option selected-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Inicio</a>
+                <a href="#about-me" class="nav-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Sobre mi</a>
+                <a href="#skills" class="nav-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Habilidades</a>
+                <a href="#projects" class="nav-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Proyectos</a>
+                <a href="#contacts" class="nav-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Contactos</a>
+            </div>
+            <div class="lg:hidden">
+                <button>
+                    <svg viewBox="0 0 100 80" width="26" height="18" fill="lightgray">
+                        <rect width="100" height="20" rx="20" ry="20"></rect>
+                        <rect y="30" width="100" height="20" rx="20" ry="20"></rect>
+                        <rect y="60" width="100" height="20" rx="20" ry="20"></rect>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="flex flex-col lg:flex-row justify-between items-center mx-auto pt-24">
+            <div class="flex flex-col text-white max-w-xl space-y-1 lg:space-y-2 px-12 pr-8 m-6 text-3xl lg:text-6xl bg-black bg-contain">
+                <h1 class="pb-3">Desarrollador Web</h1>
+                <h2 class="pb-3">Fullstack</h1>
+                <p class="font-bold text-4xl lg:text-8xl">BachaCode</p>
+            </div>
+            <div class="flex items-center justify-center">
+                <img class="w-8/12" src="./img/tobis/right-tobi.png" alt="">
+            </div>
+        </section>
+        <!-- Hero Section Ends -->
+        <hr>
+        <!-- About me -->
+        <div class="flex flex-col">
+            <div id="about-me"></div>
+            <div class="p-6 mt-8 text-4xl lg:text-6xl">
+                <h1 class="font-titles">01 - Sobre mi</h1>
+            </div>
+        </div>
+        
+        <section class="flex flex-col lg:flex-row justify-between items-center mx-auto px-6 pt-16">
+            <div class="flex items-center justify-center">
+                <img class="w-10/12" src="./img/tobis/left-tobi.png" alt="">
+            </div>
+            <div class="p-6 mx-3 lg:mx-24 font-text lg:text-lg md:flex">
+                <p class="flex text-justify max-w-sm lg:max-w-4xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, optio id impedit, accusantium corporis voluptates veritatis laboriosam facilis commodi quas delectus error. Alias, quisquam exercitationem. Minus itaque doloribus sint eaque non nesciunt, quidem quos recusandae, est suscipit mollitia sed facilis commodi, reprehenderit autem? Natus dolore tempora corporis ipsum eveniet, reiciendis totam eos consectetur aspernatur saepe adipisci accusantium, dolores, quidem facilis.</p>
+            </div>
+            <!-- Poner educacion para futuro -->
+        </section>
+        <!-- About me Ends -->
+        <hr>
+        <!-- Skills -->
+        <div class="flex flex-col">
+            <div id="skills"></div>
+            <div class="text-white mt-8 p-6 text-4xl lg:text-6xl">
+                <h1 class="font-titles">02 - Habilidades</h1>
+            </div>
+        </div>
+        <section x-data="methods()" class="flex flex-col justify-between items-center mx-auto px-6 pt-16">
+            <div class="flex flex-col items-center" x-data="getSkills()">
+                <div class="flex flex-col bg-gray-800 border-third border-2 py-10 px-4 lg:flex-row lg:space-x-6 justify-center text-center text-white">
+                    <button @click="toggleFrontend()" :class="{'p-2' : true, 'selected-skill' : frontend}">Frontend</button>
+                    <button @click="toggleBackend()" :class="{'p-2' : true, 'selected-skill' : backend}">Backend</button>
+                    <button @click="toggleDatabase()" :class="{'p-2' : true, 'selected-skill' : database}">Base de datos</button>
+                    <button @click="toggleDesign()" :class="{'p-2' : true, 'selected-skill' : design}">Diseño</button>
+                    <button @click="toggleTools()" :class="{'p-2' : true, 'selected-skill' : tools}">Herramientas</button>
+                </div>
+                <!-- Frontend -->
+                <div id="skills" x-show="frontend" x-transition:enter.duration.400ms x-cloak>
+                        <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                <i class="devicon-html5-plain text-5xl"></i>
+                                <p class="text-sm">HTML</p>
+                            </div>
+                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                <i class="devicon-css3-plain text-5xl"></i>
+                                <p class="text-sm">CCS</p>
+                            </div>
+                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                <i class="devicon-javascript-plain text-5xl"></i>
+                                <p class="text-sm">JavaScript</p>
+                            </div>
+                            <div class="flex flex-col items-center px-4 py-6 space-y-4 w-32 mx-2 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="IconChangeColor" height="48" width="48"><title>Alpine.js</title><path d="m24 12-5.72 5.746-5.724-5.741 5.724-5.75L24 12zM5.72 6.254 0 12l5.72 5.746h11.44L5.72 6.254z" id="mainIconPathAttribute" fill="#e5e7eb"></path></svg>
+                                <p class="text-sm">Alpine.Js</p>
+                            </div>
+                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                <i class="devicon-tailwindcss-plain text-5xl"></i>
+                                <p class="text-sm">Tailwind</p>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- Backend -->
+                <div id="skills" x-show="backend" x-transition:enter.duration.400ms x-cloak>
+                        <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                <i class="devicon-php-plain text-6xl"></i>
+                                <p>PHP</p>
+                            </div>
+                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                <i class="fa-brands fa-laravel text-6xl"></i>
+                                <p>Laravel</p>
+                            </div>
+                        </div>
+                </div>
+                    <!-- Database -->
+                    <div id="skills" x-show="database" x-transition:enter.duration.400ms x-cloak>
+                            <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                    <i class="devicon-mysql-plain text-6xl"></i>
+                                    <p>MySQL</p>
+                                </div>
+                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                    <i class="devicon-postgresql-plain text-6xl"></i>
+                                    <p>PostgreSQL</p>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Design -->
+                    <div id="skills" x-show="design" x-transition:enter.duration.400ms x-cloak>
+                            <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                    <i class="devicon-figma-plain text-6xl"></i>
+                                    <p>Figma</p>
+                                </div>
+                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                    <i class="devicon-canva-original text-6xl"></i>
+                                    <p>Canva</p>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div id="skills" x-show="tools" x-transition:enter.duration.400ms x-cloak>
+                            <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                    <i class="fas fa-terminal text-6xl"></i>
+                                    <p>Terminal</p>
+                                </div>
+                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                    <i class="devicon-vscode-plain text-6xl"></i>
+                                    <p>VSCode</p>
+                                </div>
+                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                    <i class="devicon-git-plain text-6xl"></i>
+                                    <p>Git</p>
+                                </div>
+                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
+                                    <i class="devicon-docker-plain text-6xl"></i>
+                                    <p>Docker</p>
+                                </div>
+                            </div>
+                    </div>
+        </section>
+        <!-- Skills End -->
+        <!-- Projects -->
+        <div class="flex flex-col">
+            <div id="projects"></div>
+            <div class="text-white mt-8 p-6 text-4xl lg:text-6xl">
+                <h1 class="font-titles">03 - Proyectos</h1>
+            </div>
+        </div>
+        <section class="flex flex-col mx-auto px-6 pt-16">
+            <div class="flex">
+                <div id="proyecto"
+                    class="flex flex-col w-96 space-y-4 py-4 px-6 bg-gray-800 rounded-xl border-secondary border-2">
+                    <div class="flex justify-between text-xl lg:text-2xl">
+                        <h2>Mar Caribe Center</h2>
+                        <div id="links">
+                            <a href="#" class="fas fa-external-link"></a>
+                            <a href="#" class="fa-brands fa-github"></a>
+                        </div>
+                    </div>
+                    <div id="descripcion">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores fugiat repudiandae
+                            reiciendis ad illo praesentium quis in voluptatem ipsum. Dicta.</p>
+                    </div>
+                    <button></button>
+                    <div id="tags" class="flex space-x-2 text-sm">
+                        <span class="bg-gray-800 py-1 px-2 rounded-xl border-secondary border">HTML</span>
+                        <span class="bg-gray-800 py-1 px-2 rounded-xl border-secondary border">CSS</span>
+                        <span class="bg-gray-800 py-1 px-2 rounded-xl border-secondary border">Alpine</span>
+                        <span class="bg-gray-800 py-1 px-2 rounded-xl border-secondary border">Tailwind</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Projects ends -->
+        <!-- Contactos -->
+        <div class="flex flex-col">
+            <div id="contacts"></div>
+            <div class="p-6 mt-8 text-4xl lg:text-6xl">
+                <h1 id="contacts" class="font-titles">04 - Contactos</h1>
+            </div>
+        </div>
+        <section class="p-6 font-sans lg:text-xl text-white">
+            <div class="justify-middle">
+                <div class="text-center">
+                    <p class="pb-5 font-text">Si quieres ponerte en contacto conmigo para crear grandes
+                        proyectos juntos o aportarme alguna idea ¡sientete libre de enviarme un correo
+                        electronico o enviar un mensaje a cualquiera de las redes sociales mostradas debajo!</p>
+                    <a href="mailto:bachacode@gmail.com"
+                        class="font-text bg-primary rounded-2xl px-10 lg:px-32 pt-1 pb-2 mt-10 text-2xl"><i
+                            class="p-2 fa-sharp fa-solid fa-envelope"></i>Enviar</a>
+                </div>
+                <div class="flex flex-row space-x-8 justify-center py-6 mt-3 text-4xl">
+                    <a href="" class="fa-brands fa-github"></a>
+                    <a href="" class="fa-brands fa-facebook"></a>
+                    <a href="" class="fa-brands fa-twitter"></a>
+                    <a href="" class="fa-brands fa-linkedin"></a>
+                </div>
+            </div>
+        </section>
+        </div>
+    </main>
+    <footer>
+        <section class="flex flex-row justify-center text-center bg-zinc-900 p-6">
+            <div>
+                <p>&copy; 2022 BachaCode</p>
+                <p>Website powered by 🐜</p>
+            </div>
+        </section>
+    </footer>
+</body>
+<script src="./js/main.js"></script>
+</html>
