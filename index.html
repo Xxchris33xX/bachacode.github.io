@@ -243,10 +243,10 @@
         <section class="flex flex-col mx-auto px-6 pt-16">
             <div class="flex flex-col items-center lg:flex-row justify-center lg:justify-start space-y-4 lg:space-y-0 lg:space-x-6">
                 <div id="proyecto"
-                    class="flex flex-col w-60 lg:w-96 lg:h-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2">
+                    class="flex flex-col w-60 lg:w-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2">
                     <div class="flex justify-between text-xl lg:text-2xl">
                         <h2>Mar Caribe Center</h2>
-                        <div id="links">
+                        <div id="links" class="text-primary">
                             <a target="_blank" href="http://marcaribecenter.cf" class="fas fa-external-link"></a>
                             <a target="_blank" href="https://github.com/bachacode/portal-web-mar-caribe"
                                 class="fa-brands fa-github"></a>
@@ -267,10 +267,10 @@
                             </span>
                             <button class="text-highlight" @click="isCollapsed = !isCollapsed"
                                 x-show="originalContent.length > maxLength"
-                                x-text="isCollapsed ? 'Show less' : '...Show more'"></button>
+                                x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
                         </p>
                     </div>
-                    <div id="tags" class="flex flex-wrap text-sm">
+                    <div id="tags" class="flex flex-wrap text-xs">
                         <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">HTML</span>
                         <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">CSS</span>
                         <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">JavaScript</span>
@@ -278,10 +278,10 @@
                     </div>
                 </div>
                 <div id="proyecto"
-                    class="flex flex-col w-60 lg:w-96 lg:h-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2">
+                    class="flex flex-col w-60 lg:w-96 lg:min-h-fit space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2">
                     <div class="flex justify-between text-xl lg:text-2xl">
                         <h2>Mi Portafolio</h2>
-                        <div id="links">
+                        <div id="links" class="text-primary">
                             <a target="_blank" href="https://bachacode.github.io/" class="fas fa-external-link"></a>
                             <a target="_blank" href="https://github.com/bachacode/bachacode.github.io"
                                 class="fa-brands fa-github"></a>
@@ -297,12 +297,12 @@
                             </span>
                             <button class="text-highlight" @click="isCollapsed = !isCollapsed"
                                 x-show="originalContent.length > maxLength"
-                                x-text="isCollapsed ? 'Show less' : '...Show more'"></button>
+                                x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
                         </p>
                     </div>
-                    <div id="tags" class="flex text-sm flex-wrap">
+                    <div id="tags" class="flex text-xs flex-wrap">
                         <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">HTML</span>
-                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">TailwindCSS</span>
+                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">Tailwind</span>
                         <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">JavaScript</span>
                         <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">AlpineJS</span>
                     </div>
