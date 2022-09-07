@@ -13,198 +13,298 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
 </head>
 
-<body class="bg-body text-gray-200 font-text">
+<body class="bg-body text-secondary font-text">
     <header>
-        <nav class="fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-3 bg-zinc-800 bg-opacity-70 backdrop-filter backdrop-blur-lg">
+
+        <nav id="navbar"
+            class="fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-3 bg-item rounded-b-3xl">
             <div class="text-lg font-semibold">
                 <a href="#">BachaCode</a>
             </div>
             <div class="hidden lg:flex space-x-6 items-center">
-                <a href="#" class="nav-option selected-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Inicio</a>
-                <a href="#about-me" class="nav-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Sobre mi</a>
-                <a href="#skills" class="nav-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Habilidades</a>
-                <a href="#projects" class="nav-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Proyectos</a>
-                <a href="#contacts" class="nav-option hover:transition-all hover:text-orange-400 hover:border-b-2 hover:border-b-orange-500">Contactos</a>
+                <a href="#"
+                    class="nav-option selected-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">Inicio</a>
+                <a href="#about-me"
+                    class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">Sobre
+                    mi</a>
+                <a href="#skills"
+                    class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">Habilidades</a>
+                <a href="#projects"
+                    class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">Proyectos</a>
+                <a href="#contacts"
+                    class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">Contactos</a>
             </div>
-            <div class="lg:hidden">
-                <button>
-                    <svg viewBox="0 0 100 80" width="26" height="18" fill="lightgray">
-                        <rect width="100" height="20" rx="20" ry="20"></rect>
-                        <rect y="30" width="100" height="20" rx="20" ry="20"></rect>
-                        <rect y="60" width="100" height="20" rx="20" ry="20"></rect>
-                    </svg>
-                </button>
+            <div x-data="methods()" class="lg:hidden">
+                <div x-data="menuNav()">
+                    <button @click="openMenu()">
+                        <svg viewBox="0 0 100 80" width="26" height="18" fill="lightgray">
+                            <rect width="100" height="20" rx="20" ry="20"></rect>
+                            <rect y="30" width="100" height="20" rx="20" ry="20"></rect>
+                            <rect y="60" width="100" height="20" rx="20" ry="20"></rect>
+                        </svg>
+                    </button>
+                    <!-- Menu -->
+
+                    <template x-teleport="header">
+                        <div x-show="open" x-cloak
+                            class="flex flex-col fixed w-full h-full bg-slate-400 bg-opacity-10 backdrop-filter backdrop-blur-lg">
+                            <div class="flex text-right justify-end p-6 text-6xl text-highlight mb-20">
+                                <button @click="closeMenu()">X</button>
+                            </div>
+                            <div class="flex flex-col text-3xl text-center justify-center space-y-4">
+                                <a href="#" @click="closeMenu()"
+                                    class="hover:transition-all hover:text-highlight hover:bg-highlight bg-opacity-80 rounded-3xl">Inicio</a>
+                                <a href="#about-me" @click="closeMenu()"
+                                    class="hover:transition-all hover:text-highlight hover:bg-highlight bg-opacity-80 rounded-3xl">Sobre
+                                    mi</a>
+                                <a href="#skills" @click="closeMenu()"
+                                    class="hover:transition-all hover:text-highlight hover:bg-highlight bg-opacity-80 rounded-3xl">Habilidades</a>
+                                <a href="#projects" @click="closeMenu()"
+                                    class="hover:transition-all hover:text-highlight hover:bg-highlight bg-opacity-80 rounded-3xl">Proyectos</a>
+                                <a href="#contacts" @click="closeMenu()"
+                                    class="hover:transition-all hover:text-highlight hover:bg-highlight bg-opacity-80 rounded-3xl">Contactos</a>
+                            </div>
+                        </div>
+                    </template>
+
+                </div>
             </div>
         </nav>
+        </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="flex flex-col lg:flex-row justify-between items-center mx-auto pt-24">
-            <div class="flex flex-col text-white max-w-xl space-y-1 lg:space-y-2 px-12 pr-8 m-6 text-3xl lg:text-6xl bg-black bg-contain">
-                <h1 class="pb-3">Desarrollador Web</h1>
-                <h2 class="pb-3">Fullstack</h1>
-                <p class="font-bold text-4xl lg:text-8xl">BachaCode</p>
+        <section class="flex flex-col lg:flex-row justify-between items-center mx-auto">
+            <div
+                class="flex flex-col justify-center mt-20 lg:mt-0 items-center text-center w-52 h-52 px-1 lg:w-title-box lg:h-96 space-y-1 lg:mx-10 bg-item border-2 rounded-3xl border-secondary">
+                <img class="w-4/6 lg:w-8/12" src="public/img/bachacode-logo-2.png">
+                <h1 class="pb-3 text-xl lg:text-6xl text-primary font-titles">BachaCode</h1>
+                <h2 class="pb-3 text-lg lg:text-2xl">Web Developer</h1>
             </div>
-            <div class="flex items-center justify-center">
-                <img class="w-8/12" src="./img/tobis/right-tobi.png" alt="">
+            <div class="lg:hidden">
+                <img src="public/img/herosec-tobi-mobile.png" alt="">
+            </div>
+            <div class="hidden lg:flex m-0 justify-center">
+                <img class="" src="public/img/herosec-tobi.png" alt="">
             </div>
         </section>
         <!-- Hero Section Ends -->
-        <hr>
+
         <!-- About me -->
         <div class="flex flex-col">
             <div id="about-me"></div>
             <div class="p-6 mt-8 text-4xl lg:text-6xl">
-                <h1 class="font-titles">01 - Sobre mi</h1>
+                <h1 class="font-titles text-primary">01 - Sobre mi</h1>
             </div>
         </div>
-        
+
         <section class="flex flex-col lg:flex-row justify-between items-center mx-auto px-6 pt-16">
             <div class="flex items-center justify-center">
-                <img class="w-10/12" src="./img/tobis/left-tobi.png" alt="">
+                <img src="public/img/about-me-tobi.png" class="space-x-reverse" alt="">
             </div>
-            <div class="p-6 mx-3 lg:mx-24 font-text lg:text-lg md:flex">
-                <p class="flex text-justify max-w-sm lg:max-w-4xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, optio id impedit, accusantium corporis voluptates veritatis laboriosam facilis commodi quas delectus error. Alias, quisquam exercitationem. Minus itaque doloribus sint eaque non nesciunt, quidem quos recusandae, est suscipit mollitia sed facilis commodi, reprehenderit autem? Natus dolore tempora corporis ipsum eveniet, reiciendis totam eos consectetur aspernatur saepe adipisci accusantium, dolores, quidem facilis.</p>
+            <div class="p-3 mx-1 lg:mx-24 font-text text-sm lg:text-lg md:flex">
+                <p class="flex text-justify max-w-sm lg:max-w-4xl">Mi nombre es Cristhian Flores, soy un programador
+                    centrado sobre todo en el desarrollo web backend egresado como Técnico Superior Universitario de la
+                    Universidad Politécnica de Paria "Luis Mariano Rivera", el Stack de tecnologías que utilizo
+                    actualmente tiene como lenguaje principal PHP/Laravel, aunque también tengo un buen manejo de
+                    JavaScript, en mis tiempos libres me dedico a aprender de forma autodidacta nuevas tecnologías y
+                    conceptos sobre la programación y el desarrollo web 😊.</p>
             </div>
             <!-- Poner educacion para futuro -->
         </section>
         <!-- About me Ends -->
-        <hr>
+
         <!-- Skills -->
         <div class="flex flex-col">
             <div id="skills"></div>
-            <div class="text-white mt-8 p-6 text-4xl lg:text-6xl">
+            <div class="text-primary mt-8 p-6 text-4xl lg:text-6xl">
                 <h1 class="font-titles">02 - Habilidades</h1>
             </div>
         </div>
         <section x-data="methods()" class="flex flex-col justify-between items-center mx-auto px-6 pt-16">
             <div class="flex flex-col items-center" x-data="getSkills()">
-                <div class="flex flex-col bg-gray-800 border-third border-2 py-10 px-4 lg:flex-row lg:space-x-6 justify-center text-center text-white">
-                    <button @click="toggleFrontend()" :class="{'p-2' : true, 'selected-skill' : frontend}">Frontend</button>
-                    <button @click="toggleBackend()" :class="{'p-2' : true, 'selected-skill' : backend}">Backend</button>
-                    <button @click="toggleDatabase()" :class="{'p-2' : true, 'selected-skill' : database}">Base de datos</button>
+                <div
+                    class="flex flex-col bg-item border-third border-2 py-10 px-4 lg:flex-row lg:space-x-6 justify-center text-center text-white">
+                    <button @click="toggleFrontend()"
+                        :class="{'p-2' : true, 'selected-skill' : frontend}">Frontend</button>
+                    <button @click="toggleBackend()"
+                        :class="{'p-2' : true, 'selected-skill' : backend}">Backend</button>
+                    <button @click="toggleDatabase()" :class="{'p-2' : true, 'selected-skill' : database}">Base de
+                        datos</button>
                     <button @click="toggleDesign()" :class="{'p-2' : true, 'selected-skill' : design}">Diseño</button>
-                    <button @click="toggleTools()" :class="{'p-2' : true, 'selected-skill' : tools}">Herramientas</button>
+                    <button @click="toggleTools()"
+                        :class="{'p-2' : true, 'selected-skill' : tools}">Herramientas</button>
                 </div>
                 <!-- Frontend -->
                 <div id="skills" x-show="frontend" x-transition:enter.duration.400ms x-cloak>
-                        <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
-                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                <i class="devicon-html5-plain text-5xl"></i>
-                                <p class="text-sm">HTML</p>
-                            </div>
-                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                <i class="devicon-css3-plain text-5xl"></i>
-                                <p class="text-sm">CCS</p>
-                            </div>
-                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                <i class="devicon-javascript-plain text-5xl"></i>
-                                <p class="text-sm">JavaScript</p>
-                            </div>
-                            <div class="flex flex-col items-center px-4 py-6 space-y-4 w-32 mx-2 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="IconChangeColor" height="48" width="48"><title>Alpine.js</title><path d="m24 12-5.72 5.746-5.724-5.741 5.724-5.75L24 12zM5.72 6.254 0 12l5.72 5.746h11.44L5.72 6.254z" id="mainIconPathAttribute" fill="#e5e7eb"></path></svg>
-                                <p class="text-sm">Alpine.Js</p>
-                            </div>
-                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                <i class="devicon-tailwindcss-plain text-5xl"></i>
-                                <p class="text-sm">Tailwind</p>
-                            </div>
+                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-html5-plain text-5xl"></i>
+                            <p class="text-sm">HTML</p>
                         </div>
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-css3-plain text-5xl"></i>
+                            <p class="text-sm">CCS</p>
+                        </div>
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-javascript-plain text-5xl"></i>
+                            <p class="text-sm">JavaScript</p>
+                        </div>
+                        <div
+                            class="flex flex-col items-center px-4 py-6 space-y-4 w-32 mx-2 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="IconChangeColor"
+                                height="48" width="48">
+                                <title>Alpine.js</title>
+                                <path
+                                    d="m24 12-5.72 5.746-5.724-5.741 5.724-5.75L24 12zM5.72 6.254 0 12l5.72 5.746h11.44L5.72 6.254z"
+                                    id="mainIconPathAttribute" fill="#e5e7eb"></path>
+                            </svg>
+                            <p class="text-sm">Alpine.Js</p>
+                        </div>
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-tailwindcss-plain text-5xl"></i>
+                            <p class="text-sm">Tailwind</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Backend -->
                 <div id="skills" x-show="backend" x-transition:enter.duration.400ms x-cloak>
-                        <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
-                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                <i class="devicon-php-plain text-6xl"></i>
-                                <p>PHP</p>
-                            </div>
-                            <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                <i class="fa-brands fa-laravel text-6xl"></i>
-                                <p>Laravel</p>
-                            </div>
+                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-php-plain text-6xl"></i>
+                            <p>PHP</p>
                         </div>
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="fa-brands fa-laravel text-6xl"></i>
+                            <p>Laravel</p>
+                        </div>
+                    </div>
                 </div>
-                    <!-- Database -->
-                    <div id="skills" x-show="database" x-transition:enter.duration.400ms x-cloak>
-                            <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
-                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                    <i class="devicon-mysql-plain text-6xl"></i>
-                                    <p>MySQL</p>
-                                </div>
-                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                    <i class="devicon-postgresql-plain text-6xl"></i>
-                                    <p>PostgreSQL</p>
-                                </div>
-                            </div>
+                <!-- Database -->
+                <div id="skills" x-show="database" x-transition:enter.duration.400ms x-cloak>
+                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-mysql-plain text-6xl"></i>
+                            <p>MySQL</p>
+                        </div>
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-postgresql-plain text-6xl"></i>
+                            <p>PostgreSQL</p>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Design -->
-                    <div id="skills" x-show="design" x-transition:enter.duration.400ms x-cloak>
-                            <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
-                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                    <i class="devicon-figma-plain text-6xl"></i>
-                                    <p>Figma</p>
-                                </div>
-                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                    <i class="devicon-canva-original text-6xl"></i>
-                                    <p>Canva</p>
-                                </div>
-                            </div>
+                <!-- Design -->
+                <div id="skills" x-show="design" x-transition:enter.duration.400ms x-cloak>
+                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-figma-plain text-6xl"></i>
+                            <p>Figma</p>
+                        </div>
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-canva-original text-6xl"></i>
+                            <p>Canva</p>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Tools -->
-                    <div id="skills" x-show="tools" x-transition:enter.duration.400ms x-cloak>
-                            <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
-                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                    <i class="fas fa-terminal text-6xl"></i>
-                                    <p>Terminal</p>
-                                </div>
-                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                    <i class="devicon-vscode-plain text-6xl"></i>
-                                    <p>VSCode</p>
-                                </div>
-                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                    <i class="devicon-git-plain text-6xl"></i>
-                                    <p>Git</p>
-                                </div>
-                                <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-gray-800 rounded-xl border-secondary border-2">
-                                    <i class="devicon-docker-plain text-6xl"></i>
-                                    <p>Docker</p>
-                                </div>
-                            </div>
+                <!-- Tools -->
+                <div id="skills" x-show="tools" x-transition:enter.duration.400ms x-cloak>
+                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="fas fa-terminal text-6xl"></i>
+                            <p>Terminal</p>
+                        </div>
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-vscode-plain text-6xl"></i>
+                            <p>VSCode</p>
+                        </div>
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-git-plain text-6xl"></i>
+                            <p>Git</p>
+                        </div>
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="devicon-docker-plain text-6xl"></i>
+                            <p>Docker</p>
+                        </div>
                     </div>
+                </div>
         </section>
         <!-- Skills End -->
         <!-- Projects -->
         <div class="flex flex-col">
             <div id="projects"></div>
-            <div class="text-white mt-8 p-6 text-4xl lg:text-6xl">
-                <h1 class="font-titles">03 - Proyectos</h1>
+            <div class="mt-8 p-6 text-4xl lg:text-6xl">
+                <h1 class="font-titles text-primary">03 - Proyectos</h1>
             </div>
         </div>
         <section class="flex flex-col mx-auto px-6 pt-16">
-            <div class="flex">
+            <div class="flex flex-col items-center lg:flex-row justify-center lg:justify-start space-y-4 lg:space-y-0 lg:space-x-6">
                 <div id="proyecto"
-                    class="flex flex-col w-96 space-y-4 py-4 px-6 bg-gray-800 rounded-xl border-secondary border-2">
+                    class="flex flex-col w-60 lg:w-96 lg:h-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2">
                     <div class="flex justify-between text-xl lg:text-2xl">
                         <h2>Mar Caribe Center</h2>
                         <div id="links">
-                            <a href="#" class="fas fa-external-link"></a>
-                            <a href="#" class="fa-brands fa-github"></a>
+                            <a target="_blank" href="http://marcaribecenter.cf" class="fas fa-external-link"></a>
+                            <a target="_blank" href="https://github.com/bachacode/portal-web-mar-caribe"
+                                class="fa-brands fa-github"></a>
                         </div>
                     </div>
                     <div id="descripcion">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores fugiat repudiandae
-                            reiciendis ad illo praesentium quis in voluptatem ipsum. Dicta.</p>
+                        <p x-data="{ isCollapsed: false, maxLength: 365, originalContent: '', content: '' }"
+                            x-init="originalContent = $el.firstElementChild.textContent.trim(); content = originalContent.slice(0, maxLength)">
+                            <span x-text="isCollapsed ? originalContent : content">
+                                Este proyecto es un Portal Web que
+                                tiene como objetivo la exposición de precios y
+                                disponibilidad de productos del local de la empresa "Mar Caribe Center", fue
+                                desarrollado
+                                con PHP puro, Bootstrap y algunas librerias de JavaScript como DataTables y Jquery, este
+                                fue
+                                mi primer proyecto y no posee la seguridad adecuada por la ausencia de un framework de
+                                back-end.
+                            </span>
+                            <button class="text-highlight" @click="isCollapsed = !isCollapsed"
+                                x-show="originalContent.length > maxLength"
+                                x-text="isCollapsed ? 'Show less' : '...Show more'"></button>
+                        </p>
                     </div>
-                    <button></button>
-                    <div id="tags" class="flex space-x-2 text-sm">
-                        <span class="bg-gray-800 py-1 px-2 rounded-xl border-secondary border">HTML</span>
-                        <span class="bg-gray-800 py-1 px-2 rounded-xl border-secondary border">CSS</span>
-                        <span class="bg-gray-800 py-1 px-2 rounded-xl border-secondary border">Alpine</span>
-                        <span class="bg-gray-800 py-1 px-2 rounded-xl border-secondary border">Tailwind</span>
+                    <div id="tags" class="flex flex-wrap text-sm">
+                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">HTML</span>
+                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">CSS</span>
+                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">JavaScript</span>
+                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">PHP</span>
+                    </div>
+                </div>
+                <div id="proyecto"
+                    class="flex flex-col w-60 lg:w-96 lg:h-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2">
+                    <div class="flex justify-between text-xl lg:text-2xl">
+                        <h2>Mi Portafolio</h2>
+                        <div id="links">
+                            <a target="_blank" href="https://bachacode.github.io/" class="fas fa-external-link"></a>
+                            <a target="_blank" href="https://github.com/bachacode/bachacode.github.io"
+                                class="fa-brands fa-github"></a>
+                        </div>
+                    </div>
+                    <div id="descripcion">
+                        <p x-data="{ isCollapsed: false, maxLength: 365, originalContent: '', content: '' }"
+                            x-init="originalContent = $el.firstElementChild.textContent.trim(); content = originalContent.slice(0, maxLength)">
+                            <span x-text="isCollapsed ? originalContent : content">Este portafolio es una Single Page
+                                App y es mi primer proyecto utilizando las tecnologías de TailwindCSS y AlpineJS,
+                                utiliza JavaScript para crear dinamismo e interactividad y CSS para
+                                dar una experiencia visualmente atractiva y divertida.
+                            </span>
+                            <button class="text-highlight" @click="isCollapsed = !isCollapsed"
+                                x-show="originalContent.length > maxLength"
+                                x-text="isCollapsed ? 'Show less' : '...Show more'"></button>
+                        </p>
+                    </div>
+                    <div id="tags" class="flex text-sm flex-wrap">
+                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">HTML</span>
+                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">TailwindCSS</span>
+                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">JavaScript</span>
+                        <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">AlpineJS</span>
                     </div>
                 </div>
             </div>
@@ -214,31 +314,30 @@
         <div class="flex flex-col">
             <div id="contacts"></div>
             <div class="p-6 mt-8 text-4xl lg:text-6xl">
-                <h1 id="contacts" class="font-titles">04 - Contactos</h1>
+                <h1 id="contacts" class="font-titles text-primary">04 - Contactos</h1>
             </div>
         </div>
-        <section class="p-6 font-sans lg:text-xl text-white">
+        <section class="p-6 font-sans lg:text-xl">
             <div class="justify-middle">
                 <div class="text-center">
                     <p class="pb-5 font-text">Si quieres ponerte en contacto conmigo para crear grandes
                         proyectos juntos o aportarme alguna idea ¡sientete libre de enviarme un correo
                         electronico o enviar un mensaje a cualquiera de las redes sociales mostradas debajo!</p>
                     <a href="mailto:bachacode@gmail.com"
-                        class="font-text bg-primary rounded-2xl px-10 lg:px-32 pt-1 pb-2 mt-10 text-2xl"><i
+                        class="font-text bg-highlight rounded-2xl px-10 lg:px-32 pt-1 pb-2 mt-10 text-2xl"><i
                             class="p-2 fa-sharp fa-solid fa-envelope"></i>Enviar</a>
                 </div>
                 <div class="flex flex-row space-x-8 justify-center py-6 mt-3 text-4xl">
-                    <a href="" class="fa-brands fa-github"></a>
-                    <a href="" class="fa-brands fa-facebook"></a>
-                    <a href="" class="fa-brands fa-twitter"></a>
-                    <a href="" class="fa-brands fa-linkedin"></a>
+                    <a target="_blank" href="https://github.com/bachacode" class="fa-brands fa-github"></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/cristhian-flores-403829244/"
+                        class="fa-brands fa-linkedin"></a>
                 </div>
             </div>
         </section>
         </div>
     </main>
     <footer>
-        <section class="flex flex-row justify-center text-center bg-zinc-900 p-6">
+        <section class="flex flex-row justify-center text-center bg-item p-6">
             <div>
                 <p>&copy; 2022 BachaCode</p>
                 <p>Website powered by 🐜</p>
@@ -247,4 +346,5 @@
     </footer>
 </body>
 <script src="public/js/main.js"></script>
+
 </html>

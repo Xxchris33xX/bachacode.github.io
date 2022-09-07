@@ -21,11 +21,19 @@ html, body {
 }
 
 .selected-option {
-    @apply border-b-2 border-primary text-primary;
+    @apply border-b-2 border-highlight text-highlight;
 }
 
 .selected-skill {
-    @apply border-2 border-primary text-primary;
+    @apply border-2 border-highlight text-highlight;
+}
+
+.scrolled-navbar {
+    @apply transition-opacity bg-opacity-80 backdrop-filter backdrop-blur-lg;
+}
+
+.scrolling {
+    @apply overflow-hidden;
 }
 
 [x-cloak] { display: none !important; }
