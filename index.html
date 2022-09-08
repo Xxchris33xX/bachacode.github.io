@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>BachaCode - Web Developer</title>
     <link href="public/css/tailwind.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="public/img/ant.png">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <script src="https://kit.fontawesome.com/981cab37cf.js" crossorigin="anonymous"></script>
@@ -17,11 +18,11 @@
     <header>
 
         <nav id="navbar"
-            class="fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-3 bg-item rounded-b-3xl">
+            class="fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700 ease-in">
             <div class="text-lg font-semibold">
                 <a href="#">BachaCode</a>
             </div>
-            <div class="hidden lg:flex space-x-6 items-center">
+            <div class="hidden md:flex space-x-6 items-center">
                 <a href="#"
                     class="nav-option selected-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">Inicio</a>
                 <a href="#about-me"
@@ -34,7 +35,7 @@
                 <a href="#contacts"
                     class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">Contactos</a>
             </div>
-            <div x-data="methods()" class="lg:hidden">
+            <div x-data="methods()" class="md:hidden">
                 <div x-data="menuNav()">
                     <button @click="openMenu()">
                         <svg viewBox="0 0 100 80" width="26" height="18" fill="lightgray">
@@ -75,17 +76,17 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="flex flex-col lg:flex-row justify-between items-center mx-auto">
+        <section class="flex flex-col md:flex-row justify-between items-center mx-auto">
             <div
-                class="flex flex-col justify-center mt-20 lg:mt-0 items-center text-center w-52 h-52 px-1 lg:w-title-box lg:h-96 space-y-1 lg:mx-10 bg-item border-2 rounded-3xl border-secondary">
-                <img class="w-4/6 lg:w-8/12" src="public/img/bachacode-logo-2.png">
-                <h1 class="pb-3 text-xl lg:text-6xl text-primary font-titles">BachaCode</h1>
-                <h2 class="pb-3 text-lg lg:text-2xl">Web Developer</h1>
+                class="flex flex-col justify-center mt-20 md:mt-0 items-center text-center w-52 h-52 px-1 md:w-title-box md:h-96 space-y-1 md:mx-10 bg-item border-2 rounded-3xl border-secondary shadow-2xl shadow-item">
+                <img class="w-4/6 md:w-8/12" src="public/img/bachacode-logo-2.png">
+                <h1 class="pb-3 text-xl md:text-6xl text-primary font-titles">BachaCode</h1>
+                <h2 class="pb-3 text-lg md:text-2xl">Web Developer</h1>
             </div>
-            <div class="lg:hidden">
+            <div class="md:hidden">
                 <img src="public/img/herosec-tobi-mobile.png" alt="">
             </div>
-            <div class="hidden lg:flex m-0 justify-center">
+            <div class="hidden md:flex m-0 justify-center">
                 <img class="" src="public/img/herosec-tobi.png" alt="">
             </div>
         </section>
@@ -94,17 +95,17 @@
         <!-- About me -->
         <div class="flex flex-col">
             <div id="about-me"></div>
-            <div class="p-6 mt-8 text-4xl lg:text-6xl">
+            <div class="p-6 mt-8 text-4xl md:text-6xl">
                 <h1 class="font-titles text-primary">01 - Sobre mi</h1>
             </div>
         </div>
 
-        <section class="flex flex-col lg:flex-row justify-between items-center mx-auto px-6 pt-16">
+        <section class="flex flex-col md:flex-row justify-between items-center mx-auto px-6 pt-16">
             <div class="flex items-center justify-center">
                 <img src="public/img/about-me-tobi.png" class="space-x-reverse" alt="">
             </div>
-            <div class="p-3 mx-1 lg:mx-24 font-text text-sm lg:text-lg md:flex">
-                <p class="flex text-justify max-w-sm lg:max-w-4xl">Mi nombre es Cristhian Flores, soy un programador
+            <div class="p-3 mx-1 md:mx-24 font-text text-sm md:text-lg md:flex">
+                <p class="flex text-justify max-w-sm md:max-w-4xl">Mi nombre es Cristhian Flores, soy un programador
                     centrado sobre todo en el desarrollo web backend egresado como Técnico Superior Universitario de la
                     Universidad Politécnica de Paria "Luis Mariano Rivera", el Stack de tecnologías que utilizo
                     actualmente tiene como lenguaje principal PHP/Laravel, aunque también tengo un buen manejo de
@@ -118,14 +119,14 @@
         <!-- Skills -->
         <div class="flex flex-col">
             <div id="skills"></div>
-            <div class="text-primary mt-8 p-6 text-4xl lg:text-6xl">
+            <div class="text-primary mt-8 p-6 text-4xl md:text-6xl">
                 <h1 class="font-titles">02 - Habilidades</h1>
             </div>
         </div>
         <section x-data="methods()" class="flex flex-col justify-between items-center mx-auto px-6 pt-16">
-            <div class="flex flex-col items-center" x-data="getSkills()">
+            <div class="flex flex-col items-center " x-data="getSkills()">
                 <div
-                    class="flex flex-col bg-item border-third border-2 py-10 px-4 lg:flex-row lg:space-x-6 justify-center text-center text-white">
+                    class="flex flex-col bg-item border-third border-2 py-10 px-4 md:flex-row md:space-x-6 justify-center text-center shadow-lg shadow-item">
                     <button @click="toggleFrontend()"
                         :class="{'p-2' : true, 'selected-skill' : frontend}">Frontend</button>
                     <button @click="toggleBackend()"
@@ -138,7 +139,7 @@
                 </div>
                 <!-- Frontend -->
                 <div id="skills" x-show="frontend" x-transition:enter.duration.400ms x-cloak>
-                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                    <div class="flex flex-wrap text-center mt-6 w-72 md:w-skills">
                         <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
                             <i class="devicon-html5-plain text-5xl"></i>
                             <p class="text-sm">HTML</p>
@@ -171,7 +172,7 @@
 
                 <!-- Backend -->
                 <div id="skills" x-show="backend" x-transition:enter.duration.400ms x-cloak>
-                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                    <div class="flex flex-wrap text-center mt-6 w-72 md:w-skills">
                         <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
                             <i class="devicon-php-plain text-6xl"></i>
                             <p>PHP</p>
@@ -184,7 +185,7 @@
                 </div>
                 <!-- Database -->
                 <div id="skills" x-show="database" x-transition:enter.duration.400ms x-cloak>
-                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                    <div class="flex flex-wrap text-center mt-6 w-72 md:w-skills">
                         <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
                             <i class="devicon-mysql-plain text-6xl"></i>
                             <p>MySQL</p>
@@ -198,7 +199,7 @@
 
                 <!-- Design -->
                 <div id="skills" x-show="design" x-transition:enter.duration.400ms x-cloak>
-                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                    <div class="flex flex-wrap text-center mt-6 w-72 md:w-skills">
                         <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
                             <i class="devicon-figma-plain text-6xl"></i>
                             <p>Figma</p>
@@ -212,7 +213,7 @@
 
                 <!-- Tools -->
                 <div id="skills" x-show="tools" x-transition:enter.duration.400ms x-cloak>
-                    <div class="flex flex-wrap text-center mt-6 w-72 lg:w-skills">
+                    <div class="flex flex-wrap text-center mt-6 w-72 md:w-skills">
                         <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
                             <i class="fas fa-terminal text-6xl"></i>
                             <p>Terminal</p>
@@ -236,15 +237,15 @@
         <!-- Projects -->
         <div class="flex flex-col">
             <div id="projects"></div>
-            <div class="mt-8 p-6 text-4xl lg:text-6xl">
+            <div class="mt-8 p-6 text-4xl md:text-6xl">
                 <h1 class="font-titles text-primary">03 - Proyectos</h1>
             </div>
         </div>
         <section class="flex flex-col mx-auto px-6 pt-16">
-            <div class="flex flex-col items-center lg:flex-row justify-center lg:justify-start space-y-4 lg:space-y-0 lg:space-x-6">
+            <div class="flex flex-col md:flex-row justify-center items-center md:items-start md:justify-start space-y-4 md:space-y-0 md:space-x-6">
                 <div id="proyecto"
-                    class="flex flex-col w-60 lg:w-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2">
-                    <div class="flex justify-between text-xl lg:text-2xl">
+                    class="flex flex-col w-60 md:w-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
+                    <div class="flex justify-between text-xl md:text-2xl">
                         <h2>Mar Caribe Center</h2>
                         <div id="links" class="text-primary">
                             <a target="_blank" href="http://marcaribecenter.cf" class="fas fa-external-link"></a>
@@ -278,8 +279,8 @@
                     </div>
                 </div>
                 <div id="proyecto"
-                    class="flex flex-col w-60 lg:w-96 lg:min-h-fit space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2">
-                    <div class="flex justify-between text-xl lg:text-2xl">
+                    class="flex flex-col w-60 md:w-96 md:min-h-fit space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
+                    <div class="flex justify-between text-xl md:text-2xl">
                         <h2>Mi Portafolio</h2>
                         <div id="links" class="text-primary">
                             <a target="_blank" href="https://bachacode.github.io/" class="fas fa-external-link"></a>
@@ -313,18 +314,18 @@
         <!-- Contactos -->
         <div class="flex flex-col">
             <div id="contacts"></div>
-            <div class="p-6 mt-8 text-4xl lg:text-6xl">
+            <div class="p-6 mt-8 text-4xl md:text-6xl">
                 <h1 id="contacts" class="font-titles text-primary">04 - Contactos</h1>
             </div>
         </div>
-        <section class="p-6 font-sans lg:text-xl">
+        <section class="p-6 font-sans md:text-xl">
             <div class="justify-middle">
                 <div class="text-center">
                     <p class="pb-5 font-text">Si quieres ponerte en contacto conmigo para crear grandes
                         proyectos juntos o aportarme alguna idea ¡sientete libre de enviarme un correo
                         electronico o enviar un mensaje a cualquiera de las redes sociales mostradas debajo!</p>
                     <a href="mailto:bachacode@gmail.com"
-                        class="font-text bg-highlight rounded-2xl px-10 lg:px-32 pt-1 pb-2 mt-10 text-2xl"><i
+                        class="font-text bg-highlight rounded-2xl px-10 md:px-32 pt-1 pb-2 mt-10 text-2xl"><i
                             class="p-2 fa-sharp fa-solid fa-envelope"></i>Enviar</a>
                 </div>
                 <div class="flex flex-row space-x-8 justify-center py-6 mt-3 text-4xl">

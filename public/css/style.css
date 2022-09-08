@@ -29,7 +29,7 @@ html, body {
 }
 
 .scrolled-navbar {
-    @apply transition-opacity bg-opacity-80 backdrop-filter backdrop-blur-lg;
+    @apply bg-opacity-70 backdrop-filter backdrop-blur-lg py-3;
 }
 
 .scrolling {
