@@ -12,6 +12,8 @@
 
 @import "../../node_modules/tailwindcss/utilities.css";
 
+@import "../../node_modules/flag-icons/css/flag-icons.css";
+
 html, body {
     scroll-behavior: smooth;
 }

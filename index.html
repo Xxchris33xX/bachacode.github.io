@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <script src="https://kit.fontawesome.com/981cab37cf.js" crossorigin="anonymous"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
 </head>
 
 <body x-data="{spanish: true}" class="bg-body text-secondary font-text">
     <header>
-        <nav id="navbar" class="fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700 ease-in">
+        <nav id="navbar" class="z-0 fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700 ease-in">
             <div class="text-lg font-semibold">
                 <a href="#">BachaCode</a>
             </div>
@@ -28,9 +29,23 @@
                 <a href="#projects" class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight" x-init="projectsES = 'Proyectos'; projectsEN = 'Projects'" x-text="spanish ? projectsES : projectsEN"></a>
                 <a href="#contacts" class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight" x-init="contactsES = 'Contactos'; contactsEN = 'Contacts'" x-text="spanish ? contactsES : contactsEN"></a>
             </div>
-            <div class="md:flex space-x-3 items-center">
-                <button class="text-highlight" @click="spanish = !spanish; window.scrollTo(0,0);"
-                x-text="spanish ? 'Español' : 'English'"></button>
+            <div class="md:flex space-x-3 items-center" x-data="{ open: false }">
+                <div class="lang-menu">
+                    <div class="selected-lang" x-show="spanish" x-cloak>
+                        <button @click="open = !open"><span class="fi fi-es mx-1"></span>ES<i class="fa-solid fa-chevron-down mx-0.5"></i></button>
+                    </div>
+                    <div class="selected-lang" x-show="!spanish" x-cloak>
+                        <button @click="open = !open"><span class="fi fi-us mx-1"></span>EN<i class="fa-solid fa-chevron-down mx-0.5"></i></button>
+                    </div>
+                    <ul x-show="open" x-cloak>
+                        <li>
+                            <a @click="spanish = true; open = false; window.scrollTo(0,0);" class="cursor-pointer"><span class="fi fi-es cursor-pointer mx-1"></span>ES</a>
+                            
+                        </li>
+                        <li>
+                            <a @click="spanish = false; open = false; window.scrollTo(0,0);" class="cursor-pointer"><span class="fi fi-us cursor-pointer mx-1"></span>EN</a>
+                        </li>
+                    </ul>
             </div>
         </div>
             <div x-data="methods()" class="md:hidden">
@@ -73,7 +88,7 @@
                 class="flex flex-col justify-center mt-20 md:mt-0 items-center text-center w-52 h-52 px-1 md:w-title-box md:h-96 space-y-1 md:mx-10 bg-item border-2 rounded-3xl border-secondary shadow-2xl shadow-item">
                 <img class="w-4/6 md:w-8/12" src="public/img/bachacode-logo-2.png">
                 <h1 class="pb-3 text-xl md:text-6xl text-primary font-titles">BachaCode</h1>
-                <h2 class="pb-3 text-lg md:text-2xl">Web Developer</h1>
+                <h2 class="pb-3 text-lg md:text-2xl" x-init="webDevES = 'Desarrollador Web'; webDevEN = 'Web Developer'" x-text="spanish ? webDevES : webDevEN"></h1>
             </div>
             <div class="md:hidden">
                 <img src="public/img/herosec-tobi-mobile.png" alt="">
@@ -240,22 +255,12 @@
                                 class="fa-brands fa-github"></a>
                         </div>
                     </div>
-                    <div id="descripcion">
-                        <p x-data="{ isCollapsed: false, maxLength: 365, originalContent: '', content: '' }"
-                            x-init="originalContent = $el.firstElementChild.textContent.trim(); content = originalContent.slice(0, maxLength)">
-                            <span x-text="isCollapsed ? originalContent : content">
-                                Este proyecto es un Portal Web que
-                                tiene como objetivo la exposición de precios y
-                                disponibilidad de productos del local de la empresa "Mar Caribe Center", fue
-                                desarrollado
-                                con PHP puro, Bootstrap y algunas librerias de JavaScript como DataTables y Jquery, este
-                                fue
-                                mi primer proyecto y no posee la seguridad adecuada por la ausencia de un framework de
-                                back-end.
-                            </span>
-                            <button class="text-highlight" @click="isCollapsed = !isCollapsed"
-                                x-show="originalContent.length > maxLength"
-                                x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
+                    <div id="descripcion" x-data="{ isCollapsed: false, maxLength: 240}">
+                        <p x-init="projectDescriptionES = 'Este proyecto es un Portal Web que tiene como objetivo la exposición de precios y disponibilidad de productos del local de la empresa &quot;Mar Caribe Center&quot;, fue desarrollado con PHP puro, Bootstrap y algunas librerias de JavaScript como DataTables y Jquery, este fue mi primer proyecto y no posee la seguridad adecuada por la ausencia de un framework de back-end.'; projectDescriptionEN = 'This project is a website that aims to display the prices and availability of products from the company &quot;Mar Caribe Center&quot;, it was developed with pure PHP, Bootstrap and some JavaScript libraries such as DataTables and Jquery, this was my first project and does not have adequate security due to the absence of a back-end framework.'; originalContentES = projectDescriptionES.trim(), contentES = originalContentES.slice(0, maxLength), originalContentEN = projectDescriptionEN.trim(), contentEN = originalContentEN.slice(0, maxLength)">
+                            <span x-show="spanish" x-text="isCollapsed ? originalContentES : contentES"></span>
+                            <button class="text-highlight" @click="isCollapsed = !isCollapsed" x-show="(spanish && originalContentES.length > maxLength)" x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
+                            <span x-show="!spanish" x-text="isCollapsed ? originalContentEN : contentEN"></span>
+                            <button class="text-highlight" @click="isCollapsed = !isCollapsed" x-show="(!spanish && originalContentEN.length > maxLength)" x-text="isCollapsed ? 'Show less' : '...Show more'"></button>
                         </p>
                     </div>
                     <div id="tags" class="flex flex-wrap text-xs">
@@ -275,17 +280,12 @@
                                 class="fa-brands fa-github"></a>
                         </div>
                     </div>
-                    <div id="descripcion">
-                        <p x-data="{ isCollapsed: false, maxLength: 365, originalContent: '', content: '' }"
-                            x-init="originalContent = $el.firstElementChild.textContent.trim(); content = originalContent.slice(0, maxLength)">
-                            <span x-text="isCollapsed ? originalContent : content">Este portafolio es una Single Page
-                                App y es mi primer proyecto utilizando las tecnologías de TailwindCSS y AlpineJS,
-                                utiliza JavaScript para crear dinamismo e interactividad y CSS para
-                                dar una experiencia visualmente atractiva y divertida.
-                            </span>
-                            <button class="text-highlight" @click="isCollapsed = !isCollapsed"
-                                x-show="originalContent.length > maxLength"
-                                x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
+                    <div id="descripcion" x-data="{ isCollapsed: false, maxLength: 240}">
+                        <p x-init="projectDescriptionES = 'Este portafolio es una Single Page App y es mi primer proyecto utilizando las tecnologías de TailwindCSS y AlpineJS, utiliza JavaScript para crear dinamismo e interactividad y CSS para dar una experiencia visualmente atractiva y divertida.'; projectDescriptionEN = 'This portfolio is a Single Page App and it is my first project using TailwindCSS and AlpineJS technologies, it uses JavaScript to create dynamism and interactivity and CSS to give a visually attractive and fun experience.'; originalContentES = projectDescriptionES.trim(), contentES = originalContentES.slice(0, maxLength), originalContentEN = projectDescriptionEN.trim(), contentEN = originalContentEN.slice(0, maxLength)">
+                            <span x-show="spanish" x-text="isCollapsed ? originalContentES : contentES"></span>
+                            <button class="text-highlight" @click="isCollapsed = !isCollapsed" x-show="(spanish && originalContentES.length > maxLength)" x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
+                            <span x-show="!spanish" x-text="isCollapsed ? originalContentEN : contentEN"></span>
+                            <button class="text-highlight" @click="isCollapsed = !isCollapsed" x-show="(!spanish && originalContentEN.length > maxLength)" x-text="isCollapsed ? 'Show less' : '...Show more'"></button>
                         </p>
                     </div>
                     <div id="tags" class="flex text-xs flex-wrap">
