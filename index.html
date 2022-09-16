@@ -29,14 +29,20 @@
                 <a href="#projects" class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight" x-init="projectsES = 'Proyectos'; projectsEN = 'Projects'" x-text="spanish ? projectsES : projectsEN"></a>
                 <a href="#contacts" class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight" x-init="contactsES = 'Contactos'; contactsEN = 'Contacts'" x-text="spanish ? contactsES : contactsEN"></a>
             </div>
+            <div class="flex space-x-3">
             <div class="md:flex space-x-3 items-center" x-data="{ open: false }">
-                <div class="lang-menu">
-                    <div class="selected-lang" x-show="spanish" x-cloak>
+                <div class="pl-4 md:hidden">
+                    <button @click="open = !open"><i class="fa-solid fa-language"></i></button>
+                </div>
+                <div class="">
+                    <div class="hidden md:inline">
+                    <div x-show="spanish" x-cloak>
                         <button @click="open = !open"><span class="fi fi-es mx-1"></span>ES<i class="fa-solid fa-chevron-down mx-0.5"></i></button>
                     </div>
-                    <div class="selected-lang" x-show="!spanish" x-cloak>
+                    <div x-show="!spanish" x-cloak>
                         <button @click="open = !open"><span class="fi fi-us mx-1"></span>EN<i class="fa-solid fa-chevron-down mx-0.5"></i></button>
                     </div>
+                </div>
                     <ul x-show="open" x-cloak>
                         <li>
                             <a @click="spanish = true; open = false; window.scrollTo(0,0);" class="cursor-pointer"><span class="fi fi-es cursor-pointer mx-1"></span>ES</a>
@@ -57,6 +63,7 @@
                             <rect y="60" width="100" height="20" rx="20" ry="20"></rect>
                         </svg>
                     </button>
+                </div>
                     <!-- Menu -->
 
                     <template x-teleport="header">
