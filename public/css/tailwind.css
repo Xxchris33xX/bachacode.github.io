@@ -792,6 +792,16 @@ video {
   --tw-bg-opacity: 0.1;
 }
 
+.object-contain{
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.object-scale-down{
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+
 .p-6{
   padding: 1.5rem;
 }
