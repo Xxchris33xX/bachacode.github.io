@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
 </head>
 
-<body x-data="{spanish: true}" class="bg-body text-secondary font-text">
+<body x-data="lang" class="bg-body text-secondary font-text">
     <header>
         <nav id="navbar" class="z-0 fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700 ease-in">
             <div class="text-lg font-semibold">
@@ -284,7 +284,7 @@
                         </div>
                     </div>
                     <div id="descripcion" x-data="{ isCollapsed: false, maxLength: 240}">
-                        <p x-init="projectDescriptionES = 'Este portafolio es una Single Page App y es mi primer proyecto utilizando las tecnologías de TailwindCSS y AlpineJS, utiliza JavaScript para crear dinamismo e interactividad y CSS para dar una experiencia visualmente atractiva y divertida.'; projectDescriptionEN = 'This portfolio is a Single Page App and it is my first project using TailwindCSS and AlpineJS technologies, it uses JavaScript to create dynamism and interactivity and CSS to give a visually attractive and fun experience.'; originalContentES = projectDescriptionES.trim(), contentES = originalContentES.slice(0, maxLength), originalContentEN = projectDescriptionEN.trim(), contentEN = originalContentEN.slice(0, maxLength)">
+                        <p x-init="projectDescriptionES = 'Mi primer proyecto utilizando las tecnologías de TailwindCSS y AlpineJS, utiliza JavaScript para crear dinamismo e interactividad y CSS para dar una experiencia visualmente atractiva y divertida.'; projectDescriptionEN = 'My first project using TailwindCSS and AlpineJS technologies, it uses JavaScript to create dynamism and interactivity and CSS to give a visually attractive and fun experience.'; originalContentES = projectDescriptionES.trim(), contentES = originalContentES.slice(0, maxLength), originalContentEN = projectDescriptionEN.trim(), contentEN = originalContentEN.slice(0, maxLength)">
                             <span x-show="spanish" x-text="isCollapsed ? originalContentES : contentES"></span>
                             <button class="text-highlight" @click="isCollapsed = !isCollapsed" x-show="(spanish && originalContentES.length > maxLength)" x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
                             <span x-show="!spanish" x-text="isCollapsed ? originalContentEN : contentEN"></span>
@@ -335,5 +335,13 @@
     </footer>
 </body>
 <script src="public/js/main.js"></script>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('lang', () => ({
+            spanish: true
+        }))
+    })
+</script>
 
+<script src="./lang/es.json"></script>
 </html>
