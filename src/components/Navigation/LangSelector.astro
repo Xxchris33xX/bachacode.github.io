@@ -1,0 +1,18 @@
+<div class="flex space-x-3">
+    <div class="md:flex flex-col space-x-3 items-center" x-data="{ open: false }">
+        <div class="pl-4 md:hidden">
+            <button x-on:click="open = !open"><i class="fa-solid fa-language"></i></button>
+        </div>
+        <div class="hidden md:inline">
+            <button x-on:click="open = !open"><span class="fi fi-es mx-1"></span>ES<i class="fa-solid fa-chevron-down mx-0.5"></i></button>
+        </div>
+        <ul x-show="open" x-cloak>
+            <li>
+                <a x-on:click="open = !open" class="cursor-pointer"><span class="fi fi-es cursor-pointer mx-1"></span>ES</a>
+            </li>
+            <li>
+                <a href="http://localhost:3000/en/" class="cursor-pointer"><span class="fi fi-us cursor-pointer mx-1"></span>EN</a>
+            </li>
+        </ul>
+    </div>
+</div>
