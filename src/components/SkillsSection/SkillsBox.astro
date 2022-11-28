@@ -1,0 +1,54 @@
+---
+import SkillCard from './SkillCard.astro';
+
+const test = {
+    icon: "devicon-html5-plain",
+    name: "html"
+}
+---
+<script>
+    declare var Alpine: any
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('skills', () => ({
+            skills: {
+                frontend:[
+                    {"name": "HTML", "icon": "devicon-html5-plain" },
+                ]
+            },
+        }))
+    })
+</script>
+
+
+
+<div id="skills" x-show="true" x-transition:enter.duration.400ms x-cloak>
+    <div class="flex flex-wrap text-center mt-6 w-72 md:w-skills">
+        <SkillCard icon={test.icon} name={test.name}/>
+        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+            <i class="devicon-html5-plain text-5xl"></i>
+            <p class="text-sm">HTML</p>
+        </div>
+        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+            <i class="devicon-css3-plain text-5xl"></i>
+            <p class="text-sm">CCS</p>
+        </div>
+        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+            <i class="devicon-javascript-plain text-5xl"></i>
+            <p class="text-sm">JavaScript</p>
+        </div>
+        <div
+            class="flex flex-col items-center px-4 py-6 space-y-4 w-32 mx-2 mt-3 bg-item rounded-xl border-secondary border-2">
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="IconChangeColor"
+                height="48" width="48">
+                <title>Alpine.js</title>
+                <path
+                    d="m24 12-5.72 5.746-5.724-5.741 5.724-5.75L24 12zM5.72 6.254 0 12l5.72 5.746h11.44L5.72 6.254z"
+                    id="mainIconPathAttribute" fill="#e5e7eb"></path>
+            </svg>
+            <p class="text-sm">Alpine.Js</p>
+        </div>
+        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+            <i class="devicon-tailwindcss-plain text-5xl"></i>
+            <p class="text-sm">Tailwind</p>
+        </div>
+</div>

@@ -1,0 +1,39 @@
+---
+// Section Imports
+import Navigation from '../components/Navigation/Navigation.astro';
+import HeroSection from '../components/HeroSection/HeroSection.astro';
+import AboutMeSection from '../components/AboutMeSection/AboutMeSection.astro';
+import SkillsSection from '../components/SkillsSection/SkillsSection.astro';
+// Font Imports
+import "@fontsource/dotgothic16";
+import "@fontsource/jetbrains-mono";
+---
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/ant.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+		<meta name="description" content="Mi nombre es Cristhian Flores, soy un desarrollador web que utiliza Laravel y JavaScript para crear sitios web fantasticos">
+		<title>BachaCode - Desarrollador Web</title>
+	</head>
+	<body class="text-secondary bg-body font-text">
+		<header>
+			<Navigation/>
+		</header>
+		<main>
+			<HeroSection/>
+			<AboutMeSection/>
+			<SkillsSection/>
+		</main>
+	</body>
+
+	<style>
+		*{
+			scroll-behavior: smooth;
+		}
+	</style>
+
+</html>

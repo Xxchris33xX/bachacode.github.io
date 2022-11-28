@@ -1,0 +1,16 @@
+{
+    "en": {
+        "navLinkOne": "Home",
+        "navLinkTwo": "About Me",
+        "navLinkThree": "Skills",
+        "navLinkFour": "Projects",
+        "navLinkFive": "Contacts"
+    },
+    "es": {
+        "navLinkOne": "Inicio",
+        "navLinkTwo": "About Me",
+        "navLinkThree": "Skills",
+        "navLinkFour": "Projects",
+        "navLinkFive": "Contacts"
+    }
+}

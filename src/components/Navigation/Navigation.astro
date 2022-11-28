@@ -1,0 +1,17 @@
+---
+import NavLink from './NavLink.astro';
+import * as navigation from './content/navigation.md';
+---
+
+<nav x-data="translate" class="z-0 fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700 font-text">
+    <div class="text-lg font-semibold">
+        <a href="#">BachaCode</a>
+    </div>
+    <div class="hidden md:flex space-x-6 items-center">
+        <NavLink link="#" title={navigation.frontmatter.home}/>
+        <NavLink link="#about-me" title={navigation.frontmatter.aboutMe}/>
+        <NavLink link="#skills" title={navigation.frontmatter.skills}/>
+        <NavLink link="#projects" title={navigation.frontmatter.projects}/>
+        <NavLink link="#contacts" title={navigation.frontmatter.contacts}/>
+    </div>
+</nav>
