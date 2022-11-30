@@ -1,0 +1,27 @@
+[
+    {
+        "HTML": "devicon-html5-plain",
+        "CSS":"devicon-css3-plain",
+        "JavaScript": "devicon-javascript-plain",
+        "Alpine.Js":"icon-alpinejs",
+        "Vue.Js":"devicon-vuejs-plain",
+        "Tailwind":"devicon-tailwindcss-plain"
+    },
+    {
+        "PHP":"devicon-php-plain",
+        "Laravel":"fa-brands fa-laravel"
+    },
+    {
+        "MySQL":"devicon-mysql-plain",
+        "PostgreSQL":"devicon-postgresql-plain"
+    },
+    {
+        "Figma":"devicon-figma-plain",
+        "Canva": "devicon-canva-original"
+    },
+    {
+        "Terminal":"fas fa-terminal",
+        "VSCode": "devicon-vscode-plain",
+        "Git": "devicon-git-plain" 
+    }
+]

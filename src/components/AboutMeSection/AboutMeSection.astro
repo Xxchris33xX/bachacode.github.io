@@ -1,11 +1,11 @@
 ---
-
+import * as aboutMe from '../../../content/about-me.md';
 ---
 
 <div class="flex flex-col">
     <div id="about-me"></div>
     <div class="p-6 mt-8 text-4xl md:text-6xl">
-        <h2 class="font-title text-primary">01 - About me</h2>
+        <h2 class="font-title text-primary">{aboutMe.frontmatter.title}</h2>
     </div>
 </div>
 
@@ -14,9 +14,7 @@
         <img src="/imgs/about-me-tobi.png" class="space-x-reverse" alt="">
     </div>
     <div class="p-3 mx-1 md:mx-24 font-text text-sm md:text-lg md:flex">
-        <p class="flex text-justify max-w-sm md:max-w-4xl">
-        My name is Cristhian Flores, I am a programmer focused mainly on web development, graduated with an associate's degree from the Polytechnic University of Paria &quot;Luis Mariano Rivera&quot;, the Stack of technologies that I currently use has PHP/Laravel as its main language, although I also have a good understanding of JavaScript, in my free time I dedicate myself to learning new technologies and concepts about programming and web development in a self-taught way 😊'
-    </p>
+        <p class="flex text-justify max-w-sm md:max-w-4xl">{aboutMe.frontmatter.aboutMeContent}</p>
     </div>
     <!-- Poner educacion para futuro -->
 </section>
