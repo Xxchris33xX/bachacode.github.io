@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-  <img alt="Demo" src="./public/imgs/herosec-tobi.png"  />
+  <img alt="Demo" src="./public/imgs/herosec-tobi.jpg"  />
 </div>
 
 ## 📖 Sobre el portfolio
