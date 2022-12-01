@@ -1,0 +1,12 @@
+---
+import * as aboutMe from '@content/en/about-me.md';
+---
+<section class="flex flex-col md:flex-row justify-between items-center mx-auto px-6 pt-8">
+    <div class="flex items-center justify-center">
+        <img src="/imgs/about-me-tobi.jpg" class="space-x-reverse" alt="perrito programando">
+    </div>
+    <div class="p-3 mx-1 md:mx-24 font-text text-sm md:text-lg md:flex">
+        <p class="flex text-justify max-w-sm md:max-w-4xl">{aboutMe.frontmatter.aboutMeContent}</p>
+    </div>
+    <!-- Poner educacion para futuro -->
+</section>

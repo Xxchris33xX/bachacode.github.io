@@ -1,0 +1,45 @@
+<script>
+document.addEventListener('alpine:init', () => {
+        Alpine.data('Projects', () => ({
+            init() {
+                async function getProjects() {
+                    const response = await fetch('/locale/en/projects/projects.json');
+                    const projects = await response.json();
+                    return projects;
+                }
+                getProjects().then(projects => {
+                    this.projects = projects;
+                })
+            },
+            maxLength: 240,
+            projects: [],
+        }))
+    })
+</script>
+
+<section x-data="Projects" class="flex flex-col items-center mx-auto px-6 pt-16 space-y-4 md:space-y-0 md:space-x-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
+    <template x-for="project in projects">
+        <div class="flex flex-col w-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
+            <div class="flex justify-between text-xl md:text-2xl">
+                <h3 x-text="project.title">Mar Caribe Center</h3>
+                <div id="links" class="text-primary">
+                    <a target="_blank" x-bind:href="project.link" class="icon-external-link"></a>
+                    <a target="_blank" x-bind:href="project.github" class="icon-github"></a>
+                </div>
+            </div>
+            <div>
+                <p x-init="project.minContent = project.description.slice(0, maxLength);">
+                    <span x-text="project.isCollapsed ? project.description : project.minContent"></span>
+                    <button class="text-highlight" x-show="project.description.length > maxLength" x-on:click="project.isCollapsed = !project.isCollapsed" x-text="project.isCollapsed ? 'Ver menos' : '...Ver más'"></button>
+                </p>
+            </div>
+            <div id="tags" class="flex flex-wrap text-xs">
+            <template x-for="tag in project.tags">
+                    <span x-text="tag" class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">Tag</span>
+                </template>
+            </div>
+        </div>
+    </template>
+</div>
+</section>

@@ -12,7 +12,7 @@
     },
     {
         "title":"BachaCode",
-        "description":"Este portafolio es una Single Page App y es mi primer proyecto utilizando las tecnologías de TailwindCSS y AlpineJS, utiliza JavaScript para crear dinamismo e interactividad y CSS para dar una experiencia visualmente atractiva y divertida.",
+        "description":"Este portafolios es una pagina web estatica generada con Astro, empezo como uno de los primeros proyectos que hice por mi cuenta y fue desarrollado con TailwindCSS, AlpineJS, y Astro como fue mencionado previamente, ¡es un proyecto personal en constante evolución que utilizo para aprender y mostrar cosas nuevas!",
         "isCollapsed": false,
         "link": "https://bachacode.github.io/",
         "github":"https://github.com/bachacode/bachacode.github.io",

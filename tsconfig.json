@@ -5,7 +5,9 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
-      "@es/*": ["public/locale/es/*"]
+      "@es/*": ["src/components/es/*"],
+      "@en/*": ["src/components/en/*"],
+      "@content/*":["content/*"]
     }
   }
 }

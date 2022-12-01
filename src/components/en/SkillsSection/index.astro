@@ -10,12 +10,12 @@
         Alpine.data('Skills', () => ({
             init() {
                 async function getCategories() {
-                    const response = await fetch('/locale/es/skills/categories.json');
+                    const response = await fetch('/locale/en/skills/categories.json');
                     const categories = await response.json();
                     return categories;
                 }
                 async function getSkills() {
-                    const response = await fetch('/locale/es/skills/skills.json');
+                    const response = await fetch('/locale/skills.json');
                     const skills = await response.json();
                     return skills;
                 }

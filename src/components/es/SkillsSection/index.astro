@@ -1,0 +1,68 @@
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('test', () =>({
+            init() {
+                this.test = this.$refs.test;
+                console.log(this.test);
+            },
+            test: [] 
+        }))
+        Alpine.data('Skills', () => ({
+            init() {
+                async function getCategories() {
+                    const response = await fetch('/locale/es/skills/categories.json');
+                    const categories = await response.json();
+                    return categories;
+                }
+                async function getSkills() {
+                    const response = await fetch('/locale/skills.json');
+                    const skills = await response.json();
+                    return skills;
+                }
+                getCategories().then(categories => {
+                    this.categories = categories;
+                })
+                getSkills().then(skills => {
+                    this.allSkillSets = skills;
+                })
+            },
+            categories: [],
+            allSkillSets: [],
+            toggle(id: number) {
+                for (let index = 0; index < this.categories.length; index++) {
+                    this.categories[index].isActive = false;
+                }
+                this.categories[id].isActive = !this.categories[id].isActive;
+            }
+        }))
+    })
+</script>
+<section  class="flex flex-col justify-between items-center mx-auto px-6 pt-16">
+    <div x-data="Skills" class="flex flex-col items-center">
+        <div
+            class="flex flex-col bg-item border-third border-2 py-10 px-4 md:flex-row md:space-x-6 justify-center text-center shadow-lg shadow-item">
+            <template x-for="(category, key) in categories">
+                <button x-on:click="toggle(key)" class="p-2" x-bind:class="category.isActive && 'selected-skill'"
+                    x-text="category.title"></button>
+            </template>
+        </div>
+        <template x-for="(skillSet, index) in allSkillSets">
+            <div x-show="categories[index].isActive" x-transition:enter.duration.400ms x-cloak>
+                <div class="grid grid-cols-2 md:grid-cols-4 text-center mt-6 w-72 md:w-skills">
+                    <template x-for="(icon, name) in skillSet">
+                        <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">
+                            <i class="text-5xl" x-bind:class="icon"></i>
+                            <p class="text-sm" x-text="name"></p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</section>
+
+<style scoped>
+    .selected-skill {
+        @apply border-2 border-highlight text-highlight;
+    }
+</style>

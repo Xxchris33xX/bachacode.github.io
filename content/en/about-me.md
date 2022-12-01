@@ -1,0 +1,3 @@
+---
+aboutMeContent: My name is Cristhian Flores, I am a programmer focused mainly on web development, graduated with an associate's degree from the Polytechnic University of Paria "Luis Mariano Rivera", the Stack of technologies that I currently use has PHP/Laravel as its main language, although I also have a good understanding of JavaScript, in my free time I dedicate myself to learning new technologies and concepts about programming and web development in a self-taught way 😊.
+---
