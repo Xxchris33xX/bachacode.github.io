@@ -1,27 +1,27 @@
 [
     {
-        "HTML": "devicon-html5-plain",
-        "CSS":"devicon-css3-plain",
-        "JavaScript": "devicon-javascript-plain",
+        "HTML": "icon-html",
+        "CSS":"icon-css",
+        "JavaScript": "icon-js",
         "Alpine.Js":"icon-alpinejs",
-        "Vue.Js":"devicon-vuejs-plain",
-        "Tailwind":"devicon-tailwindcss-plain"
+        "Vue.Js":"icon-vue",
+        "Tailwind":"icon-tailwind"
     },
     {
-        "PHP":"devicon-php-plain",
-        "Laravel":"fa-brands fa-laravel"
+        "PHP":"icon-php",
+        "Laravel":"icon-laravel"
     },
     {
-        "MySQL":"devicon-mysql-plain",
-        "PostgreSQL":"devicon-postgresql-plain"
+        "MySQL":"icon-mysql",
+        "PostgreSQL":"icon-postgresql"
     },
     {
-        "Figma":"devicon-figma-plain",
-        "Canva": "devicon-canva-original"
+        "Figma":"icon-figma",
+        "Canva": "icon-canva"
     },
     {
-        "Terminal":"fas fa-terminal",
-        "VSCode": "devicon-vscode-plain",
-        "Git": "devicon-git-plain" 
+        "Terminal":"icon-terminal",
+        "VSCode": "icon-vsc",
+        "Git": "icon-git" 
     }
 ]

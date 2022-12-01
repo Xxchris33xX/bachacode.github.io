@@ -1,0 +1,23 @@
+[
+    {
+        "title":"Mar Caribe Center",
+        "description":"Este proyecto es un Portal Web que tiene como objetivo la exposición de precios y disponibilidad de productos del local de la empresa \"Mar Caribe Center\", fue desarrollado con PHP puro, Bootstrap y algunas librerias de JavaScript como DataTables y Jquery, este fue mi primer proyecto y no posee la seguridad adecuada por la ausencia de un framework de back-end.",
+        "isCollapsed": false,
+        "minContent": "",
+        "link": "http://marcaribecenter.cf",
+        "github":"https://github.com/bachacode/portal-web-mar-caribe",
+        "tags":[
+            "HTML", "CSS", "JavaScript", "PHP"
+        ]
+    },
+    {
+        "title":"BachaCode",
+        "description":"Este portafolio es una Single Page App y es mi primer proyecto utilizando las tecnologías de TailwindCSS y AlpineJS, utiliza JavaScript para crear dinamismo e interactividad y CSS para dar una experiencia visualmente atractiva y divertida.",
+        "isCollapsed": false,
+        "link": "https://bachacode.github.io/",
+        "github":"https://github.com/bachacode/bachacode.github.io",
+        "tags":[
+            "HTML", "Tailwind", "JavaScript", "AlpineJS"
+        ]
+    }
+]

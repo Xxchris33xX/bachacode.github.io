@@ -1,5 +1,12 @@
 <script>
     document.addEventListener('alpine:init', () => {
+        Alpine.data('test', () =>({
+            init() {
+                this.test = this.$refs.test;
+                console.log(this.test);
+            },
+            test: [] 
+        }))
         Alpine.data('Skills', () => ({
             init() {
                 async function getCategories() {
@@ -30,14 +37,7 @@
         }))
     })
 </script>
-
-<div class="flex flex-col">
-    <div id="skills"></div>
-    <div class="text-primary mt-8 p-6 text-4xl md:text-6xl">
-        <h2 class="font-title">02 - Habilidades</h2>
-    </div>
-</div>
-<section class="flex flex-col justify-between items-center mx-auto px-6 pt-16">
+<section  class="flex flex-col justify-between items-center mx-auto px-6 pt-16">
     <div x-data="Skills" class="flex flex-col items-center">
         <div
             class="flex flex-col bg-item border-third border-2 py-10 px-4 md:flex-row md:space-x-6 justify-center text-center shadow-lg shadow-item">
@@ -64,38 +64,5 @@
 <style scoped>
     .selected-skill {
         @apply border-2 border-highlight text-highlight;
-    }
-
-    @font-face {
-        font-family: 'icomoon';
-        src: url('/fonts/icomoon.eot?28cuaf');
-        src: url('/fonts/icomoon.eot?28cuaf#iefix') format('embedded-opentype'),
-            url('/fonts/icomoon.ttf?28cuaf') format('truetype'),
-            url('/fonts/icomoon.woff?28cuaf') format('woff'),
-            url('/fonts/icomoon.svg?28cuaf#icomoon') format('svg');
-        font-weight: normal;
-        font-style: normal;
-        font-display: block;
-    }
-
-    [class^="icon-"],
-    [class*=" icon-"] {
-        /* use !important to prevent issues with browser extensions that change fonts */
-        font-family: 'icomoon' !important;
-        speak: never;
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        line-height: 1;
-
-        /* Better Font Rendering =========== */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    .icon-alpinejs:before {
-        content: "\e900";
-        color: #e5e7eb;
     }
 </style>

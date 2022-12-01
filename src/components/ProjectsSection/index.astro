@@ -1,60 +1,45 @@
-<div class="flex flex-col">
-    <div id="projects"></div>
-    <div class="mt-8 p-6 text-4xl md:text-6xl">
-        <h1 class="font-title text-primary">03 - Proyectos</h1>
-    </div>
-</div>
-<section class="flex flex-col mx-auto px-6 pt-16">
-    <div class="flex flex-col md:flex-row justify-center items-center md:items-start md:justify-start space-y-4 md:space-y-0 md:space-x-6">
-        <div id="proyecto"
-            class="flex flex-col w-60 md:w-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
+<script>
+document.addEventListener('alpine:init', () => {
+        Alpine.data('Projects', () => ({
+            init() {
+                async function getProjects() {
+                    const response = await fetch('/locale/es/projects/projects.json');
+                    const projects = await response.json();
+                    return projects;
+                }
+                getProjects().then(projects => {
+                    this.projects = projects;
+                })
+            },
+            maxLength: 240,
+            projects: [],
+        }))
+    })
+</script>
+
+<section x-data="Projects" class="flex flex-col items-center mx-auto px-6 pt-16 space-y-4 md:space-y-0 md:space-x-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
+    <template x-for="project in projects">
+        <div class="flex flex-col w-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
             <div class="flex justify-between text-xl md:text-2xl">
-                <h2>Mar Caribe Center</h2>
+                <h3 x-text="project.title">Mar Caribe Center</h3>
                 <div id="links" class="text-primary">
-                    <a target="_blank" href="http://marcaribecenter.cf" class="fas fa-external-link"></a>
-                    <a target="_blank" href="https://github.com/bachacode/portal-web-mar-caribe"
-                        class="fa-brands fa-github"></a>
+                    <a target="_blank" x-bind:href="project.link" class="icon-external-link"></a>
+                    <a target="_blank" x-bind:href="project.github" class="icon-github"></a>
                 </div>
             </div>
-            <div id="descripcion" x-data="{ isCollapsed: false, maxLength: 240}">
-                <p x-init="projectOneDescriptionES = 'Este proyecto es un Portal Web que tiene como objetivo la exposición de precios y disponibilidad de productos del local de la empresa &quot;Mar Caribe Center&quot;, fue desarrollado con PHP puro, Bootstrap y algunas librerias de JavaScript como DataTables y Jquery, este fue mi primer proyecto y no posee la seguridad adecuada por la ausencia de un framework de back-end.'; projectOneDescriptionEN = 'This project is a website that aims to display the prices and availability of products from the company &quot;Mar Caribe Center&quot;, it was developed with pure PHP, Bootstrap and some JavaScript libraries such as DataTables and Jquery, this was my first project and does not have adequate security due to the absence of a back-end framework.'; originalContentProjectOneES = projectOneDescriptionES.trim(), contentProjectOneES = originalContentProjectOneES.slice(0, maxLength), originalContentProjectOneEN = projectOneDescriptionEN.trim(), contentProjectOneEN = originalContentProjectOneEN.slice(0, maxLength)">
-                    <span x-show="spanish" x-text="isCollapsed ? originalContentProjectOneES : contentProjectOneES"></span>
-                    <button class="text-highlight" @click="isCollapsed = !isCollapsed" x-show="(spanish && originalContentProjectOneES.length > maxLength)" x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
-                    <span x-show="!spanish" x-text="isCollapsed ? originalContentProjectOneEN : contentProjectOneEN"></span>
-                    <button class="text-highlight" @click="isCollapsed = !isCollapsed" x-show="(!spanish && originalContentProjectOneEN.length > maxLength)" x-text="isCollapsed ? 'Show less' : '...Show more'"></button>
+            <div>
+                <p x-init="project.minContent = project.description.slice(0, maxLength);">
+                    <span x-text="project.isCollapsed ? project.description : project.minContent"></span>
+                    <button class="text-highlight" x-show="project.description.length > maxLength" x-on:click="project.isCollapsed = !project.isCollapsed" x-text="project.isCollapsed ? 'Ver menos' : '...Ver más'"></button>
                 </p>
             </div>
             <div id="tags" class="flex flex-wrap text-xs">
-                <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">HTML</span>
-                <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">CSS</span>
-                <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">JavaScript</span>
-                <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">PHP</span>
+            <template x-for="tag in project.tags">
+                    <span x-text="tag" class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">Tag</span>
+                </template>
             </div>
         </div>
-        <div id="proyecto"
-            class="flex flex-col w-60 md:w-96 md:min-h-fit space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
-            <div class="flex justify-between text-xl md:text-2xl">
-                <h2>BachaCode</h2>
-                <div id="links" class="text-primary">
-                    <a target="_blank" href="https://bachacode.github.io/" class="fas fa-external-link"></a>
-                    <a target="_blank" href="https://github.com/bachacode/bachacode.github.io"
-                        class="fa-brands fa-github"></a>
-                </div>
-            </div>
-            <div id="descripcion" x-data="{ isCollapsed: false, maxLength: 240}">
-                <p x-init="projectDescriptionES = 'Este portafolio es una Single Page App y es mi primer proyecto utilizando las tecnologías de TailwindCSS y AlpineJS, utiliza JavaScript para crear dinamismo e interactividad y CSS para dar una experiencia visualmente atractiva y divertida.'; projectDescriptionEN = 'This portfolio is a Single Page App and it is my first project using TailwindCSS and AlpineJS technologies, it uses JavaScript to create dynamism and interactivity and CSS to give a visually attractive and fun experience.'; originalContentES = projectDescriptionES.trim(), contentES = originalContentES.slice(0, maxLength), originalContentEN = projectDescriptionEN.trim(), contentEN = originalContentEN.slice(0, maxLength)">
-                    <span x-show="spanish" x-text="isCollapsed ? originalContentES : contentES"></span>
-                    <button class="text-highlight" @click="isCollapsed = !isCollapsed" x-show="(spanish && originalContentES.length > maxLength)" x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
-                    <span x-show="!spanish" x-text="isCollapsed ? originalContentEN : contentEN"></span>
-                    <button class="text-highlight" @click="isCollapsed = !isCollapsed" x-show="(!spanish && originalContentEN.length > maxLength)" x-text="isCollapsed ? 'Show less' : '...Show more'"></button>
-                </p>
-            </div>
-            <div id="tags" class="flex text-xs flex-wrap">
-                <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">HTML</span>
-                <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">Tailwind</span>
-                <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">JavaScript</span>
-                <span class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">AlpineJS</span>
-            </div>
-        </div>
-    </div>
+    </template>
+</div>
 </section>
