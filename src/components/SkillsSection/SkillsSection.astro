@@ -3,22 +3,20 @@
         Alpine.data('Skills', () => ({
             init() {
                 async function getCategories() {
-                    const response = await fetch('./locale/es/skills/categories.json');
+                    const response = await fetch('/locale/es/skills/categories.json');
                     const categories = await response.json();
                     return categories;
                 }
                 async function getSkills() {
-                    const response = await fetch('./locale/es/skills/skills.json');
+                    const response = await fetch('/locale/es/skills/skills.json');
                     const skills = await response.json();
                     return skills;
                 }
                 getCategories().then(categories => {
                     this.categories = categories;
-                    console.log(this.categories);
                 })
                 getSkills().then(skills => {
                     this.allSkillSets = skills;
-                    console.log(this.allSkillSets);
                 })
             },
             categories: [],
@@ -70,11 +68,11 @@
 
     @font-face {
         font-family: 'icomoon';
-        src: url('fonts/icomoon.eot?28cuaf');
-        src: url('fonts/icomoon.eot?28cuaf#iefix') format('embedded-opentype'),
-            url('fonts/icomoon.ttf?28cuaf') format('truetype'),
-            url('fonts/icomoon.woff?28cuaf') format('woff'),
-            url('fonts/icomoon.svg?28cuaf#icomoon') format('svg');
+        src: url('/fonts/icomoon.eot?28cuaf');
+        src: url('/fonts/icomoon.eot?28cuaf#iefix') format('embedded-opentype'),
+            url('/fonts/icomoon.ttf?28cuaf') format('truetype'),
+            url('/fonts/icomoon.woff?28cuaf') format('woff'),
+            url('/fonts/icomoon.svg?28cuaf#icomoon') format('svg');
         font-weight: normal;
         font-style: normal;
         font-display: block;

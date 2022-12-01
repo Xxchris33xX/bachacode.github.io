@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation/Navigation.astro';
 import HeroSection from '../components/HeroSection/HeroSection.astro';
 import AboutMeSection from '../components/AboutMeSection/AboutMeSection.astro';
 import SkillsSection from '../components/SkillsSection/SkillsSection.astro';
+import ContactsSection from '../components/ContactsSection/index.astro';
 // Font Imports
 import "@fontsource/dotgothic16";
 import "@fontsource/jetbrains-mono";
@@ -26,13 +27,22 @@ import "@fontsource/jetbrains-mono";
 	<body class="text-secondary bg-body font-text">
 		<header>
 			<Navigation/>
-			
 		</header>
 		<main>
 			<HeroSection/>
 			<AboutMeSection/>
 			<SkillsSection/>
+			<ContactsSection/>
 		</main>
+		<footer>
+			<section class="flex flex-col text-center bg-item p-6">
+				<div class="font-bold">
+					<p>&copy; 2022 BachaCode</p>
+					<p>Website powered by 🐜</p>
+				</div>	
+					<p class="italic text-xs">Diseñado y desarrollado por Cristhian Flores</p>
+			</section>
+		</footer>
 	</body>
 
 	<style>

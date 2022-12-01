@@ -1,0 +1,39 @@
+<script>
+document.addEventListener('alpine:init', () => {
+        Alpine.data('Contacts', () => ({
+            init() {
+                async function getContent() {
+                    const response = await fetch('/locale/es/contacts/content.json');
+                    const content = await response.json();
+                    return content;
+                }
+                getContent().then(content => {
+                    this.content = content;
+                })
+            },
+            content: [],   
+        }))
+    })
+</script>
+
+<div class="flex flex-col">
+    <div id="contacts"></div>
+    <div class="p-6 mt-8 text-4xl md:text-6xl">
+        <h1 id="contacts" class="font-title text-primary">04 - Contactos</h1>
+    </div>
+</div>
+<section x-data="Contacts" class="p-6 font-sans md:text-xl">
+    <div class="justify-middle">
+        <div class="text-center">
+            <p class="pb-5 font-text" x-text="content.info"></p>
+            <a href="mailto:bachacode@gmail.com" class="font-text bg-highlight rounded-2xl px-10 md:px-32 pt-1 pb-2 mt-10 text-2xl">
+                <i class="p-2 fa-sharp fa-solid fa-envelope"></i>Enviar Correo
+            </a>
+        </div>
+        <div class="flex flex-row space-x-8 justify-center py-6 mt-3 text-4xl">
+            <a target="_blank" href="https://github.com/bachacode" class="fa-brands fa-github"></a>
+            <a target="_blank" href="https://www.linkedin.com/in/cristhian-flores-403829244/"
+                class="fa-brands fa-linkedin"></a>
+        </div>
+    </div>
+</section>
