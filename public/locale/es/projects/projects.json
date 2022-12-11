@@ -3,6 +3,8 @@
         "title":"Mar Caribe Center",
         "description":"Este proyecto es un Portal Web que tiene como objetivo la exposición de precios y disponibilidad de productos del local de la empresa \"Mar Caribe Center\", fue desarrollado con PHP puro, Bootstrap y algunas librerias de JavaScript como DataTables y Jquery, este fue mi primer proyecto y no posee la seguridad adecuada por la ausencia de un framework de back-end.",
         "isCollapsed": false,
+        "isHosted":true,
+        "isStarred":true,
         "minContent": "",
         "link": "http://marcaribecenter.cf",
         "github":"https://github.com/bachacode/portal-web-mar-caribe",
@@ -14,7 +16,21 @@
         "title":"BachaCode",
         "description":"Este portafolios es una pagina web estatica generada con Astro, empezo como uno de los primeros proyectos que hice por mi cuenta y fue desarrollado con TailwindCSS, AlpineJS, y Astro como fue mencionado previamente, ¡es un proyecto personal en constante evolución que utilizo para aprender y mostrar cosas nuevas!",
         "isCollapsed": false,
-        "link": "https://bachacode.github.io/",
+        "isHosted":true,
+        "isStarred":true,
+        "link": "https://bachacode.github.io",
+        "github":"https://github.com/bachacode/bachacode.github.io",
+        "tags":[
+            "HTML", "Tailwind", "JavaScript", "AlpineJS"
+        ]
+    },
+    {
+        "title":"test",
+        "description":"Este portafolios es una pagina web estatica generada con Astro, empezo como uno de los primeros proyectos que hice por mi cuenta y fue desarrollado con TailwindCSS, AlpineJS, y Astro como fue mencionado previamente, ¡es un proyecto personal en constante evolución que utilizo para aprender y mostrar cosas nuevas!",
+        "isCollapsed": false,
+        "isHosted":false,
+        "isStarred":false,
+        "link": "https://bachacode.github.io",
         "github":"https://github.com/bachacode/bachacode.github.io",
         "tags":[
             "HTML", "Tailwind", "JavaScript", "AlpineJS"

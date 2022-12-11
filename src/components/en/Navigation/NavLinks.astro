@@ -20,12 +20,11 @@ document.addEventListener('alpine:init', () => {
 </script>
 
 <div x-data="selectedSection" x-on:scroll.window.throttle.25ms="updateList" class="hidden md:flex space-x-6 items-center">
-    <a href="#" class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.home}</a>
-    <a href="#about-me" class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.aboutMe}</a>
-    <a href="#skills" class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.skills}</a>
-    <a href="#projects" class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.projects}</a>
-    <a href="#contacts" class="nav-option hover:transition-all hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.contacts}</a>
-    
+    <a href="#" class="nav-option hover:transition-all text-sm lg:text-base hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.home}</a>
+    <a href="#about-me" class="nav-option hover:transition-all text-sm lg:text-base hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.aboutMe}</a>
+    <a href="#skills" class="nav-option hover:transition-all text-sm lg:text-base hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.skills}</a>
+    <a href="#projects" class="nav-option hover:transition-all text-sm lg:text-base hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.projects}</a>
+    <a href="#contacts" class="nav-option hover:transition-all text-sm lg:text-base hover:text-highlight hover:border-b-2 hover:border-b-highlight">{navigation.frontmatter.contacts}</a>
 </div>
 
 <style>

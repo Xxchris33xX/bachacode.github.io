@@ -1,7 +1,7 @@
 <div class="flex space-x-3">
     <div class="md:flex flex-col space-x-3 items-center" x-data="{ open: false }">
         <div class="pl-4 md:hidden">
-            <button x-on:click="open = !open"><i class="icon-language"></i></button>
+            <button aria-label="lenguaje" x-on:click="open = !open"><i class="icon-language"></i></button>
         </div>
         <div class="hidden md:inline">
             <button x-on:click="open = !open"><span class="fi fi-es mx-1"></span>ES<i class="mx-0.5" x-bind:class="open ? 'icon-close' : 'icon-chevdown'"></i></button>
@@ -9,7 +9,7 @@
         <template x-teleport="header">
             <ul x-show="open" class="fixed right-28 top-16 bg-item py-6 px-14 border rounded-lg border-primary" x-on:click.outside="open = false" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.200ms>
                 <li>
-                    <a x-on:click="open = !open" class="cursor-pointer"><span class="fi fi-es cursor-pointer mx-1"></span>Español</a>
+                    <button x-on:click="open = !open" class="cursor-pointer"><span class="fi fi-es cursor-pointer mx-1"></span>Español</button>
                 </li>
                 <li>
                     <a href="/en" class="cursor-pointer"><span class="fi fi-us cursor-pointer mx-1"></span>Ingles</a>

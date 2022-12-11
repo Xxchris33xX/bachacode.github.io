@@ -37,7 +37,7 @@
         }))
     })
 </script>
-<section  class="flex flex-col justify-between items-center mx-auto px-6 pt-16">
+<section class="flex flex-col justify-between items-center mx-auto min-h-screen px-6 pt-16">
     <div x-data="Skills" class="flex flex-col items-center">
         <div
             class="flex flex-col bg-item border-third border-2 py-10 px-4 md:flex-row md:space-x-6 justify-center text-center shadow-lg shadow-item">
@@ -47,7 +47,11 @@
             </template>
         </div>
         <template x-for="(skillSet, index) in allSkillSets">
-            <div x-show="categories[index].isActive" x-transition:enter.duration.400ms x-cloak>
+            <div x-show="categories[index].isActive" 
+            x-transition:enter="transition-all ease-in duration-500"
+            x-transition:enter-start="opacity-0 blur-sm translate-x-full"
+            x-transition:enter-end="opacity-100 blur-0 translate-x-0"
+            x-cloak>
                 <div class="grid grid-cols-2 md:grid-cols-4 text-center mt-6 w-72 md:w-skills">
                     <template x-for="(icon, name) in skillSet">
                         <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2">

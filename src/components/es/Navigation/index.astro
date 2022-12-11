@@ -8,7 +8,7 @@ import BurgerMenu from './BurgerMenu.astro';
 document.addEventListener('alpine:init', () => {
         Alpine.data('scroll', () => ({
             init(){
-                this.scrollFunction()
+                this.scrollFunction();
             },
             scrollFunction() {
                 if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -22,7 +22,7 @@ document.addEventListener('alpine:init', () => {
     })
 </script>
 
-<nav x-data="scroll" x-ref="navbar" x-on:scroll.window="scrollFunction" class="fixed overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700  font-text">
+<nav x-data="scroll" x-ref="navbar" x-on:scroll.window="scrollFunction" class="fixed overflow-hidden z-50 flex justify-between w-full items-center mx-auto px-14 py-3 bg-item rounded-b-3xl transition-all duration-700  font-text">
     <div class="text-lg font-semibold">
         <a href="#">BachaCode</a>
     </div>

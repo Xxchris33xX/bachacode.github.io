@@ -3,6 +3,8 @@
         "title":"Mar Caribe Center",
         "description":"This project is a website that aims to display the prices and availability of products from the company \"Mar Caribe Center\", it was developed with pure PHP, Bootstrap and some JavaScript libraries such as DataTables and Jquery, this was my first project and does not have adequate security due to the absence of a back-end framework.",
         "isCollapsed": false,
+        "isHosted":true,
+        "isStarred":true,
         "minContent": "",
         "link": "http://marcaribecenter.cf",
         "github":"https://github.com/bachacode/portal-web-mar-caribe",
@@ -13,8 +15,10 @@
     {
         "title":"BachaCode",
         "description":"This portfolio is a static page website generated with Astro, it started as one of the first projects that i did by myself and was developed with TailwindCSS, AlpineJS, and Astro as previously mentioned, it is a constanly evolving pet project that i use as a way to learn and show new things!",
+        "isHosted":true,
+        "isStarred":true,
         "isCollapsed": false,
-        "link": "https://bachacode.github.io/",
+        "link": "https://bachacode.github.io",
         "github":"https://github.com/bachacode/bachacode.github.io",
         "tags":[
             "HTML", "Tailwind", "JavaScript", "AlpineJS"

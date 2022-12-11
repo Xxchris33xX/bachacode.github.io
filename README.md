@@ -3,12 +3,12 @@
 </h1>
 
 <div align="center">
-  <img alt="Demo" src="./public/imgs/herosec-tobi.png"  />
+  <img alt="Demo" src="./public/imgs/herosec-tobi.jpg"  />
 </div>
 
 ## 📖 Sobre el portfolio
 
-Mi portfolio personal <a href="http://bachacode.github.io/" target="_blank">BachaCode | Portfolio</a> contiene información sobre mi, habilidades tecnicas y blandas que poseo, proyectos realizados, además de mis contactos y CV.<br/>
+Mi portfolio personal <a href="https://bachacode.github.io" target="_blank">BachaCode | Portfolio</a> contiene información sobre mi, habilidades tecnicas y blandas que poseo, proyectos realizados, además de mis contactos y CV.<br/>
 
 Este portfolio fue hecho con las siguientes tecnologias.
 

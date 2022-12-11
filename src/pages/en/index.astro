@@ -11,6 +11,22 @@ import "@fontsource/dotgothic16";
 import "@fontsource/jetbrains-mono";
 ---
 
+<script>
+	document.addEventListener('alpine:init', () => {
+	   const observer = new IntersectionObserver((e) =>{
+		   e.forEach((entry) => {
+			   if(entry.isIntersecting){
+				   entry.target.classList.add('show');
+			   } else {
+				   entry.target.classList.remove('show');
+			   }
+		   });
+	   });
+	   const sectionElements = document.querySelectorAll('.section');
+	   sectionElements.forEach((el) => observer.observe(el));
+   })
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,9 +35,9 @@ import "@fontsource/jetbrains-mono";
 	<link rel="icon" type="image/svg+xml" href="/ant.png" />
 	<meta name="viewport" content="width=device-width" />
 	<meta name="generator" content={Astro.generator} />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" />
-	<meta name="description"
-		content="My name is Cristhian Flores, i'm a web developer that uses Laravel and JavaScript to create awesome websites">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" />
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"></noscript>
+	<meta name="description" content="My name is Cristhian Flores, i'm a web developer that uses Laravel and JavaScript to create awesome websites">
 	<title>BachaCode - Web Developer</title>
 </head>
 
@@ -52,136 +68,158 @@ import "@fontsource/jetbrains-mono";
 		<ContactsSection />
 	</main>
 
-	<footer>
-		<section class="flex flex-col text-center bg-item p-6">
-			<div class="font-bold">
-				<p>&copy; 2022 BachaCode</p>
-				<p>Website powered by 🐜</p>
-			</div>
-			<p class="italic text-xs">Designed & developed by Cristhian Flores</p>
-		</section>
+	<footer class="flex flex-col text-center bg-item p-6 ">
+		<div class="font-bold">
+			<p>&copy; 2022 BachaCode</p>
+			<p>Website powered by 🐜</p>
+		</div>
+		<p class="italic text-xs">Designed & developed by Cristhian Flores</p>
 	</footer>
 </body>
 
 <style is:global>
-	* {
-		scroll-behavior: smooth;
+    * {
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply text-secondary bg-body font-text overflow-x-hidden
+    }
+    h1{
+        @apply mt-8 p-6 text-2xl md:text-6xl font-title text-primary
+    } 
+    h2 {
+        @apply mt-8 p-6 text-2xl md:text-6xl font-title text-primary
+    }
+    p{
+      @apply text-sm md:text-base
+    }
+    ::-webkit-scrollbar{
+    @apply w-4 h-2 bg-item
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    @apply rounded-lg bg-primary
+    }
+
+	.section{
+		@apply opacity-0 transition-all motion-reduce:transition-none blur-sm duration-1000
 	}
 
-	.titles {
-		@apply mt-8 p-6 text-4xl md:text-6xl font-title text-primary
+	.section-about{
+		@apply -translate-x-full
 	}
 
-	body {
-		@apply text-secondary bg-body font-text
+	.show{
+		@apply opacity-100 blur-0 translate-x-0
 	}
 
-	@font-face {
-  font-family: 'icomoon';
-  src:  url('/fonts/icomoon.eot?47t0jb');
-  src:  url('/fonts/icomoon.eot?47t0jb#iefix') format('embedded-opentype'),
-    url('/fonts/icomoon.ttf?47t0jb') format('truetype'),
-    url('/fonts/icomoon.woff?47t0jb') format('woff'),
-    url('/fonts/icomoon.svg?47t0jb#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+@font-face {
+font-family: 'icomoon';
+src:  url('/fonts/icomoon.eot?47t0jb');
+src:  url('/fonts/icomoon.eot?47t0jb#iefix') format('embedded-opentype'),
+url('/fonts/icomoon.ttf?47t0jb') format('truetype'),
+url('/fonts/icomoon.woff?47t0jb') format('woff'),
+url('/fonts/icomoon.svg?47t0jb#icomoon') format('svg');
+font-weight: normal;
+font-style: normal;
+font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+/* use !important to prevent issues with browser extensions that change fonts */
+font-family: 'icomoon' !important;
+speak: never;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Better Font Rendering =========== */
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
 .icon-alpinejs:before {
-  content: "\e900";
-  color: #f6f6e9;
+content: "\e900";
+color: #f6f6e9;
 }
 .icon-burgermenu:before {
-  content: "\e901";
+content: "\e901";
 }
 .icon-canva:before {
-  content: "\e902";
-  color: #f6f6e9;
+content: "\e902";
+color: #f6f6e9;
 }
 .icon-chevdown:before {
-  content: "\e903";
+content: "\e903";
 }
 .icon-close:before {
-  content: "\e904";
+content: "\e904";
 }
 .icon-css:before {
-  content: "\e905";
-  color: #f6f6e9;
+content: "\e905";
+color: #f6f6e9;
 }
 .icon-external-link:before {
-  content: "\e906";
+content: "\e906";
 }
 .icon-envelope:before {
-  content: "\e907";
+content: "\e907";
 }
 .icon-figma:before {
-  content: "\e908";
+content: "\e908";
 }
 .icon-git:before {
-  content: "\e909";
-  color: #f6f6e9;
+content: "\e909";
+color: #f6f6e9;
 }
 .icon-github:before {
-  content: "\e90a";
+content: "\e90a";
 }
 .icon-html:before {
-  content: "\e90b";
-  color: #f6f6e9;
+content: "\e90b";
+color: #f6f6e9;
 }
 .icon-js:before {
-  content: "\e90c";
-  color: #f6f6e9;
+content: "\e90c";
+color: #f6f6e9;
 }
 .icon-language:before {
-  content: "\e90d";
+content: "\e90d";
 }
 .icon-laravel:before {
-  content: "\e90e";
+content: "\e90e";
 }
 .icon-linkedin:before {
-  content: "\e90f";
+content: "\e90f";
 }
 .icon-mysql:before {
-  content: "\e910";
-  color: #f6f6e9;
+content: "\e910";
+color: #f6f6e9;
 }
 .icon-php:before {
-  content: "\e911";
-  color: #f6f6e9;
+content: "\e911";
+color: #f6f6e9;
 }
 .icon-postgresql:before {
-  content: "\e912";
-  color: #f6f6e9;
+content: "\e912";
+color: #f6f6e9;
 }
 .icon-tailwind:before {
-  content: "\e913";
-  color: #f6f6e9;
+content: "\e913";
+color: #f6f6e9;
 }
 .icon-terminal:before {
-  content: "\e914";
+content: "\e914";
 }
 .icon-vsc:before {
-  content: "\e915";
+content: "\e915";
 }
 .icon-vue:before {
-  content: "\e916";
-  color: #f6f6e9;
+content: "\e916";
+color: #f6f6e9;
 }
 </style>
+
 </html>
