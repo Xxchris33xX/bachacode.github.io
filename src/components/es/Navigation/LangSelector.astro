@@ -7,7 +7,7 @@
             <button x-on:click="open = !open"><span class="fi fi-es mx-1"></span>ES<i class="mx-0.5" x-bind:class="open ? 'icon-close' : 'icon-chevdown'"></i></button>
         </div>
         <template x-teleport="header">
-            <ul x-show="open" class="fixed right-28 top-16 bg-item py-6 px-14 border rounded-lg border-primary" x-on:click.outside="open = false" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.200ms>
+            <ul x-show="open" class="fixed z-50 right-28 top-16 bg-item py-6 px-14 border rounded-lg border-primary" x-on:click.outside="open = false" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.200ms>
                 <li>
                     <button x-on:click="open = !open" class="cursor-pointer"><span class="fi fi-es cursor-pointer mx-1"></span>Español</button>
                 </li>
