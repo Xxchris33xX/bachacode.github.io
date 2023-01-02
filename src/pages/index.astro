@@ -94,20 +94,20 @@ import "@fontsource/jetbrains-mono";
 
 		<!-- Sección sobre mi -->
 		<h2 id="about-me" class="titles">01 - Sobre Mi</h2>
-		<AboutMeSection client:visible />
+		<AboutMeSection />
 
 		
 		<!-- Sección de habilidades -->
 		<h2 id="skills" class="titles">02 - Habilidades</h2>
-		<SkillsSection client:visible />
+		<SkillsSection />
 
 		<!-- Sección de proyectos -->
 		<h2 id="projects" class="titles">03 - Proyectos</h2>
-		<ProjectsSection client:visible/>
+		<ProjectsSection/>
 
 		<!-- Sección de contactos -->
 		<h2 id="contacts" class="titles">04 - Contactos</h2>
-		<ContactsSection client:visible/>
+		<ContactsSection/>
 	</main>
 	<footer class="flex flex-col text-center bg-item p-6">
 			<div class="font-bold">
@@ -195,6 +195,11 @@ line-height: 1;
 content: "\e900";
 color: #f6f6e9;
 }
+
+.icon-download:before {
+  content: "\e917";
+}
+
 .icon-burgermenu:before {
 content: "\e901";
 }

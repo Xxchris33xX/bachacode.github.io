@@ -1,5 +1,5 @@
 <script>
-document.addEventListener('alpine:init', () => {
+    document.addEventListener('alpine:init', () => {
         Alpine.data('Projects', () => ({
             init() {
                 async function getProjects() {
@@ -17,46 +17,92 @@ document.addEventListener('alpine:init', () => {
     })
 </script>
 
-<section x-data="Projects" class="flex flex-col items-center mx-auto px-6 pt-16 space-y-4 md:space-y-0 md:space-x-6">
-    <div class="bg-item p-6 rounded-lg border-2 border-secondary mb-10">
+<section x-data="Projects" class="flex flex-col items-center mx-auto px-6 pt-16 space-y-4 md:space-x-6">
+    <div class="bg-item p-6 rounded-lg border-2 border-secondary">
         <h3>Proyectos destacados</h3>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
-    <template x-for="project in projects">
-        <template x-if="project.isStarred">
-            <div class="flex flex-col md:w-96 space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
-                <div class="flex justify-between text-xl md:text-2xl">
-                    <h3 x-text="project.title">Mar Caribe Center</h3>
-                    <div id="links" class="text-primary">
-                        <template x-if="project.isHosted">
-                            <a target="_blank" x-bind:href="project.link" class="icon-external-link"></a>
-                        </template>
-                        <template x-if="!project.isHosted">
-                            <button class="icon-external-link text-gray-500" disabled></button>
-                        </template>
-                        <a target="_blank" x-bind:href="project.github" class="icon-github"></a>
+    <div class="flex flex-col w-11/12 space-y-3">
+        <template x-for="project in projects">
+            <template x-if="project.isStarred">
+                <!-- Project -->
+                <div
+                    class="flex flex-col items-center md:flex-row justify-between bg-item border-2 border-secondary rounded-lg">
+                    <!-- Title + Links-->
+                    <div class="flex flex-col space-y-3 text-xl md:text-2xl items-center text-center md:text-left md:items-start p-6">
+                        <h3 class="text-primary">¡Destacado!</h3>
+                        <h3 x-text="project.title" class="font-bold text-4xl">Mar Caribe Center</h3>
+                        <div class="flex flex-col space-y-1 border-t-2 border-primary pt-2 w-full items-start">
+                            <template x-if="project.link != null">
+                                <a target="_blank" x-bind:href="project.link"
+                                    class="icon-external-link text-primary"><span class="font-text"> Enlace a la
+                                        pagina</span></a>
+                            </template>
+                            <template x-if="project.link == null">
+                                <button class="icon-external-link text-gray-500" disabled><span class="font-text"> ¡Sin
+                                        enlace!</span></button>
+                            </template>
+                            <a target="_blank" x-bind:href="project.github" class="icon-github text-primary"><span
+                                    class="font-text"> Repositorio</span></a>
+                        </div>
+                        <!-- Tags -->
+                        <h3 class="border-t-2 border-primary pt-2 w-full">Tecnologías</h3>
+                        <div id="tags"
+                            class="flex flex-wrap text-xs p-2 border-dotted border-2 rounded-lg border-primary">
+                            <template x-for="tag in project.tags">
+                                <span x-text="tag"
+                                    class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">Tag</span>
+                            </template>
+                        </div>
+                    </div>
+                    <!-- Description + Image -->
+                    <div class="flex flex-col justify-center items-center md:justify-end w-full md:w-8/12 h-96 pt-6 mt-4 md:ml-4 rounded-t-3xl md:rounded-tr-none bg-cover bg-center"
+                        x-bind:style="`background-image: url(${project.img});`">
+                        <div class="flex flex-col justify-end bg-gradient-to-t from-black via-item w-full h-96">
+                            <p class="text-sm sm:text-base md:text-xl pb-3 scale-90" x-text="project.description"></p>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <p x-init="project.minContent = project.description.slice(0, maxLength);">
-                        <span
-                        x-transition:enter="transition-all ease-in duration-500"
-                        x-transition:enter-start="opacity-0 blur-sm translate-x-full"
-                        x-transition:enter-end="opacity-100 blur-0 translate-x-0"
-                        class="overflow-hidden" x-text="project.isCollapsed ? project.description : project.minContent"></span>
-                        <button class="text-highlight" x-show="project.description.length > maxLength" x-on:click="project.isCollapsed = !project.isCollapsed" x-text="project.isCollapsed ? 'Ver menos' : '...Ver más'"></button>
-                    </p>
-                </div>
-                <div id="tags" class="flex flex-wrap text-xs">
-                <template x-for="tag in project.tags">
-                        <span x-text="tag" class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">Tag</span>
-                    </template>
-                </div>
-            </div>
+            </template>
         </template>
-    </template>
+    </div>
     <div class="bg-item p-6 rounded-lg border-2 border-secondary mb-10">
         <h3>Otros proyectos</h3>
     </div>
-</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
+        <template x-for="project in projects">
+            <template x-if="!project.isStarred">
+                <div class="flex flex-col md:w-96 md:h-96 justify-around space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
+                    <div class="flex justify-between text-xl md:text-2xl">
+                        <h3 x-text="project.title">Mar Caribe Center</h3>
+                        <div id="links" class="text-primary">
+                            <template x-if="project.link != null">
+                                <a target="_blank" x-bind:href="project.link" class="icon-external-link"></a>
+                            </template>
+                            <template x-if="project.link == null">
+                                <button class="icon-external-link text-gray-500" disabled></button>
+                            </template>
+                            <a target="_blank" x-bind:href="project.github" class="icon-github"></a>
+                        </div>
+                    </div>
+                    <div>
+                        <p x-init="project.minContent = project.description.slice(0, maxLength);">
+                            <span x-transition:enter="transition-all ease-in duration-500"
+                                x-transition:enter-start="opacity-0 blur-sm translate-x-full"
+                                x-transition:enter-end="opacity-100 blur-0 translate-x-0" class="overflow-hidden"
+                                x-text="project.isCollapsed ? project.description : project.minContent"></span>
+                            <button class="text-highlight" x-show="project.description.length > maxLength"
+                                x-on:click="project.isCollapsed = !project.isCollapsed"
+                                x-text="project.isCollapsed ? 'Ver menos' : '...Ver más'"></button>
+                        </p>
+                    </div>
+                    <div id="tags" class="flex flex-wrap text-xs">
+                        <template x-for="tag in project.tags">
+                            <span x-text="tag"
+                                class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">Tag</span>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </template>
+    </div>
 </section>

@@ -3,10 +3,9 @@
         "title":"Mar Caribe Center",
         "description":"Este proyecto es un Portal Web que tiene como objetivo la exposición de precios y disponibilidad de productos del local de la empresa \"Mar Caribe Center\", fue desarrollado con PHP puro, Bootstrap y algunas librerias de JavaScript como DataTables y Jquery, este fue mi primer proyecto y no posee la seguridad adecuada por la ausencia de un framework de back-end.",
         "isCollapsed": false,
-        "isHosted":true,
         "isStarred":true,
-        "minContent": "",
-        "link": "http://marcaribecenter.cf",
+        "img":"/imgs/mar-caribe-center.webp",
+        "link": null,
         "github":"https://github.com/bachacode/portal-web-mar-caribe",
         "tags":[
             "HTML", "CSS", "JavaScript", "PHP"
@@ -16,24 +15,60 @@
         "title":"BachaCode",
         "description":"Este portafolios es una pagina web estatica generada con Astro, empezo como uno de los primeros proyectos que hice por mi cuenta y fue desarrollado con TailwindCSS, AlpineJS, y Astro como fue mencionado previamente, ¡es un proyecto personal en constante evolución que utilizo para aprender y mostrar cosas nuevas!",
         "isCollapsed": false,
-        "isHosted":true,
         "isStarred":true,
+        "img":"/imgs/herosec-tobi-mobile.webp",
         "link": "https://bachacode.github.io",
         "github":"https://github.com/bachacode/bachacode.github.io",
         "tags":[
-            "HTML", "Tailwind", "JavaScript", "AlpineJS"
+            "HTML", "TailwindCSS", "JavaScript", "AlpineJS"
         ]
     },
     {
-        "title":"test",
-        "description":"Este portafolios es una pagina web estatica generada con Astro, empezo como uno de los primeros proyectos que hice por mi cuenta y fue desarrollado con TailwindCSS, AlpineJS, y Astro como fue mencionado previamente, ¡es un proyecto personal en constante evolución que utilizo para aprender y mostrar cosas nuevas!",
+        "title":"PHPetite",
+        "description":"PHPetite es un framework de PHP para crear sitios web utilizando la arquitectura MVC, cuenta con un enrutador que permite manejar las peticiones HTTP de forma segura y eficaz, ¡todavia esta en desarrollo y contara con mas funciones a futuro!",
         "isCollapsed": false,
-        "isHosted":false,
         "isStarred":false,
-        "link": "https://bachacode.github.io",
-        "github":"https://github.com/bachacode/bachacode.github.io",
+        "img": null,
+        "link": null,
+        "github":"https://github.com/phpetite/phpetite",
         "tags":[
-            "HTML", "Tailwind", "JavaScript", "AlpineJS"
+            "PHP", "MVC", "OOP"
+        ]
+    },
+    {
+        "title":"Sorting Visualizer",
+        "description":"Pequeña aplicación hecha con JavaScript Vanilla que permite ordenar arreglos aleatorios de forma ascendente utilizando el algoritmo de ordenado \"Bubble Sort\".",
+        "isCollapsed": false,
+        "isStarred":false,
+        "img": null,
+        "link": "https://bachacode.github.io/sorting-visualizer/",
+        "github":"https://github.com/bachacode/sorting-visualizer",
+        "tags":[
+            "JavaScript", "HTML", "CSS"
+        ]
+    },
+    {
+        "title":"Lista de tareas",
+        "description":"Aplicación web de JavaScript que permite guardar una lista de tareas pendientes separadas por categorías y que se guardan en el local storage por lo que son persistentes entre sesiones.",
+        "isCollapsed": false,
+        "isStarred":false,
+        "img": null,
+        "link": "https://bachacode.github.io/todo-app-js/",
+        "github":"https://github.com/bachacode/todo-app-js",
+        "tags":[
+            "JavaScript", "HTML", "TailwindCSS"
+        ]
+    },
+    {
+        "title":"Blog Laravel",
+        "description":"Blog desarrollado en Laravel con la finalidad de aprender las bases del framework y el stack TALL, no es funcional y fue desarrollado unicamente con fines de aprendizaje.",
+        "isCollapsed": false,
+        "isStarred":false,
+        "img": null,
+        "link": null,
+        "github":"https://github.com/bachacode/blog",
+        "tags":[
+            "AlpineJS", "TailwindCSS", "Laravel", "Livewire"
         ]
     }
 ]
