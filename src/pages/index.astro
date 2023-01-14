@@ -26,13 +26,13 @@ import "@fontsource/jetbrains-mono";
 		element.classList.add('hidden');
 	}
 
-	document.addEventListener('DOMContentLoaded', () =>
-		wait(300).then(() => {
+	document.addEventListener('alpine:init', () =>
+		wait(100).then(() => {
 			window.scrollTo(0, 0);
 	}));
 
-	document.addEventListener('DOMContentLoaded', () =>
-		wait(1000).then(() => {
+	document.addEventListener('alpine:init', () =>
+		wait(300).then(() => {
 			setVisible('.page', true);
 			setVisible('#loading', false);
 	}));
