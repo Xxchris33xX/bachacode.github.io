@@ -1,11 +1,11 @@
 ---
 // Section Imports
 import Navigation from '@es/Navigation/index.astro';
-import HeroSection from '@es/HeroSection/index.astro';
-import AboutMeSection from '@es/AboutMeSection/index.astro';
-import SkillsSection from '@es/SkillsSection/index.astro';
-import ContactsSection from '@es/ContactsSection/index.astro';
-import ProjectsSection from '@es/ProjectsSection/index.astro';
+import Hero from '@es/Hero/index.astro';
+import AboutMe from '@es/AboutMe/index.astro';
+import Skills from '@es/Skills/index.astro';
+import Contacts from '@es/Contacts/index.astro';
+import Projects from '@es/Projects/index.astro';
 // Font Imports
 import "@fontsource/dotgothic16";
 import "@fontsource/jetbrains-mono";
@@ -18,7 +18,6 @@ import "@fontsource/jetbrains-mono";
 	const setVisible = (elementOrSelector: any, visible: boolean) => {
 	let element = document.querySelector(elementOrSelector);
 	if (visible) {
-		element.classList.remove('escondio');
 		element.classList.add('loaded');
 		document.body.classList.remove('overflow-hidden');
 	}
@@ -70,9 +69,7 @@ import "@fontsource/jetbrains-mono";
 
 
 <body class="overflow-hidden">
-
 	<!-- Loading Circle -->
-
 	<div id="loading" class="flex fixed z-40 text-center items-center w-full h-full bg-opacity-10 backdrop-filter backdrop-blur-2xl">	
 		<div role="status" class="flex items-center justify-center h-[20%] w-full">
 			<svg aria-hidden="true" class="inline mr-2 w-52 h-52 text-gray-200 animate-spin dark:text-item fill-primary" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,41 +80,38 @@ import "@fontsource/jetbrains-mono";
 		</div>
 	</div>
 
-	
+	<!-- Header -->
 	<header>
 		<Navigation />
 	</header>
+	<!-- All Content -->
 	<div class="page">
-	<main>
-		<!-- Sección principal -->
-      <HeroSection />
-
-		<!-- Sección sobre mi -->
-		<h2 id="about-me" class="titles">01 - Sobre Mi</h2>
-		<AboutMeSection />
-
-		
-		<!-- Sección de habilidades -->
-		<h2 id="skills" class="titles">02 - Habilidades</h2>
-		<SkillsSection />
-
-		<!-- Sección de proyectos -->
-		<h2 id="projects" class="titles">03 - Proyectos</h2>
-		<ProjectsSection/>
-
-		<!-- Sección de contactos -->
-		<h2 id="contacts" class="titles">04 - Contactos</h2>
-		<ContactsSection/>
-	</main>
-	<footer class="flex flex-col text-center bg-item p-6">
+	<!-- Main Content -->
+		<main>
+			<!-- Sección principal -->
+		<Hero />
+			<!-- Sección sobre mi -->
+			<h2 id="about-me" class="titles">01 - Sobre Mi</h2>
+			<AboutMe />
+			<!-- Sección de habilidades -->
+			<h2 id="skills" class="titles">02 - Habilidades</h2>
+			<Skills />
+			<!-- Sección de proyectos -->
+			<h2 id="projects" class="titles">03 - Proyectos</h2>
+			<Projects/>
+			<!-- Sección de contactos -->
+			<h2 id="contacts" class="titles">04 - Contactos</h2>
+			<Contacts/>
+		</main>
+		<!-- Footer -->
+		<footer class="flex flex-col text-center bg-item p-6">
 			<div class="font-bold">
 				<p>&copy; 2022 BachaCode</p>
 				<p>Website powered by 🐜</p>
 			</div>
 			<p class="italic text-xs">Diseñado y desarrollado por Cristhian Flores</p>
-	</footer>
-</div>
-
+		</footer>
+	</div>
 </body>
 
 <style is:global>
