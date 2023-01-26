@@ -1,9 +1,9 @@
 <script>
-    document.addEventListener('alpine:init', () => {
+document.addEventListener('alpine:init', () => {
         Alpine.data('Projects', () => ({
             init() {
                 async function getProjects() {
-                    const response = await fetch('/locale/es/projects/projects.json');
+                    const response = await fetch('/locale/en/projects/projects.json');
                     const projects = await response.json();
                     return projects;
                 }
@@ -12,29 +12,27 @@
                 }).then(() => this.loaded = true).catch(() => this.loaded = false)
             },
             maxLength: 240,
-            loaded: false,
             projects: [],
-            starredProjects: [],
-
-        }))
+            loaded: false,
+        })),
         Alpine.data('Magic', () => ({
             index: 0,
             stars: 3,
             interval: 2000,
             methods: {
-                rand(min: number, max: number) {
-                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                rand(min: number, max: number){
+                 return Math.floor(Math.random() * (max - min + 1)) + min;
                 },
-                animate(star: Element) {
+                animate(star: Element){
                     star.style.setProperty('left', `${this.rand(-10, 100)}%`);
                     star.style.setProperty('top', `${this.rand(-40, 80)}%`);
-
+    
                     star.style.animation = "none";
                     star.offsetHeight;
                     star.style.animation = "";
                 },
             },
-            sparks(star: Element) {
+            sparks(star: Element){
                 setTimeout(() => {
                     this.methods.animate(star);
                     setInterval(() => this.methods.animate(star), this.interval)

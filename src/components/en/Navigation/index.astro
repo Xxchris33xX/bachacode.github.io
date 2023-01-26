@@ -5,10 +5,10 @@ import BurgerMenu from './BurgerMenu.astro';
 ---
 
 <script>
-document.addEventListener('alpine:init', () => {
+    document.addEventListener('alpine:init', () => {
         Alpine.data('scroll', () => ({
-            init(){
-                this.scrollFunction()
+            init() {
+                this.scrollFunction();
             },
             scrollFunction() {
                 if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -16,41 +16,53 @@ document.addEventListener('alpine:init', () => {
                 } else {
                     this.$refs.navbar.classList.remove("scrolled-navbar");
                 }
-                
+
+            }
+        }))
+        Alpine.data('modal', () => ({
+            open: false,
+            toggle() {
+                this.open = !this.open
+            },
+            close() {
+                this.open = false
             }
         }))
     })
 </script>
 
-<nav x-data="scroll" x-ref="navbar" x-on:scroll.window="scrollFunction" class="fixed z-50 overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700  font-text">
+<nav x-data="scroll" x-ref="navbar" x-on:scroll.window="scrollFunction"
+    class="fixed z-50 overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700  font-text">
     <div class="text-lg font-semibold">
         <a href="#">BachaCode</a>
     </div>
     <div class="flex space-x-3 items-center">
         <!-- Nav Links -->
-        <NavLinks/>
-        <LangSelector/>
-        <BurgerMenu/>
+        <NavLinks />
+        <LangSelector />
+        <BurgerMenu />
     </div>
 </nav>
 
 <style>
-    .scrolled-navbar{
-			--tw-bg-opacity: 0.7;
-			padding-top: 0.75rem;
-			padding-bottom: 0.75rem;
-			--tw-backdrop-blur: blur(16px);
-			-webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-			backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-		}
-        [x-cloak] {
-			display: none;
-		}
-		.selected-skill{
-			border-width: 2px;
-			--tw-border-opacity: 1;
-			border-color: rgb(237 91 45 / var(--tw-border-opacity));
-			--tw-text-opacity: 1;
-			color: rgb(237 91 45 / var(--tw-text-opacity));
-		}
+    .scrolled-navbar {
+        --tw-bg-opacity: 0.7;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        --tw-backdrop-blur: blur(16px);
+        -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+        backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    }
+
+    [x-cloak] {
+        display: none;
+    }
+
+    .selected-skill {
+        border-width: 2px;
+        --tw-border-opacity: 1;
+        border-color: rgb(237 91 45 / var(--tw-border-opacity));
+        --tw-text-opacity: 1;
+        color: rgb(237 91 45 / var(--tw-text-opacity));
+    }
 </style>

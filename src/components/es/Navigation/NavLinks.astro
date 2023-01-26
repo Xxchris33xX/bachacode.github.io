@@ -1,5 +1,5 @@
 ---
-import { navigateES } from "@content/navigation.js";
+import { navigateES as navigation } from "@content/navigation";
 ---
 
 <script>
@@ -21,8 +21,8 @@ import { navigateES } from "@content/navigation.js";
 </script>
 
 <div x-data="selectedSection" x-on:scroll.window.throttle.25ms="updateList" class="hidden md:flex space-x-6 items-center">
-    {navigateES.map((item: any) => (
-        <a href={item.href} class="nav-option hover:transition-all text-sm lg:text-base hover:text-highlight hover:border-b-2 hover:border-b-highlight">{item.text}</a>
+    {navigation.map((link: any) => (
+        <a href={link.href} class="nav-option hover:transition-all text-sm lg:text-base hover:text-highlight hover:border-b-2 hover:border-b-highlight">{link.text}</a>
       ))}
 </div>
 
