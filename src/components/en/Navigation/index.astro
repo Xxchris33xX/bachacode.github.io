@@ -2,6 +2,7 @@
 import NavLink from './NavLink.astro';
 import LangSelector from './LangSelector.astro';
 import BurgerMenu from './BurgerMenu.astro';
+import { navigateEN as navigation } from "@content/navigation";
 ---
 
 <script>
@@ -44,8 +45,7 @@ import BurgerMenu from './BurgerMenu.astro';
     })
 </script>
 
-<nav x-data="scroll" x-ref="navbar" x-on:scroll.window="scrollFunction"
-    class="fixed z-50 overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700  font-text">
+<nav x-data="scroll" x-ref="navbar" x-on:scroll.window="scrollFunction" class="fixed z-50 overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700  font-text">
     <div class="text-lg font-semibold">
         <a href="#">BachaCode</a>
     </div>
