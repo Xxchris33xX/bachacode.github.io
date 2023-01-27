@@ -1,168 +1,46 @@
-<script>
-document.addEventListener('alpine:init', () => {
-        Alpine.data('Projects', () => ({
-            init() {
-                async function getProjects() {
-                    const response = await fetch('/locale/en/projects/projects.json');
-                    const projects = await response.json();
-                    return projects;
-                }
-                getProjects().then(projects => {
-                    this.projects = projects;
-                }).then(() => this.loaded = true).catch(() => this.loaded = false)
-            },
-            maxLength: 240,
-            projects: [],
-            loaded: false,
-        })),
-        Alpine.data('Magic', () => ({
-            index: 0,
-            stars: 3,
-            interval: 2000,
-            methods: {
-                rand(min: number, max: number){
-                 return Math.floor(Math.random() * (max - min + 1)) + min;
-                },
-                animate(star: Element){
-                    star.style.setProperty('left', `${this.rand(-10, 100)}%`);
-                    star.style.setProperty('top', `${this.rand(-40, 80)}%`);
-    
-                    star.style.animation = "none";
-                    star.offsetHeight;
-                    star.style.animation = "";
-                },
-            },
-            sparks(star: Element){
-                setTimeout(() => {
-                    this.methods.animate(star);
-                    setInterval(() => this.methods.animate(star), this.interval)
-                }, this.index++ * (this.interval / 3))
-            }
-        }))
-    })
-</script>
+---
+import StarredProject from "./starredProject.astro";
+import BasicProject from "./basicProject.astro";
+import { starredProjectsEN } from "@content/projects";
+import { basicProjectsEN } from "@content/projects";
+---
 
-<div x-data="Projects">
-    <!-- Loading Circle -->
-    <div x-show="!loaded" id="loading" class="text-center items-center w-full h-full bg-opacity-10">
-        <div role="status" class="flex items-center justify-center h-[33%] w-full">
-            <svg aria-hidden="true" class="inline mr-2 w-52 h-52 text-gray-200 animate-spin dark:text-item fill-primary"
-                viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                    fill="currentColor" />
-                <path
-                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                    fill="currentFill" />
-            </svg>
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
+<div>
     <!-- Content -->
-    <div x-show="loaded" class="flex flex-col items-center mx-auto px-6 pt-16 space-y-4">
+    <div class="flex flex-col items-center mx-auto px-6 pt-16 space-y-4">
         <div class="bg-item p-6 rounded-lg border-2 border-secondary">
-            <h3>Proyectos destacados</h3>
+            <h3>Starred Projects</h3>
         </div>
-        <div class="flex flex-col w-11/12 space-y-3">
-            <template x-for="project in projects">
-                <template x-if="project.isStarred">
-                    <!-- Project -->
-                    <div
-                        class="flex flex-col items-center md:flex-row justify-between bg-item border-2 border-secondary rounded-lg">
-                        <!-- Title + Links-->
-                        <div
-                            class="flex flex-col space-y-3 text-xl md:text-2xl items-center text-center md:text-left md:items-start p-6">
-                            <div x-data="Magic" class="inline-block relative">
-                                <template x-for="star in stars">
-                                    <span x-init="$nextTick(sparks($el))"
-                                        class="magic-star block h-4 w-4 absolute animate-scale-full top-0 left-0">
-                                        <svg viewBox="0 0 512 512" class="block opacity-70 animate-spin-half">
-                                            <path class="fill-primary"
-                                                d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                                        </svg>
-                                    </span>
-                                </template>
-                                <h3
-                                    class="bg-gradient-to-r bg-clip-text from-primary via-body to-primary text-transparent bg-[length:200%] animate-gradient">
-                                    ¡Destacado!</h3>
-                            </div>
-                            <h3 x-text="project.title" class="font-bold text-4xl">Mar Caribe Center</h3>
-                            <div class="flex flex-col space-y-1 border-t-2 border-primary pt-2 w-full items-start">
-                                <template x-if="project.link != null">
-                                    <a target="_blank" x-bind:href="project.link"
-                                        class="icon-external-link text-primary"><span class="font-text"> Enlace a la
-                                            pagina</span></a>
-                                </template>
-                                <template x-if="project.link == null">
-                                    <button class="icon-external-link text-gray-500" disabled><span class="font-text">
-                                            ¡Sin
-                                            enlace!</span></button>
-                                </template>
-                                <a target="_blank" x-bind:href="project.github" class="icon-github text-primary"><span
-                                        class="font-text"> Repositorio</span></a>
-                            </div>
-                            <!-- Tags -->
-                            <h3 class="border-t-2 border-primary pt-2 w-full">Tecnologías</h3>
-                            <div id="tags"
-                                class="flex flex-wrap text-xs p-2 border-dotted border-2 rounded-lg border-primary">
-                                <template x-for="tag in project.tags">
-                                    <span x-text="tag"
-                                        class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">Tag</span>
-                                </template>
-                            </div>
-                        </div>
-                        <!-- Description + Image -->
-                        <div class="flex flex-col justify-center items-center md:justify-end w-full md:w-8/12 h-96 pt-6 mt-4 md:ml-4 rounded-t-3xl md:rounded-tr-none bg-cover bg-center"
-                            x-bind:style="`background-image: url(${project.img});`">
-                            <div class="flex flex-col justify-end bg-gradient-to-t from-black via-item w-full h-96">
-                                <p class="text-sm sm:text-base md:text-xl pb-3 scale-90" x-text="project.description">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </template>
-            </template>
-        </div>
-        <div class="bg-item p-6 rounded-lg border-2 border-secondary mb-10">
-            <h3>Otros proyectos</h3>
-        </div>
+    <div class="flex flex-col w-11/12 space-y-3">
+        <!-- Starred Project -->
+        {starredProjectsEN.map((starredProject) => (
+            <StarredProject 
+            title={starredProject.title}
+            hasLink={starredProject.hasLink} 
+            link={starredProject.link} 
+            github={starredProject.github}
+            tags={starredProject.tags}
+            img={starredProject.img}
+            description={starredProject.description}
+            >
+            </StarredProject>
+         ))}
+    </div>
+    <div class="bg-item p-6 rounded-lg border-2 border-secondary mb-10">
+        <h3>Other Projects</h3>
+    </div>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
-            <template x-for="project in projects">
-                <template x-if="!project.isStarred">
-                    <div
-                        class="flex flex-col md:w-96 md:h-96 justify-around space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
-                        <div class="flex justify-between text-xl md:text-2xl">
-                            <h3 x-text="project.title">Mar Caribe Center</h3>
-                            <div id="links" class="text-primary">
-                                <template x-if="project.link != null">
-                                    <a target="_blank" x-bind:href="project.link" class="icon-external-link"></a>
-                                </template>
-                                <template x-if="project.link == null">
-                                    <button class="icon-external-link text-gray-500" disabled></button>
-                                </template>
-                                <a target="_blank" x-bind:href="project.github" class="icon-github"></a>
-                            </div>
-                        </div>
-                        <div>
-                            <p x-init="project.minContent = project.description.slice(0, maxLength);">
-                                <span x-transition:enter="transition-all ease-in duration-500"
-                                    x-transition:enter-start="opacity-0 blur-sm translate-x-full"
-                                    x-transition:enter-end="opacity-100 blur-0 translate-x-0" class="overflow-hidden"
-                                    x-text="project.isCollapsed ? project.description : project.minContent"></span>
-                                <button class="text-highlight" x-show="project.description.length > maxLength"
-                                    x-on:click="project.isCollapsed = !project.isCollapsed"
-                                    x-text="project.isCollapsed ? 'Ver menos' : '...Ver más'"></button>
-                            </p>
-                        </div>
-                        <div id="tags" class="flex flex-wrap text-xs">
-                            <template x-for="tag in project.tags">
-                                <span x-text="tag"
-                                    class="bg-item py-1 px-2 m-1 rounded-xl border-secondary border">Tag</span>
-                            </template>
-                        </div>
-                    </div>
-                </template>
-            </template>
+            {basicProjectsEN.map((starredProject) => (
+                <BasicProject 
+                title={starredProject.title}
+                hasLink={starredProject.hasLink} 
+                link={starredProject.link} 
+                github={starredProject.github}
+                tags={starredProject.tags}
+                description={starredProject.description}
+                >
+                </BasicProject>
+             ))}
         </div>
     </div>
 </div>
