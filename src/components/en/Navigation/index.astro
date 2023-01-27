@@ -28,6 +28,19 @@ import BurgerMenu from './BurgerMenu.astro';
                 this.open = false
             }
         }))
+        Alpine.data('selectedSection', () => ({
+            init(){
+                this.updateList()
+            },
+            updateList() {
+                const titles = [...document.querySelectorAll('h2')].sort((a, b) => {
+                return Math.abs(a.getBoundingClientRect().top) - Math.abs(b.getBoundingClientRect().top);
+                });
+                let id = [...document.querySelectorAll('h2')].indexOf(titles[0]);
+                document.querySelectorAll(".selected-option").forEach(c => c.classList.remove("selected-option"));
+                document.querySelectorAll(".nav-option")[id].classList.add("selected-option");
+            }
+        }))
     })
 </script>
 
@@ -38,8 +51,14 @@ import BurgerMenu from './BurgerMenu.astro';
     </div>
     <div class="flex space-x-3 items-center">
         <!-- Nav Links -->
-        <NavLinks />
+        <div x-data="selectedSection" x-on:scroll.window.throttle.25ms="updateList" class="hidden md:flex space-x-6 items-center">
+            {navigation.map((link: any) => (
+            <NavLink href={link.href} text={link.text}/>
+            ))}
+        </div>
+        <!-- Lang Selector -->
         <LangSelector />
+        <!-- Burger Menu -->
         <BurgerMenu />
     </div>
 </nav>

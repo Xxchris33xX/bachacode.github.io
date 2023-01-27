@@ -22,8 +22,6 @@ document.addEventListener('alpine:init', () =>
 		setVisible('#loading', false);
 	}));
 
-
-
 document.addEventListener('alpine:init', () => {
 	const observer = new IntersectionObserver((e) => {
 		e.forEach((entry) => {
