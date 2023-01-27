@@ -29,18 +29,18 @@ import { basicProjectsES } from "@content/projects";
     <div class="bg-item p-6 rounded-lg border-2 border-secondary mb-10">
         <h3>Otros proyectos</h3>
     </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
-            {basicProjectsES.map((starredProject) => (
-                <BasicProject 
-                title={starredProject.title}
-                hasLink={starredProject.hasLink} 
-                link={starredProject.link} 
-                github={starredProject.github}
-                tags={starredProject.tags}
-                description={starredProject.description}
-                >
-                </BasicProject>
-             ))}
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
+        {basicProjectsES.map((starredProject) => (
+            <BasicProject 
+            title={starredProject.title}
+            hasLink={starredProject.hasLink} 
+            link={starredProject.link} 
+            github={starredProject.github}
+            tags={starredProject.tags}
+            description={starredProject.description}
+            >
+            </BasicProject>
+        ))}
         </div>
     </div>
 </div>

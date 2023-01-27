@@ -43,14 +43,15 @@ const { title, hasLink, link, github, tags, description } = Astro.props;
         </div>
     </div>
     <div x-data="minifiedContent">
-        <p x-init={`setMinifyContent(${description})`}>
+        <p x-init={`setMinifyContent('${description}')`}>
             <span x-transition:enter="transition-all ease-in duration-500"
                 x-transition:enter-start="opacity-0 blur-sm translate-x-full"
                 x-transition:enter-end="opacity-100 blur-0 translate-x-0" class="overflow-hidden"
-                x-text={`isCollapsed ? '${description}' : project.minContent`}></span>
-            <button class="text-highlight" x-show="lenght > maxLength"
+                x-text={`!isCollapsed ? '${description}' : minContent`}></span>
+            <button class="text-highlight" 
+                x-show="lenght > maxLength"
                 x-on:click="toggleShow()"
-                x-text="isCollapsed ? 'Ver menos' : '...Ver más'"></button>
+                x-text="!isCollapsed ? 'Ver menos' : '...Ver más'"></button>
         </p>
     </div>
     <div id="tags" class="flex flex-wrap text-xs">
