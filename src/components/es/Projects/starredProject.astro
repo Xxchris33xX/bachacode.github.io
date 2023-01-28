@@ -2,14 +2,13 @@
 import Tag from './tag.astro';
 interface Props {
     title: string;
-    hasLink: boolean;
     link?: string;
     github: string;
     tags: Array<string>;
     img: string;
     description: string;
 }
-const { title, hasLink, link, github, tags, img, description } = Astro.props;
+const { title, link, github, tags, img, description } = Astro.props;
 ---
 
 <script>
@@ -38,6 +37,11 @@ document.addEventListener('alpine:init', () => {
             }, this.index++ * (this.interval / 3))
         }
     }))
+    Alpine.data('hasLink', () => ({
+        hasLink(text: any){
+            return text.startsWith("https") ? true : false;
+        }
+    }))
 })
 </script>
 
@@ -58,14 +62,14 @@ document.addEventListener('alpine:init', () => {
         </div>
         <!-- Title + Links -->
         <h3 class="font-bold text-4xl">{title}</h3>
-        <div class="flex flex-col space-y-1 border-t-2 border-primary pt-2 w-full items-start">
-            <template x-if={`${hasLink} === true`}>
+        <div x-data="hasLink" class="flex flex-col space-y-1 border-t-2 border-primary pt-2 w-full items-start">
+            <template x-if={`hasLink('${link}')`}>
                 <a target="_blank" href={link} class="icon-external-link text-primary"><span class="font-text"> Enlace a la pagina</span></a>
             </template>
-            <template x-if={`${hasLink} === false`}>
-                <button class="icon-external-link text-gray-500" disabled><span class="font-text">¡Sin enlace!</span></button>
+            <template x-if={`!hasLink('${link}')`}>
+                <button class="icon-external-link text-gray-500" disabled><span class="font-text"> ¡Sin enlace!</span></button>
             </template>
-            <a target="_blank" href={github} class="icon-github text-primary"><span class="font-text">Repositorio</span></a>
+            <a target="_blank" href={github} class="icon-github text-primary"><span class="font-text"> Repositorio</span></a>
         </div>
         <!-- Tags -->
         <h3 class="border-t-2 border-primary pt-2 w-full">Tecnologías</h3>

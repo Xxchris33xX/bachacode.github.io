@@ -2,17 +2,16 @@
 import Tag from './tag.astro';
 interface Props {
     title: string;
-    hasLink: boolean;
     link?: string;
     github: string;
     tags: Array<string>;
     description: string;
 }
-const { title, hasLink, link, github, tags, description } = Astro.props;
+const { title, link, github, tags, description } = Astro.props;
 ---
 
 <script>
-    document.addEventListener('alpine:init', () => {
+document.addEventListener('alpine:init', () => {
     Alpine.data('minifiedContent', () => ({
         maxLength: 240,
         minContent: '',
@@ -26,17 +25,22 @@ const { title, hasLink, link, github, tags, description } = Astro.props;
             this.isCollapsed = !this.isCollapsed;
         }
     }))
+    Alpine.data('hasLink', () => ({
+        hasLink(text: any){
+            return text.startsWith("https") ? true : false;
+        }
+    }))
 })
 </script>
 
 <div class="flex flex-col md:w-96 md:h-96 justify-around space-y-4 py-4 px-6 bg-item rounded-xl border-secondary border-2 shadow-2xl shadow-item">
     <div class="flex justify-between text-xl md:text-2xl">
         <h3>{title}</h3>
-        <div id="links" class="text-primary">
-            <template x-if={`${hasLink} === true`}>
+        <div x-data="hasLink" id="links" class="text-primary">
+            <template x-if={`hasLink('${link}')`}>
                 <a target="_blank" href={link} class="icon-external-link"></a>
             </template>
-            <template x-if={`${hasLink} === false`}>
+            <template x-if={`!hasLink('${link}')`}>
                 <button class="icon-external-link text-gray-500" disabled></button>
             </template>
             <a target="_blank" href={github} class="icon-github"></a>
