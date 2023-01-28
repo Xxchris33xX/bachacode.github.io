@@ -1,21 +1,15 @@
 ---
 import { skillTitlesES as skillTitles, skills } from "@content/skills";
+import { skillSelection } from "@content/skills";
 ---
 <script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('skills', () => ({
-            categories: [true, false, false, false, false],
-            toggle(id: number) {
-                for (let index = 0; index < this.categories.length; index++) {
-                    this.categories[index] = false;
-                }
-                this.categories[id] = !this.categories[id];
-            }
-        }))
-    })
+import skills from '@scripts/skills.js';
+document.addEventListener('alpine:init', () => {
+    Alpine.data('skills', skills);
+})
 </script>
 
-<div x-data="skills" class="flex flex-col justify-between items-center mx-auto px-6 pt-16 pb-3">
+<div x-data={`skills([${skillSelection}])`} class="flex flex-col justify-between items-center mx-auto px-6 pt-16 pb-3">
     <div class="flex flex-col items-center">
         <div
             class="flex flex-col bg-item border-third border-2 py-10 px-4 md:flex-row md:space-x-6 justify-center text-center shadow-lg shadow-item">

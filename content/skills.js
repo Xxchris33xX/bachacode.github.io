@@ -1,5 +1,6 @@
 export const skillTitlesES = ["Frontend", "Backend", "Base de datos", "Diseño", "Herramientas"];
 export const skillTitlesEN = ["Frontend", "Backend", "Database", "Design", "Tools"];
+export let skillSelection = [true, false, false, false, false];
 export const skills = [
     {
         "HTML": "icon-html",
