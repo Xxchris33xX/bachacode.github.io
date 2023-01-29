@@ -1,0 +1,11 @@
+---
+const { copyright, powered, author } = Astro.props
+---
+
+<footer class="footer flex flex-col text-center bg-item p-6">
+    <div class="font-bold">
+        <p>&#169; {copyright}</p>
+        <p>{powered}</p>
+    </div>
+    <p class="italic text-xs">{author}</p>
+</footer>

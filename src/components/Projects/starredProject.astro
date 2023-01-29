@@ -1,0 +1,67 @@
+---
+import Tag from './tag.astro';
+interface Props {
+    title: string;
+    link?: string;
+    github: string;
+    tags: Array<string>;
+    img: string;
+    description: string;
+    starredText: string;
+    linkText: string;
+    linkTextDisabled: string;
+    githubText: string;
+    technologiesText: string;
+}
+const { title, link, github, tags, img, description, starredText = "¡Destacado!", linkText = "Enlace a la pagina", linkTextDisabled = "¡Sin enlace!", githubText = "Repositorio", technologiesText = "Tecnologías" } = Astro.props;
+---
+
+<div class="flex flex-col items-center md:flex-row justify-between bg-item border-2 border-secondary rounded-lg">
+    <div class="flex flex-col space-y-3 text-xl md:text-2xl items-center text-center md:text-left md:items-start p-6">
+       <!-- Magic Stars -->
+        <div x-data="magic" class="inline-block relative">
+            <template x-for="star in stars">
+                <span x-init="$nextTick(sparks($el))"
+                    class="magic-star block h-4 w-4 absolute animate-scale-full top-0 left-0">
+                    <svg viewBox="0 0 512 512" class="block opacity-70 animate-spin-half">
+                        <path class="fill-primary"
+                            d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                    </svg>
+                </span>
+            </template>
+            <h3 class="bg-gradient-to-r bg-clip-text from-primary via-body to-primary text-transparent bg-[length:200%] animate-gradient">{starredText}</h3>
+        </div>
+        <!-- Title + Links -->
+        <h3 class="font-bold text-4xl">{title}</h3>
+        <div x-data="hasLink" class="flex flex-col space-y-1 border-t-2 border-primary pt-2 w-full items-start">
+            <template x-if={`hasLink('${link}')`}>
+                <a target="_blank" href={link} class="icon-external-link text-primary"><span class="font-text"> {linkText}</span></a>
+            </template>
+            <template x-if={`!hasLink('${link}')`}>
+                <button class="icon-external-link text-gray-500" disabled><span class="font-text"> {linkTextDisabled}</span></button>
+            </template>
+            <a target="_blank" href={github} class="icon-github text-primary"><span class="font-text"> {githubText}</span></a>
+        </div>
+        <!-- Tags -->
+        <h3 class="border-t-2 border-primary pt-2 w-full">{technologiesText}</h3>
+        <div id="tags" class="flex flex-wrap text-xs p-2 border-dotted border-2 rounded-lg border-primary">
+            {tags.map((tag: string) => (
+                <Tag text={tag}></Tag>
+                ))}
+        </div>
+    </div>
+    <!-- Description + Image -->
+    <div class="flex flex-col justify-center items-center md:justify-end w-full md:w-8/12 h-96 pt-6 mt-4 md:ml-4 rounded-t-3xl md:rounded-tr-none bg-cover bg-center"
+        style={`background-image: url(${img});`}>
+        <div class="flex flex-col justify-end bg-gradient-to-t from-black via-item w-full h-96">
+            <p class="text-sm sm:text-base md:text-xl pb-3 scale-90">{description}</p>
+        </div>
+    </div>
+</div>
+
+<style scoped>
+    .bg-clip-text{
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+</style>

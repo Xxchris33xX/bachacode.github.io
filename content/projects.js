@@ -80,7 +80,7 @@ export const starredProjectsEN = [{
 ]
 export const basicProjectsEN = [{
         "title": "PHPetite",
-        "description": "PHPetite is a PHP framework made to create websites with the MVC arquitecture, has a router that allows HTTP requests to be handled securely and efficiently. It is still in development and will have more features in the future.!",
+        "description": "PHPetite is a PHP framework made to create websites with the MVC arquitecture, has a router that allows HTTP requests to be handled securely and efficiently. It is still in development and will have more features in the future!",
         "link": null,
         "github": "https://github.com/phpetite/phpetite",
         "tags": [

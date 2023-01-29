@@ -1,36 +1,59 @@
 ---
-// Section Imports
-import Navigation from '@es/Navigation/index.astro';
-import Hero from '@es/Hero/index.astro';
-import AboutMe from '@es/AboutMe/index.astro';
-import Skills from '@es/Skills/index.astro';
-import Contacts from '@es/Contact/index.astro';
-import Projects from '@es/Projects/index.astro';
-import { dataES as head } from '@content/metadata';
-import { titlesES as titles, footerES as footer } from '@content/titles';
-// Font Imports
+// Navigation Component
+import Navigation from "@components/Navigation/index.astro";
+import BurgerMenu from "@components/Navigation/BurgerMenu.astro";
+import LangSelector from "@components/Navigation/LangSelector.astro";
+import { navigateES as navigation } from "@content/navigation";
+// Hero Component
+import Hero from "@components/hero.astro";
+// About Component
+import About from "@components/about.astro";
+// Skill Component
+import Skills from "@components/Skills/skills.astro";
+import SkillBar from "@components/Skills/skillBar.astro";
+import SkillGroups from "@components/Skills/skillGroups.astro";
+import { skillTitlesES as skillTitles, skills } from "@content/skills";
+// Project Component
+import Projects from "@components/Projects/index.astro";
+import StarredProject from "@components/Projects/starredProject.astro";
+import BasicProject from "@components/Projects/basicProject.astro";
+import { starredProjectsES as starredProjects } from "@content/projects";
+import { basicProjectsES as basicProjects } from "@content/projects";
+const { firstTitle = "Proyectos Destacados", secondTitle = "Otros Proyectos"} = Astro.params;
+const { starredProjectsText = [ "¡Destacado!", "Enlace a la pagina", "¡Sin enlace!", "Repositorio", "Tecnologías" ] } = Astro.params;
+// Contact Component
+import Contact from "@components/contact.astro";
+// Footer Component
+import Footer from "@components/footer.astro";
+// Font Imports & Styles
 import "@fontsource/dotgothic16";
 import "@fontsource/jetbrains-mono";
+import "../styles/styles.css";
+// Localization
+import i18next, { t, changeLanguage } from "i18next";
+import { HeadHrefLangs, LanguageSelector } from "astro-i18next/components";
+
+changeLanguage("es");
 ---
 <!DOCTYPE html>
-<html lang={head.lang}>
+<html lang={i18next.language}>
 
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/svg+xml" href="/ant.png" />
+	<link rel="icon" type="image/svg+xml" href="/favico.ico" />
 	<meta name="viewport" content="width=device-width" />
 	<meta name="generator" content={Astro.generator} />
 	<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
 		href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" />
 	<noscript>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css">
-		</noscript>
-	<meta name="description" content={head.description}>
-	<title>{head.title}</title>
+	</noscript>
+	<meta name="description" content={t("index:head.description")}>
+	<title>{t("index:head.title")}</title>
 	<script src="@scripts/main.js"></script>
+	<script src="@scripts/alpineComponents.js"></script>
+	<HeadHrefLangs />
 </head>
-
-
 
 <body class="overflow-hidden">
 	<!-- Loading Circle -->
@@ -51,231 +74,79 @@ import "@fontsource/jetbrains-mono";
 	</div>
 	<!-- Header -->
 	<header>
-		<Navigation />
+		<Navigation navigation={navigation}>
+			<!-- <LanguageSelector slot="lang-selector" showFlag={true} class="bg-transparent first:bg-item text-secondary px-3" /> -->
+			<LangSelector 
+			slot="lang-selector" 
+			selected={t("index:langSelector.selected")} 
+			selectedFlag={t("index:langSelector.selectedFlag")}/>
+			<BurgerMenu slot="burger-menu" navigation={navigation}/>
+		</Navigation>
 	</header>
 	<!-- Main Content -->
 	<main class="page">
-		<!-- Sección principal -->
+		<!-- Hero Section -->
 		<section class="flex flex-col -z-10 md:flex-row justify-between items-center mx-auto">
-			<Hero />
+			<Hero name={t("hero:name")} title={t("hero:title")}/>
 		</section>
-		<!-- Sección sobre mi -->
-		<h2 id={titles.about.id} class="titles">{titles.about.title}</h2>
+		<!-- About Me Section -->
+		<h2 id={t("index:sections.about.id")} class="titles">{t("index:sections.about.title")}</h2>
 		<section class="flex flex-col md:flex-row justify-between items-center mx-auto px-6 pt-8">
-			<AboutMe />
+			<About text={t("about:content")}/>
 		</section>
-		<!-- Sección de habilidades -->
-		<h2 id={titles.skills.id} class="titles">{titles.skills.title}</h2>
+		<!-- Skill Section -->
+		<h2 id={t("index:sections.skills.id")} class="titles">{t("index:sections.skills.title")}</h2>
 		<section>
-			<Skills />
+			<Skills>
+				<SkillBar slot="skill-bar" skillTitles={skillTitles} />
+				<SkillGroups slot="skill-groups" skills={skills}/>
+			</Skills>
 		</section>
-		<!-- Sección de proyectos -->
-		<h2 id={titles.projects.id} class="titles">{titles.projects.title}</h2>
+		<!-- Project Section -->
+		<h2 id={t("index:sections.projects.id")} class="titles">{t("index:sections.projects.title")}</h2>
 		<section>
-			<Projects />
+			<Projects firstTitle={firstTitle} secondTitle={secondTitle}>
+				<div class="flex flex-col w-11/12 space-y-3" slot="starred-projects">
+					<!-- Starred Project -->
+							{starredProjects.map((starredProject) => (
+								<StarredProject 
+								title={starredProject.title}
+								link={starredProject.link} 
+								github={starredProject.github}
+								tags={starredProject.tags}
+								img={starredProject.img}
+								description={starredProject.description}
+								starredText={starredProjectsText[0]}
+								linkText={starredProjectsText[1]}
+								linkTextDisabled={starredProjectsText[2]}
+								githubText={starredProjectsText[3]}
+								technologiesText={starredProjectsText[4]}
+								>
+								</StarredProject>
+							 ))}
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-start" slot="basic-projects">
+					<!-- Basic Project -->
+					{basicProjects.map((starredProject) => (
+						<BasicProject 
+						title={starredProject.title}
+						link={starredProject.link} 
+						github={starredProject.github}
+						tags={starredProject.tags}
+						description={starredProject.description}
+						>
+						</BasicProject>
+					))}
+				</div>
+			</Projects>
 		</section>
-		<!-- Sección de contactos -->
-		<h2 id={titles.contact.id} class="titles">{titles.contact.title}</h2>
+		<!-- Contact Section -->
+		<h2 id={t("index:sections.contact.id")} class="titles">{t("index:sections.contact.title")}</h2>
 		<section class="p-6 font-sans md:text-xl">
-			<Contacts />
+			<Contact info={t("contact:info")} button={t("contact:button")} href={t("contact:pdf")}/>
 		</section>
 	</main>
 	<!-- Footer -->
-	<footer class="footer flex flex-col text-center bg-item p-6">
-		<div class="font-bold">
-			<p>&copy; 2022 BachaCode</p>
-			<p>Website powered by 🐜</p>
-		</div>
-		<p class="italic text-xs">{footer}</p>
-	</footer>
+	<Footer copyright={t("index:footer.copyright")} powered={t("index:footer.powered")} author={t("index:footer.author")}/>
 </body>
-
-<style is:global>
-	* {
-		scroll-behavior: smooth;
-	}
-
-	body {
-		@apply text-secondary bg-body font-text overflow-x-hidden
-	}
-
-	h1 {
-		@apply mt-8 p-6 text-2xl md:text-6xl font-title text-primary
-	}
-
-	h2 {
-		@apply mt-8 p-6 text-2xl md:text-6xl font-title text-primary
-	}
-
-	p {
-		@apply text-sm md:text-base
-	}
-
-	::-webkit-scrollbar {
-		@apply w-4 h-2 bg-item
-	}
-
-	::-webkit-scrollbar-thumb {
-		@apply rounded-lg bg-primary
-	}
-
-	.section {
-		@apply opacity-0 transition-all motion-reduce:transition-none blur-sm duration-1000
-	}
-
-	.page {
-		@apply overflow-hidden transition-all motion-reduce:transition-none blur-md duration-1000
-	}
-
-	.footer {
-		@apply overflow-hidden transition-all motion-reduce:transition-none blur-md duration-1000
-	}
-
-	.loaded {
-		@apply opacity-100 blur-0 overflow-auto;
-	}
-
-	.section-about {
-		@apply -translate-x-full
-	}
-
-	.show {
-		@apply opacity-100 blur-0 translate-x-0
-	}
-
-	@font-face {
-		font-family: 'icomoon';
-		src: url('/fonts/icomoon.eot?47t0jb');
-		src: url('/fonts/icomoon.eot?47t0jb#iefix') format('embedded-opentype'),
-			url('/fonts/icomoon.ttf?47t0jb') format('truetype'),
-			url('/fonts/icomoon.woff?47t0jb') format('woff'),
-			url('/fonts/icomoon.svg?47t0jb#icomoon') format('svg');
-		font-weight: normal;
-		font-style: normal;
-		font-display: block;
-	}
-
-	[class^="icon-"],
-	[class*=" icon-"] {
-		/* use !important to prevent issues with browser extensions that change fonts */
-		font-family: 'icomoon' !important;
-		speak: never;
-		font-style: normal;
-		font-weight: normal;
-		font-variant: normal;
-		text-transform: none;
-		line-height: 1;
-
-		/* Better Font Rendering =========== */
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-
-	.icon-alpinejs:before {
-		content: "\e900";
-		color: #f6f6e9;
-	}
-
-	.icon-download:before {
-		content: "\e917";
-	}
-
-	.icon-burgermenu:before {
-		content: "\e901";
-	}
-
-	.icon-canva:before {
-		content: "\e902";
-		color: #f6f6e9;
-	}
-
-	.icon-chevdown:before {
-		content: "\e903";
-	}
-
-	.icon-close:before {
-		content: "\e904";
-	}
-
-	.icon-css:before {
-		content: "\e905";
-		color: #f6f6e9;
-	}
-
-	.icon-external-link:before {
-		content: "\e906";
-	}
-
-	.icon-envelope:before {
-		content: "\e907";
-	}
-
-	.icon-figma:before {
-		content: "\e908";
-	}
-
-	.icon-git:before {
-		content: "\e909";
-		color: #f6f6e9;
-	}
-
-	.icon-github:before {
-		content: "\e90a";
-	}
-
-	.icon-html:before {
-		content: "\e90b";
-		color: #f6f6e9;
-	}
-
-	.icon-js:before {
-		content: "\e90c";
-		color: #f6f6e9;
-	}
-
-	.icon-language:before {
-		content: "\e90d";
-	}
-
-	.icon-laravel:before {
-		content: "\e90e";
-	}
-
-	.icon-linkedin:before {
-		content: "\e90f";
-	}
-
-	.icon-mysql:before {
-		content: "\e910";
-		color: #f6f6e9;
-	}
-
-	.icon-php:before {
-		content: "\e911";
-		color: #f6f6e9;
-	}
-
-	.icon-postgresql:before {
-		content: "\e912";
-		color: #f6f6e9;
-	}
-
-	.icon-tailwind:before {
-		content: "\e913";
-		color: #f6f6e9;
-	}
-
-	.icon-terminal:before {
-		content: "\e914";
-	}
-
-	.icon-vsc:before {
-		content: "\e915";
-	}
-
-	.icon-vue:before {
-		content: "\e916";
-		color: #f6f6e9;
-	}
-</style>
 </html>

@@ -1,0 +1,22 @@
+---
+import StarredProject from "./starredProject.astro";
+import BasicProject from "./basicProject.astro";
+import { starredProjectsES } from "@content/projects";
+import { basicProjectsES } from "@content/projects";
+const { firstTitle, secondTitle } = Astro.props;
+---
+
+<div>
+    <!-- Content -->
+    <div class="flex flex-col items-center mx-auto px-6 pt-16 space-y-4">
+        <div class="bg-item p-6 rounded-lg border-2 border-secondary">
+            <h3>{firstTitle}</h3>
+        </div>
+        <!-- Starred Projects -->
+        <slot name="starred-projects"/>
+        <div class="bg-item p-6 rounded-lg border-2 border-secondary mb-10">
+            <h3>{secondTitle}</h3>
+        </div>
+        <slot name="basic-projects"/>
+    </div>
+</div>
