@@ -11,6 +11,5 @@ import astroI18next from "astro-i18next";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://bachacode.github.io/',
-  base: '/my-portfolio',
   integrations: [alpinejs(), tailwind(), astroI18next()]
 });
