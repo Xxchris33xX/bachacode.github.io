@@ -42,7 +42,7 @@ p {
     @apply opacity-100 blur-0 overflow-auto;
 }
 
-.section-about {
+.section-translate {
     @apply -translate-x-full
 }
 

@@ -16,7 +16,7 @@ interface Props {
 const { title, link, github, tags, img, description, starredText = "¡Destacado!", linkText = "Enlace a la pagina", linkTextDisabled = "¡Sin enlace!", githubText = "Repositorio", technologiesText = "Tecnologías" } = Astro.props;
 ---
 
-<div class="flex flex-col items-center md:flex-row justify-between bg-item border-2 border-secondary rounded-lg">
+<div class="flex flex-col items-center md:flex-row justify-between md:h-96 bg-item border-2 border-secondary rounded-lg">
     <div class="flex flex-col space-y-3 text-xl md:text-2xl items-center text-center md:text-left md:items-start p-6">
        <!-- Magic Stars -->
         <div x-data="magic" class="inline-block relative">
@@ -51,10 +51,10 @@ const { title, link, github, tags, img, description, starredText = "¡Destacado!
         </div>
     </div>
     <!-- Description + Image -->
-    <div class="flex flex-col justify-center items-center md:justify-end w-full md:w-8/12 h-96 pt-6 mt-4 md:ml-4 rounded-t-3xl md:rounded-tr-none bg-cover bg-center"
-        style={`background-image: url(${img});`}>
-        <div class="flex flex-col justify-end bg-gradient-to-t from-black via-item w-full h-96">
-            <p class="text-sm sm:text-base md:text-xl pb-3 scale-90">{description}</p>
+    <div class="container md:ml-4 relative h-96 m-0 flex-grow overflow-hidden md:py-0.5">
+        <img src={img} class="absolute w-full md:pb-1 h-full object-cover rounded-b-md md:rounded-r-md" loading="lazy" alt="imagen del proyecto">
+        <div class="flex absolute z-30 w-full h-[23.9rem] md:py-0.5 md:scale-y-[0.99] bg-gradient-to-t from-black via-item items-end rounded-b-md md:rounded-r-lg md:rounded-bl-none">
+            <p class="text-sm sm:text-base md:text-xl scale-90">{description}</p>
         </div>
     </div>
 </div>

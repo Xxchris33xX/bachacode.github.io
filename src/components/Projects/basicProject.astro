@@ -25,9 +25,7 @@ const { title, link, github, tags, description } = Astro.props;
     </div>
     <div x-data="minifiedContent">
         <p x-init={`setMinifyContent('${description}')`}>
-            <span x-transition:enter="transition-all ease-in duration-500"
-                x-transition:enter-start="opacity-0 blur-sm translate-x-full"
-                x-transition:enter-end="opacity-100 blur-0 translate-x-0" class="overflow-hidden"
+            <span class="overflow-hidden"
                 x-text={`!isCollapsed ? '${description}' : minContent`}></span>
             <button class="text-highlight" 
                 x-show="length > maxLength"
