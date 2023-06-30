@@ -11,11 +11,21 @@ export const starredProjectsES = [{
     {
         "title": "BachaCode",
         "description": "Este portafolios es una pagina web estatica generada con Astro, empezo como uno de los primeros proyectos que hice por mi cuenta y fue desarrollado con TailwindCSS, AlpineJS, y Astro como fue mencionado previamente, ¡es un proyecto personal en constante evolución que utilizo para aprender y mostrar cosas nuevas!",
-        "img": "/imgs/herosec-tobi-mobile.webp",
+        "img": "/imgs/herosec-desktop-mobile.webp",
         "link": "https://bachacode.github.io",
         "github": "https://github.com/bachacode/bachacode.github.io",
         "tags": [
             "HTML", "TailwindCSS", "JavaScript", "AlpineJS"
+        ]
+    },
+    {
+        "title": "Carga Académica",
+        "description": "Este proyecto es una SPA construida en Vue y que utiliza Pocketbase como Backend, sirve para la gestión de saberes, secciones y profesores de una universidad, cuenta con un sistema para asignar horas academicas a los profesores, así como recomendaciones en base a ciertos criterios, fue hecho para la U.P.T.P \"Luis Mariano Rivera\"",
+        "img": "/imgs/carga-academica.webp",
+        "link": null,
+        "github": "https://github.com/bachacode/carga-academica-uptp",
+        "tags": [
+            "HTML", "TailwindCSS", "TypeScript", "Vue.Js", "Pocketbase"
         ]
     }
 ]
@@ -70,13 +80,24 @@ export const starredProjectsEN = [{
     {
         "title": "BachaCode",
         "description": "This portfolio is a static page website generated with Astro, it started as one of the first projects that i did by myself and was developed with TailwindCSS, AlpineJS, and Astro as previously mentioned, it is a constanly evolving pet project that i use as a way to learn and show new things!",
-        "img": "/imgs/herosec-tobi-mobile.webp",
+        "img": "/imgs/herosec-desktop-mobile.webp",
         "link": "https://bachacode.github.io",
         "github": "https://github.com/bachacode/bachacode.github.io",
         "tags": [
             "HTML", "Tailwind", "JavaScript", "AlpineJS"
         ]
     },
+    ,
+    {
+        "title": "Carga Académica",
+        "description": "This project is an SPA developed in Vue that use Pocketbase as a backend, it is designed for the management of subjects, sections and teachers of an university, has a module to asign academic hours to the teachers, as well as recommendations based in certain criteria, it was made for the U.P.T.P \"Luis Mariano Rivera\"",
+        "img": "/imgs/carga-academica.webp",
+        "link": null,
+        "github": "https://github.com/bachacode/carga-academica-uptp",
+        "tags": [
+            "HTML", "TailwindCSS", "TypeScript", "Vue.Js", "Pocketbase"
+        ]
+    }
 ]
 export const basicProjectsEN = [{
         "title": "PHPetite",
