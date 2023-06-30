@@ -11,7 +11,7 @@ export const starredProjectsES = [{
     {
         "title": "BachaCode",
         "description": "Este portafolios es una pagina web estatica generada con Astro, empezo como uno de los primeros proyectos que hice por mi cuenta y fue desarrollado con TailwindCSS, AlpineJS, y Astro como fue mencionado previamente, ¡es un proyecto personal en constante evolución que utilizo para aprender y mostrar cosas nuevas!",
-        "img": "/imgs/herosec-tobi-mobile.webp",
+        "img": "/imgs/herosec-desktop-mobile.webp",
         "link": "https://bachacode.github.io",
         "github": "https://github.com/bachacode/bachacode.github.io",
         "tags": [
@@ -80,7 +80,7 @@ export const starredProjectsEN = [{
     {
         "title": "BachaCode",
         "description": "This portfolio is a static page website generated with Astro, it started as one of the first projects that i did by myself and was developed with TailwindCSS, AlpineJS, and Astro as previously mentioned, it is a constanly evolving pet project that i use as a way to learn and show new things!",
-        "img": "/imgs/herosec-tobi-mobile.webp",
+        "img": "/imgs/herosec-desktop-mobile.webp",
         "link": "https://bachacode.github.io",
         "github": "https://github.com/bachacode/bachacode.github.io",
         "tags": [
