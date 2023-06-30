@@ -17,6 +17,16 @@ export const starredProjectsES = [{
         "tags": [
             "HTML", "TailwindCSS", "JavaScript", "AlpineJS"
         ]
+    },
+    {
+        "title": "Carga Académica",
+        "description": "Este proyecto es una SPA construida en Vue y que utiliza Pocketbase como Backend, sirve para la gestión de saberes, secciones y profesores de una universidad, cuenta con un sistema para asignar horas academicas a los profesores, así como recomendaciones en base a ciertos criterios, fue hecho para la U.P.T.P \"Luis Mariano Rivera\"",
+        "img": "/imgs/carga-academica.webp",
+        "link": null,
+        "github": "https://github.com/bachacode/carga-academica-uptp",
+        "tags": [
+            "HTML", "TailwindCSS", "TypeScript", "Vue.Js", "Pocketbase"
+        ]
     }
 ]
 export const basicProjectsES = [{
@@ -77,6 +87,17 @@ export const starredProjectsEN = [{
             "HTML", "Tailwind", "JavaScript", "AlpineJS"
         ]
     },
+    ,
+    {
+        "title": "Carga Académica",
+        "description": "This project is an SPA developed in Vue that use Pocketbase as a backend, it is designed for the management of subjects, sections and teachers of an university, has a module to asign academic hours to the teachers, as well as recommendations based in certain criteria, it was made for the U.P.T.P \"Luis Mariano Rivera\"",
+        "img": "/imgs/carga-academica.webp",
+        "link": null,
+        "github": "https://github.com/bachacode/carga-academica-uptp",
+        "tags": [
+            "HTML", "TailwindCSS", "TypeScript", "Vue.Js", "Pocketbase"
+        ]
+    }
 ]
 export const basicProjectsEN = [{
         "title": "PHPetite",
