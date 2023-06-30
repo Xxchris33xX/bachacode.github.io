@@ -64,6 +64,15 @@ export const basicProjectsES = [{
         "tags": [
             "AlpineJS", "TailwindCSS", "Laravel", "Livewire"
         ]
+    },
+    {
+        "title": "Discord Bot",
+        "description": "Bot de discord personal que funciona como bot de musica, fue un proyecto hecho para aprender las bases de Node.",
+        "link": null,
+        "github": "https://github.com/bachacode/bachaco-bot",
+        "tags": [
+            "Node.Js"
+        ]
     }
 ]
 
@@ -133,6 +142,15 @@ export const basicProjectsEN = [{
         "github": "https://github.com/bachacode/blog",
         "tags": [
             "AlpineJS", "TailwindCSS", "Laravel", "Livewire"
+        ]
+    },
+    {
+        "title": "Discord Bot",
+        "description": "Personal discord bot that works as a music bot, it was made as a project to learn the basics of Node.",
+        "link": null,
+        "github": "https://github.com/bachacode/bachaco-bot",
+        "tags": [
+            "Node.Js"
         ]
     }
 ]
