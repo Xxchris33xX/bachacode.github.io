@@ -1,5 +1,5 @@
 ---
-const { skills } = Astro.props;
+const { skills } = Astro.props
 ---
 
 {
@@ -14,7 +14,7 @@ const { skills } = Astro.props;
       <div class="grid grid-cols-2 md:grid-cols-4 text-center mt-6 w-72 md:w-skills">
         {Object.entries(skillSet).map((skill: any) => (
           <div class="px-4 py-6 space-y-4 mx-2 w-32 mt-3 bg-item rounded-xl border-secondary border-2 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
-            <i class={skill[1] + " text-5xl"} />
+            <i class={skill[1] + ' text-5xl'} />
             <p class="text-sm">{skill[0]}</p>
           </div>
         ))}

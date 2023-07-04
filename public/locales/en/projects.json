@@ -1,0 +1,11 @@
+{
+  "helperText": {
+    "firstTitle": "Starred Projects",
+    "secondTitle": "Other Projects",
+    "starredText": "Starred!",
+    "linkText": "Link to page",
+    "linkTextDisabled": "No Link!",
+    "githubText": "Repository",
+    "technologiesText": "Technology"
+  }
+}

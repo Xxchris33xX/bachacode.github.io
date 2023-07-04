@@ -1,6 +1,6 @@
 ---
-const { navigation } = Astro.props;
-import NavLink from "./NavLink.astro";
+const { navigation } = Astro.props
+import NavLink from './NavLink.astro'
 ---
 
 <div x-data="modal" class="md:hidden">
@@ -18,9 +18,7 @@ import NavLink from "./NavLink.astro";
       x-cloak
       class="flex flex-col fixed z-30 top-14 w-full h-full bg-slate-400 bg-opacity-10 backdrop-filter backdrop-blur-lg"
     >
-      <div
-        class="flex text-right justify-end p-6 text-6xl text-highlight mb-20"
-      >
+      <div class="flex text-right justify-end p-6 text-6xl text-highlight mb-20">
         <button aria-label="menu" x-on:click="close()">X</button>
       </div>
       <div class="flex flex-col text-3xl text-center justify-center space-y-4">

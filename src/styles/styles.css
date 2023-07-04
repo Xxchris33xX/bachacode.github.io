@@ -51,21 +51,21 @@ p {
 }
 
 @font-face {
-  font-family: "icomoon";
-  src: url("/fonts/icomoon.eot?47t0jb");
-  src: url("/fonts/icomoon.eot?47t0jb#iefix") format("embedded-opentype"),
-    url("/fonts/icomoon.ttf?47t0jb") format("truetype"),
-    url("/fonts/icomoon.woff?47t0jb") format("woff"),
-    url("/fonts/icomoon.svg?47t0jb#icomoon") format("svg");
+  font-family: 'icomoon';
+  src: url('/fonts/icomoon.eot?47t0jb');
+  src: url('/fonts/icomoon.eot?47t0jb#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?47t0jb') format('truetype'),
+    url('/fonts/icomoon.woff?47t0jb') format('woff'),
+    url('/fonts/icomoon.svg?47t0jb#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^='icon-'],
+[class*=' icon-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
+  font-family: 'icomoon' !important;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -78,108 +78,108 @@ p {
 }
 
 .icon-alpinejs:before {
-  content: "\e900";
+  content: '\e900';
   color: #f6f6e9;
 }
 
 .icon-download:before {
-  content: "\e917";
+  content: '\e917';
 }
 
 .icon-burgermenu:before {
-  content: "\e901";
+  content: '\e901';
 }
 
 .icon-canva:before {
-  content: "\e902";
+  content: '\e902';
   color: #f6f6e9;
 }
 
 .icon-chevdown:before {
-  content: "\e903";
+  content: '\e903';
 }
 
 .icon-close:before {
-  content: "\e904";
+  content: '\e904';
 }
 
 .icon-css:before {
-  content: "\e905";
+  content: '\e905';
   color: #f6f6e9;
 }
 
 .icon-external-link:before {
-  content: "\e906";
+  content: '\e906';
 }
 
 .icon-envelope:before {
-  content: "\e907";
+  content: '\e907';
 }
 
 .icon-figma:before {
-  content: "\e908";
+  content: '\e908';
 }
 
 .icon-git:before {
-  content: "\e909";
+  content: '\e909';
   color: #f6f6e9;
 }
 
 .icon-github:before {
-  content: "\e90a";
+  content: '\e90a';
 }
 
 .icon-html:before {
-  content: "\e90b";
+  content: '\e90b';
   color: #f6f6e9;
 }
 
 .icon-js:before {
-  content: "\e90c";
+  content: '\e90c';
   color: #f6f6e9;
 }
 
 .icon-language:before {
-  content: "\e90d";
+  content: '\e90d';
 }
 
 .icon-laravel:before {
-  content: "\e90e";
+  content: '\e90e';
 }
 
 .icon-linkedin:before {
-  content: "\e90f";
+  content: '\e90f';
 }
 
 .icon-mysql:before {
-  content: "\e910";
+  content: '\e910';
   color: #f6f6e9;
 }
 
 .icon-php:before {
-  content: "\e911";
+  content: '\e911';
   color: #f6f6e9;
 }
 
 .icon-postgresql:before {
-  content: "\e912";
+  content: '\e912';
   color: #f6f6e9;
 }
 
 .icon-tailwind:before {
-  content: "\e913";
+  content: '\e913';
   color: #f6f6e9;
 }
 
 .icon-terminal:before {
-  content: "\e914";
+  content: '\e914';
 }
 
 .icon-vsc:before {
-  content: "\e915";
+  content: '\e915';
 }
 
 .icon-vue:before {
-  content: "\e916";
+  content: '\e916';
   color: #f6f6e9;
 }

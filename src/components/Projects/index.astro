@@ -1,9 +1,18 @@
 ---
-import StarredProject from "./starredProject.astro";
-import BasicProject from "./basicProject.astro";
-import { starredProjectsES } from "@content/projects";
-import { basicProjectsES } from "@content/projects";
-const { firstTitle, secondTitle } = Astro.props;
+import StarredProject from './starredProject.astro'
+import BasicProject from './basicProject.astro'
+import { starredProjectsES } from '@content/projects'
+import { basicProjectsES } from '@content/projects'
+
+interface Props {
+  titles: {
+    firstTitle: string
+    secondTitle: string
+  }
+}
+const {
+  titles: { firstTitle, secondTitle }
+} = Astro.props
 ---
 
 <div>

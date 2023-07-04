@@ -1,13 +1,17 @@
 ---
-import Tag from "./tag.astro";
+import Tag from './tag.astro'
 interface Props {
-  title: string;
-  link?: string;
-  github: string;
-  tags: Array<string>;
-  description: string;
+  projectDetails: {
+    title: string
+    link?: string
+    github: string
+    tags: Array<string>
+    description: string
+  }
 }
-const { title, link, github, tags, description } = Astro.props;
+const {
+  projectDetails: { title, link, github, tags, description }
+} = Astro.props
 ---
 
 <div
@@ -27,9 +31,7 @@ const { title, link, github, tags, description } = Astro.props;
   </div>
   <div x-data="minifiedContent">
     <p x-init={`setMinifyContent('${description}')`}>
-      <span
-        class="overflow-hidden"
-        x-text={`!isCollapsed ? '${description}' : minContent`}></span>
+      <span class="overflow-hidden" x-text={`!isCollapsed ? '${description}' : minContent`}></span>
       <button
         class="text-highlight"
         x-show="length > maxLength"

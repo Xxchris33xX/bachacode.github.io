@@ -7,6 +7,13 @@
     "selected": "ES",
     "selectedFlag": "fi-es"
   },
+  "navLink": {
+    "home": { "href": "#", "text": "Inicio" },
+    "aboutMe": { "href": "#about-me", "text": "Sobre Mi" },
+    "skills": { "href": "#skills", "text": "Habilidades" },
+    "projects": { "href": "#projects", "text": "Proyectos" },
+    "contact": { "href": "#contact", "text": "Contacto" }
+  },
   "sections": {
     "about": {
       "title": "01 - Sobre Mi",

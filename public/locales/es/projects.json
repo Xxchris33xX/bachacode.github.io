@@ -1,0 +1,11 @@
+{
+  "helperText": {
+    "firstTitle": "Proyectos Destacados",
+    "secondTitle": "Otros Proyectos",
+    "starredText": "¡Destacado!",
+    "linkText": "Enlace a la pagina",
+    "linkTextDisabled": "¡Sin enlace!",
+    "githubText": "Repositorio",
+    "technologiesText": "Tecnologías"
+  }
+}

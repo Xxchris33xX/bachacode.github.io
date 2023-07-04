@@ -1,43 +1,48 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import NavLink from "./NavLink.vue";
+import { onMounted, ref } from 'vue'
+import NavLink from './NavLink.vue'
 const { navigation } = defineProps<{
   navigation: {
-    href: string,
+    href: string
     text: string
-  }[],
+  }[]
 }>()
 
 const navbar = ref<HTMLElement>()
 
 const titles = ref([])
 
+const viewedTitle = ref(0)
+
 onMounted(() => {
   window.addEventListener('scroll', () => {
+    // Revisa si esta en el tope de la pagina o no
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-      navbar.value.classList.add("scrolled-navbar");
+      navbar.value.classList.add('scrolled-navbar')
+    } else {
+      navbar.value.classList.remove('scrolled-navbar')
     }
-    else {
-      navbar.value.classList.remove("scrolled-navbar");
-    }
+
+    // Actualiza la posición de los titulos
     titles.value = [...document.querySelectorAll('h2')].sort((a, b) => {
       return Math.abs(a.getBoundingClientRect().top) - Math.abs(b.getBoundingClientRect().top)
     })
-    let id = [...document.querySelectorAll("h2")].indexOf(titles.value[0]);
+
+    // Actualiza el titulo en el viewport actualmente
+    viewedTitle.value = [...document.querySelectorAll('h2')].indexOf(titles.value[0])
     document
-      .querySelectorAll(".selected-option")
-      .forEach((c) => c.classList.remove("selected-option"));
-    document
-      .querySelectorAll(".nav-option")
-    [id].classList.add("selected-option");
-    console.log(id)
+      .querySelectorAll('.selected-option')
+      .forEach((c) => c.classList.remove('selected-option'))
+    document.querySelectorAll('.nav-option')[viewedTitle.value].classList.add('selected-option')
   })
 })
 </script>
 
 <template>
-  <nav ref="navbar"
-    class="fixed z-50 overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700 font-text">
+  <nav
+    ref="navbar"
+    class="fixed z-50 overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700 font-text"
+  >
     <div class="text-lg font-semibold">
       <a href="#">BachaCode</a>
     </div>
@@ -62,8 +67,13 @@ onMounted(() => {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   --tw-backdrop-blur: blur(16px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
+    var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+    var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
+    var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
 [x-cloak] {

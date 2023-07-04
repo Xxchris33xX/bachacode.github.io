@@ -1,13 +1,15 @@
 <script setup lang="ts">
 const { href, text } = defineProps<{
-  href: string,
+  href: string
   text: string
 }>()
 </script>
 
 <template>
-  <a :href="href"
-    class="nav-option hover:transition-all text-sm lg:text-base hover:text-highlight hover:border-b-2 hover:border-b-highlight">
+  <a
+    :href="href"
+    class="nav-option hover:transition-all text-sm lg:text-base hover:text-highlight hover:border-b-2 hover:border-b-highlight"
+  >
     {{ text }}
   </a>
 </template>

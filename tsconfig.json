@@ -7,7 +7,7 @@
       "@assets/*": ["src/assets/*"],
       "@es/*": ["src/components/es/*"],
       "@en/*": ["src/components/en/*"],
-      "@scripts/*": ["src/scripts/*"],
+      "@js/*": ["src/js/*"],
       "@content/*": ["content/*"]
     },
     "jsx": "preserve"

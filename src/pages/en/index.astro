@@ -1,46 +1,70 @@
 ---
-// Navigation Component
-import Navigation from "@components/Navigation/index.astro";
-import BurgerMenu from "@components/Navigation/BurgerMenu.astro";
-import LangSelector from "@components/Navigation/LangSelector.astro";
-import { navigateES as navigation } from "@content/navigation";
-import Title from "@components/title.astro";
-// Hero Component
-import Hero from "@components/hero.astro";
-// About Component
-import About from "@components/about.astro";
-// Skill Component
-import Skills from "@components/Skills/skills.astro";
-import SkillBar from "@components/Skills/skillBar.astro";
-import SkillGroups from "@components/Skills/skillGroups.astro";
-import { skillTitlesES as skillTitles, skills } from "@content/skills";
-// Project Component
-import Projects from "@components/Projects/index.astro";
-import StarredProject from "@components/Projects/starredProject.astro";
-import BasicProject from "@components/Projects/basicProject.astro";
-import { starredProjectsES as starredProjects } from "@content/projects";
-import { basicProjectsES as basicProjects } from "@content/projects";
-const { firstTitle = "Proyectos Destacados", secondTitle = "Otros Proyectos" } = Astro.params;
-const { starredProjectsText = [
-    "\u00A1Destacado!",
-    "Enlace a la pagina",
-    "\u00A1Sin enlace!",
-    "Repositorio",
-    "Tecnolog\u00EDas",
-], } = Astro.params;
-// Contact Component
-import Contact from "@components/contact.astro";
-// Footer Component
-import Footer from "@components/footer.astro";
-// Font Imports & Styles
-import "@fontsource/dotgothic16";
-import "@fontsource/jetbrains-mono";
-import "../../styles/styles.css";
+// Loading Circle
+import LoadingCircle from '@components/LoadingCircle.astro'
 // Localization
-import i18next, { t, changeLanguage } from "i18next";
-import { HeadHrefLangs, LanguageSelector } from "astro-i18next/components";
+import i18next, { t, changeLanguage } from 'i18next'
+import { HeadHrefLangs } from 'astro-i18next/components'
+import '/node_modules/flag-icons/css/flag-icons.min.css'
+// Navigation Component
+import NavBar from '@components/Navigation/NavBar.vue'
+import BurgerMenu from '@components/Navigation/BurgerMenu.astro'
+import LangSelector from '@components/Navigation/LangSelector.astro'
+import Title from '@components/AstroTitle.astro'
+// Hero Component
+import Hero from '@components/hero.astro'
+// About Component
+import About from '@components/about.astro'
+// Skill Component
+import Skills from '@components/Skills/skills.astro'
+import SkillBar from '@components/Skills/skillBar.astro'
+import SkillGroups from '@components/Skills/skillGroups.astro'
+import { skills } from '@content/skills'
+// Project Component
+import Projects from '@components/Projects/index.astro'
+import StarredProject from '@components/Projects/starredProject.astro'
+import BasicProject from '@components/Projects/basicProject.astro'
+import { starredProjectsEN as starredProjects } from '@content/projects'
+import { basicProjectsEN as basicProjects } from '@content/projects'
+// Contact Component
+import Contact from '@components/contact.astro'
+// Footer Component
+import Footer from '@components/footer.astro'
+// Font Imports & Styles
+import '@fontsource/dotgothic16'
+import '@fontsource/jetbrains-mono'
+import '../../styles/styles.css'
 
-changeLanguage("en");
+changeLanguage('en')
+
+// Href y Texto de los NavLinks
+const navLinks = [
+  { href: t('index:navLink.home.href'), text: t('index:navLink.home.text') },
+  { href: t('index:navLink.aboutMe.href'), text: t('index:navLink.aboutMe.text') },
+  { href: t('index:navLink.skills.href'), text: t('index:navLink.skills.text') },
+  { href: t('index:navLink.projects.href'), text: t('index:navLink.projects.text') },
+  { href: t('index:navLink.contact.href'), text: t('index:navLink.contact.text') }
+]
+// Texto del selector de habilidades
+const skillNames = [
+  t('skills:frontend'),
+  t('skills:backend'),
+  t('skills:database'),
+  t('skills:design'),
+  t('skills:tools')
+]
+// Titulos de las secciones de proyectos
+const projectTitles = {
+  firstTitle: t('projects:helperText.firstTitle'),
+  secondTitle: t('projects:helperText.secondTitle')
+}
+// Texto usado en los proyectos destacados
+const helperText = {
+  starredText: t('projects:helperText.starredText'),
+  linkText: t('projects:helperText.linkText'),
+  linkTextDisabled: t('projects:helperText.linkTextDisabled'),
+  githubText: t('projects:helperText.githubText'),
+  technologiesText: t('projects:helperText.technologiesText')
+}
 ---
 
 <!DOCTYPE html>
@@ -50,116 +74,56 @@ changeLanguage("en");
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link
-      rel="preload"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-      href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
-      />
-    </noscript>
-    <meta name="description" content={t("index:head.description")} />
-    <title>{t("index:head.title")}</title>
-    <script src="@scripts/main.js"></script>
-    <script src="@scripts/alpineComponents.js"></script>
+    <meta name="description" content={t('index:head.description')} />
+    <title>{t('index:head.title')}</title>
+    <script src="@js/main.js"></script>
+    <script src="@js/alpineComponents.js"></script>
     <HeadHrefLangs />
   </head>
 
   <body class="overflow-hidden">
     <!-- Loading Circle -->
-    <div
-      id="loading"
-      class="flex fixed z-40 text-center items-center w-full h-full bg-opacity-10 backdrop-filter backdrop-blur-2xl"
-    >
-      <div
-        role="status"
-        class="flex items-center justify-center h-[20%] w-full"
-      >
-        <svg
-          aria-hidden="true"
-          class="inline mr-2 w-52 h-52 text-gray-200 animate-spin dark:text-item fill-primary"
-          viewBox="0 0 100 101"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-            fill="currentColor"></path>
-          <path
-            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-            fill="currentFill"></path>
-        </svg>
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
+    <LoadingCircle />
+
     <!-- Header -->
     <header>
-      <Navigation navigation={navigation}>
+      <NavBar client:visible navigation={navLinks}>
         <LangSelector
           slot="lang-selector"
-          selected={t("index:langSelector.selected")}
-          selectedFlag={t("index:langSelector.selectedFlag")}
+          selected={t('index:langSelector.selected')}
+          selectedFlag={t('index:langSelector.selectedFlag')}
         />
-        <BurgerMenu slot="burger-menu" navigation={navigation} />
-      </Navigation>
+        <BurgerMenu slot="burger-menu" navigation={navLinks} />
+      </NavBar>
     </header>
     <!-- Main Content -->
     <main class="page">
       <!-- Hero Section -->
-      <section
-        class="flex flex-col -z-10 md:flex-row justify-between items-center mx-auto"
-      >
-        <Hero name={t("hero:name")} title={t("hero:title")} />
+      <section class="flex flex-col -z-10 md:flex-row justify-between items-center mx-auto">
+        <Hero name={t('hero:name')} title={t('hero:title')} />
       </section>
       <!-- About Me Section -->
-      <Title
-        id={t("index:sections.about.id")}
-        title={t("index:sections.about.title")}
-      />
-      <section
-        class="flex flex-col md:flex-row justify-between items-center mx-auto px-6 pt-8"
-      >
-        <About text={t("about:content")} />
+      <Title id={t('index:sections.about.id')} title={t('index:sections.about.title')} />
+      <section class="flex flex-col md:flex-row justify-between items-center mx-auto px-6 pt-8">
+        <About text={t('about:content')} />
       </section>
       <!-- Skill Section -->
-      <Title
-        id={t("index:sections.skills.id")}
-        title={t("index:sections.skills.title")}
-      />
+      <Title id={t('index:sections.skills.id')} title={t('index:sections.skills.title')} />
       <section>
         <Skills>
-          <SkillBar slot="skill-bar" skillTitles={skillTitles} />
+          <SkillBar slot="skill-bar" skillTitles={skillNames} />
           <SkillGroups slot="skill-groups" skills={skills} />
         </Skills>
       </section>
       <!-- Project Section -->
-      <Title
-        id={t("index:sections.projects.id")}
-        title={t("index:sections.projects.title")}
-      />
+      <Title id={t('index:sections.projects.id')} title={t('index:sections.projects.title')} />
       <section>
-        <Projects firstTitle={firstTitle} secondTitle={secondTitle}>
+        <Projects titles={projectTitles}>
           <div class="flex flex-col w-11/12 space-y-3" slot="starred-projects">
             <!-- Starred Project -->
             {
               starredProjects.map((starredProject) => (
-                <StarredProject
-                  title={starredProject.title}
-                  link={starredProject.link}
-                  github={starredProject.github}
-                  tags={starredProject.tags}
-                  img={starredProject.img}
-                  description={starredProject.description}
-                  starredText={starredProjectsText[0]}
-                  linkText={starredProjectsText[1]}
-                  linkTextDisabled={starredProjectsText[2]}
-                  githubText={starredProjectsText[3]}
-                  technologiesText={starredProjectsText[4]}
-                />
+                <StarredProject projectDetails={starredProject} helperText={helperText} />
               ))
             }
           </div>
@@ -168,38 +132,21 @@ changeLanguage("en");
             slot="basic-projects"
           >
             <!-- Basic Project -->
-            {
-              basicProjects.map((starredProject) => (
-                <BasicProject
-                  title={starredProject.title}
-                  link={starredProject.link}
-                  github={starredProject.github}
-                  tags={starredProject.tags}
-                  description={starredProject.description}
-                />
-              ))
-            }
+            {basicProjects.map((basicProject) => <BasicProject projectDetails={basicProject} />)}
           </div>
         </Projects>
       </section>
       <!-- Contact Section -->
-      <Title
-        id={t("index:sections.contact.id")}
-        title={t("index:sections.contact.title")}
-      />
+      <Title id={t('index:sections.contact.id')} title={t('index:sections.contact.title')} />
       <section class="p-6 font-sans md:text-xl">
-        <Contact
-          info={t("contact:info")}
-          button={t("contact:button")}
-          href={t("contact:pdf")}
-        />
+        <Contact info={t('contact:info')} button={t('contact:button')} href={t('contact:pdf')} />
       </section>
     </main>
     <!-- Footer -->
     <Footer
-      copyright={t("index:footer.copyright")}
-      powered={t("index:footer.powered")}
-      author={t("index:footer.author")}
+      copyright={t('index:footer.copyright')}
+      powered={t('index:footer.powered')}
+      author={t('index:footer.author')}
     />
   </body>
 </html>

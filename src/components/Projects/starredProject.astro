@@ -1,31 +1,26 @@
 ---
-import Tag from "./tag.astro";
+import Tag from './tag.astro'
 interface Props {
-  title: string;
-  link?: string;
-  github: string;
-  tags: Array<string>;
-  img: string;
-  description: string;
-  starredText: string;
-  linkText: string;
-  linkTextDisabled: string;
-  githubText: string;
-  technologiesText: string;
+  projectDetails: {
+    title: string
+    link?: string
+    github: string
+    tags: Array<string>
+    img: string
+    description: string
+  }
+  helperText: {
+    starredText?: string
+    linkText?: string
+    linkTextDisabled?: string
+    githubText?: string
+    technologiesText?: string
+  }
 }
 const {
-  title,
-  link,
-  github,
-  tags,
-  img,
-  description,
-  starredText = "¡Destacado!",
-  linkText = "Enlace a la pagina",
-  linkTextDisabled = "¡Sin enlace!",
-  githubText = "Repositorio",
-  technologiesText = "Tecnologías",
-} = Astro.props;
+  projectDetails: { title, link, github, tags, img, description },
+  helperText: { starredText, linkText, linkTextDisabled, githubText, technologiesText }
+} = Astro.props
 ---
 
 <div
@@ -85,9 +80,7 @@ const {
     </div>
   </div>
   <!-- Description + Image -->
-  <div
-    class="container md:ml-4 relative h-96 m-0 flex-grow overflow-hidden md:py-0.5"
-  >
+  <div class="container md:ml-4 relative h-96 m-0 flex-grow overflow-hidden md:py-0.5">
     <img
       src={img}
       class="absolute w-full md:pb-1 h-full object-cover rounded-b-md md:rounded-r-md"
