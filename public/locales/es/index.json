@@ -1,33 +1,33 @@
 {
-    "head":{
-        "title": "BachaCode - Desarrollador Web",
-        "description": "Mi nombre es Cristhian Flores, soy un desarrollador web que utiliza Laravel y JavaScript para crear sitios web fantasticos"
+  "head": {
+    "title": "BachaCode - Desarrollador Web",
+    "description": "Mi nombre es Cristhian Flores, soy un desarrollador web que utiliza Laravel y JavaScript para crear sitios web fantasticos"
+  },
+  "langSelector": {
+    "selected": "ES",
+    "selectedFlag": "fi-es"
+  },
+  "sections": {
+    "about": {
+      "title": "01 - Sobre Mi",
+      "id": "about-me"
     },
-    "langSelector":{
-            "selected": "ES",
-            "selectedFlag": "fi-es"             
-        },
-    "sections":{
-        "about":{
-            "title":"01 - Sobre Mi",
-            "id":"about-me"
-        },
-        "skills":{
-            "title":"02 - Habilidades",
-            "id":"skills"
-        },
-        "projects":{
-            "title":"03 - Proyectos",
-            "id":"projects"
-        },
-        "contact":{
-            "title":"04 - Contacto",
-            "id":"contact"
-        }
+    "skills": {
+      "title": "02 - Habilidades",
+      "id": "skills"
     },
-    "footer":{
-        "copyright":"2022-2023 Bachacode",
-        "powered":"Este sitio web funciona con Astro 🚀",
-        "author":"Diseñado y desarrollado por Cristhian Flores"
+    "projects": {
+      "title": "03 - Proyectos",
+      "id": "projects"
+    },
+    "contact": {
+      "title": "04 - Contacto",
+      "id": "contact"
     }
+  },
+  "footer": {
+    "copyright": "2022-2023 Bachacode",
+    "powered": "Este sitio web funciona con Astro 🚀",
+    "author": "Diseñado y desarrollado por Cristhian Flores"
+  }
 }

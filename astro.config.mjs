@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 // Alpinejs integration
 import alpinejs from "@astrojs/alpinejs";
@@ -8,8 +8,10 @@ import tailwind from "@astrojs/tailwind";
 
 // astroI18next integration
 import astroI18next from "astro-i18next";
+import vue from "@astrojs/vue";
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bachacode.github.io/',
-  integrations: [alpinejs(), tailwind(), astroI18next()]
+  site: "https://bachacode.github.io/",
+  integrations: [alpinejs(), tailwind(), astroI18next(), vue()],
 });

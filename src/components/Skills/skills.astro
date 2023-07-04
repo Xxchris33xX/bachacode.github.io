@@ -4,9 +4,12 @@ import { skillSelection } from "@content/skills";
 const { skillTitles, skillGroups } = Astro.props;
 ---
 
-<div x-data={`skills([${skillSelection}])`} class="flex flex-col justify-between items-center mx-auto px-6 pt-16 pb-3">
-    <div class="flex flex-col items-center">
-        <slot name="skill-bar"/>
-        <slot name="skill-groups"/>
-    </div>
+<div
+  x-data={`skills([${skillSelection}])`}
+  class="flex flex-col justify-between items-center mx-auto px-6 pt-16 pb-3"
+>
+  <div class="flex flex-col items-center">
+    <slot name="skill-bar" />
+    <slot name="skill-groups" />
+  </div>
 </div>

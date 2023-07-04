@@ -8,7 +8,8 @@
       "@es/*": ["src/components/es/*"],
       "@en/*": ["src/components/en/*"],
       "@scripts/*": ["src/scripts/*"],
-      "@content/*":["content/*"]
-    }
+      "@content/*": ["content/*"]
+    },
+    "jsx": "preserve"
   }
 }

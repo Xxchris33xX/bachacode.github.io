@@ -36,6 +36,3 @@ Clona este repositorio, para esto necesitaras `node.js` and `git` instalados en 
 
 Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 La pagina se refrescara cuando hagas cambios en el proyecto
-
-
-

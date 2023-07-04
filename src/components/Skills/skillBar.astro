@@ -2,15 +2,25 @@
 const { skillTitles } = Astro.props;
 ---
 
-<div class="flex flex-col bg-item border-third border-2 py-10 px-4 md:flex-row md:space-x-6 justify-center text-center shadow-lg shadow-item">
-    {skillTitles.map((title: string, id: number) => (
-    <button x-on:click={`toggle(${id})`} class="p-2" x-bind:class={`categories[${id}] && 'selected-skill'
-        `}>{title}</button>
-    ))}
+<div
+  class="flex flex-col bg-item border-third border-2 py-10 px-4 md:flex-row md:space-x-6 justify-center text-center shadow-lg shadow-item"
+>
+  {
+    skillTitles.map((title: string, id: number) => (
+      <button
+        x-on:click={`toggle(${id})`}
+        class="p-2"
+        x-bind:class={`categories[${id}] && 'selected-skill'
+        `}
+      >
+        {title}
+      </button>
+    ))
+  }
 </div>
 
 <style scoped>
-    .selected-skill {
-        @apply border-2 border-highlight text-highlight;
-    }
+  .selected-skill {
+    @apply border-2 border-highlight text-highlight;
+  }
 </style>

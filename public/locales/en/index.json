@@ -1,33 +1,33 @@
 {
-    "head": {
-        "title": "Bachacode - Web Developer",
-        "description": "My name is Cristhian Flores, i'm a web developer that uses PHP and JavaScript to create awesome websites!"
+  "head": {
+    "title": "Bachacode - Web Developer",
+    "description": "My name is Cristhian Flores, i'm a web developer that uses PHP and JavaScript to create awesome websites!"
+  },
+  "langSelector": {
+    "selected": "EN",
+    "selectedFlag": "fi-us"
+  },
+  "sections": {
+    "about": {
+      "title": "01 - About Me",
+      "id": "about-me"
     },
-    "langSelector":{
-        "selected": "EN",
-        "selectedFlag": "fi-us"             
+    "skills": {
+      "title": "02 - Skills",
+      "id": "skills"
     },
-    "sections": {
-        "about": {
-            "title": "01 - About Me",
-            "id": "about-me"
-        },
-        "skills": {
-            "title": "02 - Skills",
-            "id": "skills"
-        },
-        "projects": {
-            "title": "03 - Projects",
-            "id": "projects"
-        },
-        "contact": {
-            "title": "04 - Contact Me",
-            "id": "contact"
-        }
+    "projects": {
+      "title": "03 - Projects",
+      "id": "projects"
     },
-    "footer":{
-        "copyright":"2022-2023 Bachacode",
-        "powered":"This website is powered by Astro 🚀",
-        "author":"Designed & developed by Cristhian Flores"
+    "contact": {
+      "title": "04 - Contact Me",
+      "id": "contact"
     }
+  },
+  "footer": {
+    "copyright": "2022-2023 Bachacode",
+    "powered": "This website is powered by Astro 🚀",
+    "author": "Designed & developed by Cristhian Flores"
+  }
 }
