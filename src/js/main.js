@@ -8,6 +8,7 @@ const setVisible = (elementOrSelector, visible) => {
   } else element.classList.add('hidden')
 }
 
+// Scrollea hasta arriba cuando recargas
 document.addEventListener('alpine:init', () =>
   wait(100).then(() => {
     window.scrollTo(0, 0)

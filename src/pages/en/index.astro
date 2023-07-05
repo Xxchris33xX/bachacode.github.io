@@ -7,8 +7,8 @@ import { HeadHrefLangs } from 'astro-i18next/components'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 // Navigation Component
 import NavBar from '@components/Navigation/NavBar.vue'
-import BurgerMenu from '@components/Navigation/BurgerMenu.astro'
-import LangSelector from '@components/Navigation/LangSelector.astro'
+import BurgerMenu from '@components/Navigation/BurgerMenu.vue'
+import LangSelector from '@components/Navigation/LangSelector.vue'
 import Title from '@components/AstroTitle.astro'
 // Hero Component
 import Hero from '@components/hero.astro'
@@ -23,8 +23,8 @@ import { skills } from '@content/skills'
 import Projects from '@components/Projects/index.astro'
 import StarredProject from '@components/Projects/starredProject.astro'
 import BasicProject from '@components/Projects/basicProject.astro'
-import { starredProjectsEN as starredProjects } from '@content/projects'
-import { basicProjectsEN as basicProjects } from '@content/projects'
+import { starredProjectsES as starredProjects } from '@content/projects'
+import { basicProjectsES as basicProjects } from '@content/projects'
 // Contact Component
 import Contact from '@components/contact.astro'
 // Footer Component
@@ -89,11 +89,12 @@ const helperText = {
     <header>
       <NavBar client:visible navigation={navLinks}>
         <LangSelector
+          client:visible
           slot="lang-selector"
           selected={t('index:langSelector.selected')}
           selectedFlag={t('index:langSelector.selectedFlag')}
         />
-        <BurgerMenu slot="burger-menu" navigation={navLinks} />
+        <BurgerMenu client:only slot="burger-menu" navigation={navLinks} />
       </NavBar>
     </header>
     <!-- Main Content -->

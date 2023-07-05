@@ -7,8 +7,8 @@ import { HeadHrefLangs } from 'astro-i18next/components'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 // Navigation Component
 import NavBar from '@components/Navigation/NavBar.vue'
-import BurgerMenu from '@components/Navigation/BurgerMenu.astro'
-import LangSelector from '@components/Navigation/LangSelector.astro'
+import BurgerMenu from '@components/Navigation/BurgerMenu.vue'
+import LangSelector from '@components/Navigation/LangSelector.vue'
 import Title from '@components/AstroTitle.astro'
 // Hero Component
 import Hero from '@components/hero.astro'
@@ -89,11 +89,12 @@ const helperText = {
     <header>
       <NavBar client:visible navigation={navLinks}>
         <LangSelector
+          client:visible
           slot="lang-selector"
           selected={t('index:langSelector.selected')}
           selectedFlag={t('index:langSelector.selectedFlag')}
         />
-        <BurgerMenu slot="burger-menu" navigation={navLinks} />
+        <BurgerMenu client:only slot="burger-menu" navigation={navLinks} />
       </NavBar>
     </header>
     <!-- Main Content -->
