@@ -9,7 +9,6 @@ const { selectedFlag, selected } = defineProps<{
 const { modal, toggle } = useModal()
 
 const dropdownHandler: OnClickOutsideHandler = (event) => {
-  console.log(event)
   modal.value = false
 }
 </script>
@@ -28,20 +27,13 @@ const dropdownHandler: OnClickOutsideHandler = (event) => {
       </div>
       <Teleport to="header">
         <Transition name="dropdown">
-          <ul
-            v-show="modal"
-            v-on-click-outside.bubble="dropdownHandler"
-            class="fixed z-40 right-3 top-16 md:right-28 md:top-20 bg-item py-6 px-14 border rounded-lg border-primary"
-          >
+          <ul v-if="modal" v-on-click-outside.bubble="dropdownHandler"
+            class="fixed z-40 right-3 top-16 md:right-28 md:top-20 bg-item py-6 px-14 border rounded-lg border-primary">
             <li>
-              <a href="/" class="cursor-pointer"
-                ><span :class="`fi fi-es cursor-pointer mx-1`"></span>Español</a
-              >
+              <a href="/" class="cursor-pointer"><span :class="`fi fi-es cursor-pointer mx-1`"></span>Español</a>
             </li>
             <li>
-              <a href="/en" class="cursor-pointer"
-                ><span :class="`fi fi-us cursor-pointer mx-1`"></span>English</a
-              >
+              <a href="/en" class="cursor-pointer"><span :class="`fi fi-us cursor-pointer mx-1`"></span>English</a>
             </li>
           </ul>
         </Transition>
