@@ -1,70 +1,68 @@
 ---
 // Loading Circle
-import LoadingCircle from '@components/LoadingCircle.astro'
+import LoadingCircle from "@components/LoadingCircle.astro";
 // Localization
-import i18next, { t, changeLanguage } from 'i18next'
-import { HeadHrefLangs } from 'astro-i18next/components'
-import '/node_modules/flag-icons/css/flag-icons.min.css'
+import i18next, { t, changeLanguage } from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 // Navigation Component
-import NavBar from '@components/Navigation/NavBar.vue'
-import BurgerMenu from '@components/Navigation/BurgerMenu.vue'
-import LangSelector from '@components/Navigation/LangSelector.vue'
-import Title from '@components/AstroTitle.astro'
+import NavBar from "@components/Navigation/NavBar.vue";
+import BurgerMenu from "@components/Navigation/BurgerMenu.vue";
+import LangSelector from "@components/Navigation/LangSelector.vue";
+import Title from "@components/AstroTitle.astro";
 // Hero Component
-import Hero from '@components/hero.astro'
+import Hero from "@components/hero.astro";
 // About Component
-import About from '@components/about.astro'
+import About from "@components/about.astro";
 // Skill Component
-import { skills } from '@content/skills'
-import Skills from '@components/Skills/Skills.vue'
+import { skills } from "@content/skills";
+import Skills from "@components/Skills/Skills.vue";
 // Project Component
-import Projects from '@components/Projects/index.astro'
-import StarredProject from '@components/Projects/starredProject.astro'
-import BasicProject from '@components/Projects/basicProject.astro'
-import { starredProjectsES as starredProjects } from '@content/projects'
-import { basicProjectsES as basicProjects } from '@content/projects'
+import Projects from "@components/Projects/index.astro";
+import StarredProject from "@components/Projects/starredProject.astro";
+import BasicProject from "@components/Projects/basicProject.astro";
+import { starredProjectsES as starredProjects } from "@content/projects";
+import { basicProjectsES as basicProjects } from "@content/projects";
 // Contact Component
-import Contact from '@components/contact.astro'
+import Contact from "@components/contact.astro";
 // Footer Component
-import Footer from '@components/footer.astro'
+import Footer from "@components/footer.astro";
 // Font Imports & Styles
-import '@fontsource/dotgothic16'
-import '@fontsource/jetbrains-mono'
-import '../styles/styles.css'
+import "@fontsource/dotgothic16";
+import "@fontsource/jetbrains-mono";
+import "../styles/styles.css";
 
-changeLanguage('es')
+changeLanguage("es");
 
 // Href y Texto de los NavLinks
 const navLinks = [
-  { href: t('index:navLink.home.href'), text: t('index:navLink.home.text') },
-  { href: t('index:navLink.aboutMe.href'), text: t('index:navLink.aboutMe.text') },
-  { href: t('index:navLink.skills.href'), text: t('index:navLink.skills.text') },
-  { href: t('index:navLink.projects.href'), text: t('index:navLink.projects.text') },
-  { href: t('index:navLink.contact.href'), text: t('index:navLink.contact.text') }
-]
-
+    { href: t("index:navLink.home.href"), text: t("index:navLink.home.text") },
+    { href: t("index:navLink.aboutMe.href"), text: t("index:navLink.aboutMe.text") },
+    { href: t("index:navLink.skills.href"), text: t("index:navLink.skills.text") },
+    { href: t("index:navLink.projects.href"), text: t("index:navLink.projects.text") },
+    { href: t("index:navLink.contact.href"), text: t("index:navLink.contact.text") }
+];
 // Texto del selector de habilidades
 const skillNames = [
-  { id: 0, name: t('skills:frontend') },
-  { id: 1, name: t('skills:backend') },
-  { id: 2, name: t('skills:database') },
-  { id: 3, name: t('skills:design') },
-  { id: 4, name: t('skills:tools') }
-]
-
+    { id: 0, name: t("skills:frontend") },
+    { id: 1, name: t("skills:backend") },
+    { id: 2, name: t("skills:database") },
+    { id: 3, name: t("skills:design") },
+    { id: 4, name: t("skills:tools") }
+];
 // Titulos de las secciones de proyectos
 const projectTitles = {
-  firstTitle: t('projects:helperText.firstTitle'),
-  secondTitle: t('projects:helperText.secondTitle')
-}
+    firstTitle: t("projects:helperText.firstTitle"),
+    secondTitle: t("projects:helperText.secondTitle")
+};
 // Texto usado en los proyectos destacados
 const helperText = {
-  starredText: t('projects:helperText.starredText'),
-  linkText: t('projects:helperText.linkText'),
-  linkTextDisabled: t('projects:helperText.linkTextDisabled'),
-  githubText: t('projects:helperText.githubText'),
-  technologiesText: t('projects:helperText.technologiesText')
-}
+    starredText: t("projects:helperText.starredText"),
+    linkText: t("projects:helperText.linkText"),
+    linkTextDisabled: t("projects:helperText.linkTextDisabled"),
+    githubText: t("projects:helperText.githubText"),
+    technologiesText: t("projects:helperText.technologiesText")
+};
 ---
 
 <!DOCTYPE html>

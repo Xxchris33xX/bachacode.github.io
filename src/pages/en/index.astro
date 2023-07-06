@@ -15,16 +15,14 @@ import Hero from '@components/hero.astro'
 // About Component
 import About from '@components/about.astro'
 // Skill Component
-import Skills from '@components/Skills/skills.astro'
-import SkillBar from '@components/Skills/skillBar.astro'
-import SkillGroups from '@components/Skills/skillGroups.astro'
 import { skills } from '@content/skills'
+import Skills from '@components/Skills/Skills.vue'
 // Project Component
 import Projects from '@components/Projects/index.astro'
 import StarredProject from '@components/Projects/starredProject.astro'
 import BasicProject from '@components/Projects/basicProject.astro'
-import { starredProjectsES as starredProjects } from '@content/projects'
-import { basicProjectsES as basicProjects } from '@content/projects'
+import { starredProjectsEN as starredProjects } from '@content/projects'
+import { basicProjectsEN as basicProjects } from '@content/projects'
 // Contact Component
 import Contact from '@components/contact.astro'
 // Footer Component
@@ -46,11 +44,11 @@ const navLinks = [
 ]
 // Texto del selector de habilidades
 const skillNames = [
-  t('skills:frontend'),
-  t('skills:backend'),
-  t('skills:database'),
-  t('skills:design'),
-  t('skills:tools')
+  { id: 0, name: t('skills:frontend') },
+  { id: 1, name: t('skills:backend') },
+  { id: 2, name: t('skills:database') },
+  { id: 3, name: t('skills:design') },
+  { id: 4, name: t('skills:tools') }
 ]
 // Titulos de las secciones de proyectos
 const projectTitles = {
@@ -89,7 +87,7 @@ const helperText = {
     <header>
       <NavBar client:visible navigation={navLinks}>
         <LangSelector
-          client:visible
+          client:only
           slot="lang-selector"
           selected={t('index:langSelector.selected')}
           selectedFlag={t('index:langSelector.selectedFlag')}
@@ -111,10 +109,7 @@ const helperText = {
       <!-- Skill Section -->
       <Title id={t('index:sections.skills.id')} title={t('index:sections.skills.title')} />
       <section>
-        <Skills>
-          <SkillBar slot="skill-bar" skillTitles={skillNames} />
-          <SkillGroups slot="skill-groups" skills={skills} />
-        </Skills>
+        <Skills client:load skillTypes={skillNames} skillGroups={skills} />
       </section>
       <!-- Project Section -->
       <Title id={t('index:sections.projects.id')} title={t('index:sections.projects.title')} />
