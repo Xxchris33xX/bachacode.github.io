@@ -9,6 +9,7 @@ const { navigation } = defineProps<{
 }>()
 
 const { modal, toggle, close } = useModal()
+
 </script>
 
 <template>
@@ -22,10 +23,8 @@ const { modal, toggle, close } = useModal()
     </button>
     <!-- Menu -->
     <Teleport to="header">
-      <div
-        v-show="modal"
-        class="flex flex-col fixed z-30 top-14 w-full h-full bg-slate-400 bg-opacity-10 backdrop-filter backdrop-blur-lg"
-      >
+      <div v-show="modal"
+        class="flex flex-col fixed z-30 top-14 w-full h-full bg-slate-400 bg-opacity-10 backdrop-filter backdrop-blur-lg">
         <div class="flex text-right justify-end p-6 text-6xl text-highlight mb-20">
           <button aria-label="close" @click="close">X</button>
         </div>

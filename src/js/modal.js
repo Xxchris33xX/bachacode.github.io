@@ -9,6 +9,5 @@ export function useModal() {
     modal.value = false
   }
 
-  // expose managed state as return value
   return { modal, toggle, close }
 }

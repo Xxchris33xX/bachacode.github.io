@@ -39,10 +39,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <nav
-    ref="navbar"
-    class="fixed z-50 overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700 font-text"
-  >
+  <nav ref="navbar"
+    class="fixed z-50 overflow-hidden flex justify-between w-full items-center mx-auto px-14 py-5 bg-item rounded-b-3xl transition-all duration-700 font-text">
     <div class="text-lg font-semibold">
       <a href="#">BachaCode</a>
     </div>
@@ -67,13 +65,8 @@ onMounted(() => {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   --tw-backdrop-blur: blur(16px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
-    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
-    var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
-    var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
-    var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
-    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
 [x-cloak] {
@@ -86,5 +79,9 @@ onMounted(() => {
   border-color: rgb(237 91 45 / var(--tw-border-opacity));
   --tw-text-opacity: 1;
   color: rgb(237 91 45 / var(--tw-text-opacity));
+}
+
+.selected-option {
+  @apply border-b-2 border-opacity-100 border-orange-600 text-opacity-100 text-orange-600
 }
 </style>

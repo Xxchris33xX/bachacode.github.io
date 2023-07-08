@@ -4,8 +4,8 @@
     "description": "My name is Cristhian Flores, i'm a web developer that uses PHP and JavaScript to create awesome websites!"
   },
   "langSelector": {
-    "selected": "EN",
-    "selectedFlag": "fi-us"
+    "flag": "fi-us",
+    "name": "EN"
   },
   "navLink": {
     "home": { "href": "#", "text": "Home" },

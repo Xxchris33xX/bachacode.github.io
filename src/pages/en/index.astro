@@ -42,6 +42,13 @@ const navLinks = [
   { href: t('index:navLink.projects.href'), text: t('index:navLink.projects.text') },
   { href: t('index:navLink.contact.href'), text: t('index:navLink.contact.text') }
 ]
+
+// Selector de lenguajes
+const selectedLang = {
+  flag: t('index:langSelector.flag'),
+  name: t('index:langSelector.name')
+}
+
 // Texto del selector de habilidades
 const skillNames = [
   { id: 0, name: t('skills:frontend') },
@@ -50,11 +57,13 @@ const skillNames = [
   { id: 3, name: t('skills:design') },
   { id: 4, name: t('skills:tools') }
 ]
+
 // Titulos de las secciones de proyectos
 const projectTitles = {
   firstTitle: t('projects:helperText.firstTitle'),
   secondTitle: t('projects:helperText.secondTitle')
 }
+
 // Texto usado en los proyectos destacados
 const helperText = {
   starredText: t('projects:helperText.starredText'),
@@ -74,6 +83,10 @@ const helperText = {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={t('index:head.description')} />
     <title>{t('index:head.title')}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
     <script src="@js/main.js"></script>
     <script src="@js/alpineComponents.js"></script>
     <HeadHrefLangs />
@@ -85,14 +98,9 @@ const helperText = {
 
     <!-- Header -->
     <header>
-      <NavBar client:visible navigation={navLinks}>
-        <LangSelector
-          client:only
-          slot="lang-selector"
-          selected={t('index:langSelector.selected')}
-          selectedFlag={t('index:langSelector.selectedFlag')}
-        />
-        <BurgerMenu client:only slot="burger-menu" navigation={navLinks} />
+      <NavBar client:load navigation={navLinks}>
+        <LangSelector client:load slot="lang-selector" selectedLang={selectedLang} />
+        <BurgerMenu client:load slot="burger-menu" navigation={navLinks} />
       </NavBar>
     </header>
     <!-- Main Content -->

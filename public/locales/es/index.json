@@ -4,8 +4,8 @@
     "description": "Mi nombre es Cristhian Flores, soy un desarrollador web que utiliza Laravel y JavaScript para crear sitios web fantasticos"
   },
   "langSelector": {
-    "selected": "ES",
-    "selectedFlag": "fi-es"
+    "flag": "fi-es",
+    "name": "ES"
   },
   "navLink": {
     "home": { "href": "#", "text": "Inicio" },

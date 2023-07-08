@@ -14,7 +14,8 @@ export const skills = [
     id: 1,
     set: [
       { name: 'PHP', icon: 'icon-php' },
-      { name: 'Laravel', icon: 'icon-laravel' }
+      { name: 'Laravel', icon: 'icon-laravel' },
+      { name: 'Node.Js', icon: 'devicon-nodejs-plain' }
     ]
   },
   {
